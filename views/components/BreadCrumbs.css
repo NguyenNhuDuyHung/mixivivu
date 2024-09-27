@@ -1,0 +1,28 @@
+.BreadCrumbs-breadCrumbsContainer,
+.BreadCrumbs-breadCrumbs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.BreadCrumbs-breadCrumb {
+  color: var(--gray-600);
+  fill: #fff;
+  stroke: var(--gray-600);
+  cursor: pointer;
+}
+
+.BreadCrumbs-breadCrumbs img {
+  width: 16px;
+  height: 16px;
+}
+
+.BreadCrumbs-selected {
+  color: var(--primary-dark, #0e4f4f);
+  stroke: var(--primary-dark);
+}
+
+.BreadCrumbs-selected:hover {
+  color: var(--primary-base);
+  stroke: var(--primary-base);
+}

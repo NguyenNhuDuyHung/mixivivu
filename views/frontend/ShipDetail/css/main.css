@@ -1,0 +1,140 @@
+@import "/views/components/_reset.css";
+@import "/views/components/_config.css";
+@import "/views/components/_variable.css";
+@import "/views/components/_input.css";
+@import "/views/components/Button.css";
+@import "/views/components/Header.css";
+@import "/views/components/BreadCrumbs.css";
+@import "/views/components/Badge.css";
+@import "/views/components/card.css";
+@import "/views/components/BlogCard.css";
+@import "/views/components/SectionHeader.css";
+@import "/views/components/PartnerSection.css";
+@import "/views/components/ReviewQuote.css";
+@import "/views/components/ReviewSection.css";
+@import "/views/components/Searchbox.css";
+@import "/views/components/BlogSection.css";
+@import "/views/components/CategoryCard.css";
+@import "/views/components/Footer.css";
+
+.ShipDetail-breadCrumbsWrapper {
+  border-bottom: 1px solid var(--gray-200, #eaecf0);
+}
+
+.ShipDetail-breadCrumbs {
+  padding: 16px 32px;
+}
+
+.ShipDetail-navigation {
+  display: flex;
+  gap: 32px;
+  padding: 80px 32px;
+}
+
+.ShipDetail-navigation .ShipDetail-mapLink {
+  color: var(--primary-base, #77dada);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+
+.ShipDetail-carousel {
+  padding: 0 24px;
+}
+
+.Carousel-carousel {
+  margin: auto;
+  position: relative;
+  width: 100%;
+  padding: 0 24px;
+  height: auto;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.Carousel-carousel-btn {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--gray-200, #eaecf0);
+  background: var(--base-white, #fff);
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+}
+
+.Carousel-left-btn {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Carousel-right-btn {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Carousel-carouselItem {
+  width: 70vw;
+  height: 50vh;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.Carousel-thumbs {
+  max-width: 50vw;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 16px;
+}
+
+.Carousel-thumbs .Carousel-thumbItem {
+  min-width: 66px;
+  width: 66px;
+  height: 66px;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.Carousel-thumbItem.Carousel-thumbItem-active {
+  border-radius: 8px;
+  border: 1px solid var(--primary-base, #77dada);
+  box-shadow: 0 0 0 4px #caf8f8, 0 1px 2px 0 rgba(24, 24, 27, 0.05);
+}
+
+.ShipDetail-side-bar-mb {
+  display: none;
+  min-width: 0;
+  width: 100%;
+  padding: 24px;
+}
+
+.ShipDetail-ship-info-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--gray-200, #eaecf0);
+}
+
+.ShipDetail-ship-info-content {
+  padding: 20px 24px;
+}
+
+.ShipDetail-ship-info-content img {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+}
+
+.ShipDetail-ship-info-content-label {
+  width: 120px;
+  min-width: 120px;
+  color: var(--gray-600, #475467);
+}

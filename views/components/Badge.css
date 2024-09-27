@@ -1,0 +1,30 @@
+.Badge-default {
+  background-color: var(--gray-100, #f2f4f7);
+  color: var(--gray-700, #344054);
+}
+
+.Badge-warning {
+  background-color: var(--warning-light, #fedf89);
+  color: var(--warning-dark, #7a2e0e);
+}
+
+.Badge-lg {
+  padding: 4px 12px;
+}
+
+.Badge-sm {
+  padding: 2px 8px;
+}
+
+.Badge-container {
+  border-radius: 16px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.Badge-container img {
+  width: 12px;
+  height: 12px;
+}

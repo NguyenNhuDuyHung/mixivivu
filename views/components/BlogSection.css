@@ -1,0 +1,17 @@
+.BlogSection-section {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 80px 32px;
+}
+
+.BlogSection-action,
+.BlogSection-cardList {
+  display: flex;
+  justify-content: center;
+}
+
+.BlogSection-cardList {
+  gap: 32px;
+  flex-wrap: wrap;
+}
