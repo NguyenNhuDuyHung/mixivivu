@@ -49,3 +49,34 @@
   padding: 15px 30px;
   cursor: pointer;
 }
+
+@media (max-width: 1024px) {
+  .search-box {
+    width: 95%;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .search-box-title {
+    font-size: 24px;
+    line-height: 32px;
+    max-width: 90%;
+    margin: auto !important;
+  }
+
+  .search-box-description {
+    font-size: 16px !important;
+  }
+
+  .search-box-input-group {
+    flex-direction: column;
+  }
+
+  .search-box-select-input {
+    width: 100%;
+  }
+
+  .search-box-submit-btn {
+    width: 100%;
+  }
+}

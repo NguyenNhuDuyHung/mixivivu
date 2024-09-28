@@ -12,3 +12,9 @@
   gap: 32px;
   flex-wrap: wrap;
 }
+
+@media (max-width: 1024px) {
+  .home-section {
+    padding: 24px;
+  }
+}

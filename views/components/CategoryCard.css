@@ -27,5 +27,17 @@
 }
 
 .CategoryCard-body h6 {
-    margin: 0;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .CategoryCard-categoryCard {
+    width: 345px;
+    gap: 16px;
+  }
+
+  .CategoryCard-imageWrapper {
+    width: 313px;
+    height: 192px;
+  }
 }

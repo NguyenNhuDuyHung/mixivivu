@@ -12,6 +12,11 @@
   cursor: pointer;
 }
 
+.BreadCrumbs-breadCrumbs svg {
+  width: 16px;
+  height: 16px;
+}
+
 .BreadCrumbs-breadCrumbs img {
   width: 16px;
   height: 16px;

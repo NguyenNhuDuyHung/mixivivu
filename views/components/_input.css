@@ -20,6 +20,11 @@
   height: 24px;
 }
 
+.input-group > svg {
+  width: 20px;
+  height: 20px;
+}
+
 .input-group > img {
   width: 20px;
   height: 20px;
@@ -42,4 +47,18 @@
   background-color: #fff;
   padding: 0 4px;
   color: var(--gray-600, #475467);
+}
+
+.input-group > input,
+.input-group > textarea {
+  border: none;
+  flex-grow: 1;
+  width: 0;
+  color: var(--gray-800);
+  height: 24px;
+}
+
+.input-group > input[type="button"] {
+  background: var(--base-white);
+  text-align: left;
 }

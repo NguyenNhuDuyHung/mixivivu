@@ -24,6 +24,11 @@
   gap: 4px;
 }
 
+.Badge-container svg {
+  width: 12px;
+  height: 12px;
+}
+
 .Badge-container img {
   width: 12px;
   height: 12px;

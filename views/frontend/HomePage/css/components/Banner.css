@@ -1,5 +1,5 @@
 /* Banner */
-.banner {
+.home-banner {
   position: relative;
   max-width: 1392px;
   max-height: 784px;
@@ -9,7 +9,7 @@
   width: calc(100vw - 64px);
 }
 
-.video {
+.home-bg-video {
   position: absolute;
   top: 0;
   left: 50%;
@@ -18,4 +18,29 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .home-banner {
+    width: 100vw;
+    border-radius: 0;
+    height: fit-content;
+    padding: 24px 0;
+    background-image: url(/views/assest/img/background.png);
+    background-size: cover;
+    background-position: 50%;
+  }
+
+  .home-banner .home-bg-video {
+    display: none;
+  }
+
+  .home-banner .home-search-box {
+    position: static;
+    bottom: 0;
+    transform: none;
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 }
