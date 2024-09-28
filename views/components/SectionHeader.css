@@ -27,3 +27,21 @@
   align-items: center;
   text-align: center;
 }
+
+@media (max-width: 1024px) {
+  .SectionHeader-sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 24px;
+  }
+
+  .SectionHeader-sectionHeader .SectionHeader-title h4 {
+    font-size: 30px;
+  }
+
+  .SectionHeader-sectionHeader .SectionHeader-description {
+    width: 100%;
+    font-size: 16px;
+  }
+}

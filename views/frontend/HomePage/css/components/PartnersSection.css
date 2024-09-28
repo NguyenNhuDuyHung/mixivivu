@@ -1,3 +1,20 @@
 .home-partnersSection {
   background-color: #f2f4f7;
 }
+
+@media (max-width: 1024px) {
+  .PartnerSection-section {
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .PartnerSection-partnerList {
+    gap: 16px;
+  }
+
+  .PartnerSection-partnerList .PartnerSection-img-wrapper {
+    width: 132px;
+    min-width: 132px;
+    height: 48px;
+  }
+}

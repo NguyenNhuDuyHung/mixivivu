@@ -15,3 +15,10 @@
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 1024px) {
+  .PopularShips-cardList {
+    gap: 16px;
+    justify-content: center;
+  }
+}

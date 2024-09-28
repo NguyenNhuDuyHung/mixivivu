@@ -127,6 +127,12 @@
   padding: 20px 24px;
 }
 
+.ShipDetail-ship-info-content svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+}
+
 .ShipDetail-ship-info-content img {
   width: 20px;
   min-width: 20px;

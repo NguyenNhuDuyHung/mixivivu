@@ -61,6 +61,12 @@ button {
   white-space: nowrap;
 }
 
+.btn-normal > svg,
+.btn-sm > svg {
+  width: 20px;
+  height: 20px;
+}
+
 .btn-normal > img,
 .btn-sm > img {
   width: 20px;

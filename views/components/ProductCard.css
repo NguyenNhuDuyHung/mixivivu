@@ -79,3 +79,9 @@
   justify-content: space-between;
   gap: 8px;
 }
+
+@media (max-width: 1024px) {
+  .ProductCard-grid {
+    width: 345px;
+  }
+}
