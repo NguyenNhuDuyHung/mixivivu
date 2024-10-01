@@ -82,3 +82,22 @@ button {
   gap: 0;
   padding: 8px;
 }
+
+.btn-link-color {
+  color: var(--primary-dark);
+  fill: var(--primary-dark);
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.btn-link-color:hover {
+  color: var(--primary-base);
+  fill: var(--primary-base);
+  cursor: pointer;
+}
+
+.btn-link-color:hover > svg > path {
+  stroke: var(--primary-base);
+}

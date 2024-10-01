@@ -72,3 +72,42 @@
   text-decoration: inherit;
   max-width: 100%;
 }
+
+.header-menu-mb {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .header-logo {
+    width: 120px;
+    height: 30px;
+  }
+
+  .header-nav-container {
+    display: none;
+  }
+
+  .header-phone {
+    display: none;
+  }
+
+  .header-menu-mb {
+    display: block;
+  }
+
+  .header-menu-mb-content {
+    transform: translate3d(0, 96px, 0) !important;
+    color: #000;
+    min-width: 0 !important;
+    width: 100% !important;
+    padding-top: 0 !important;
+  }
+
+  .header-menu-mb-nav-item {
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}

@@ -12,14 +12,6 @@
   fill: #fff;
 }
 
-.input-group > input {
-  border: none;
-  flex-grow: 1;
-  width: 0;
-  color: var(--gray-800, #1d2939);
-  height: 24px;
-}
-
 .input-group > svg {
   width: 20px;
   height: 20px;
@@ -54,11 +46,20 @@
   border: none;
   flex-grow: 1;
   width: 0;
-  color: var(--gray-800);
+  color: var(--gray-800, #1d2939) ; 
   height: 24px;
+}
+
+.input-group > textarea {
+  height: 140px;
 }
 
 .input-group > input[type="button"] {
   background: var(--base-white);
   text-align: left;
+}
+
+.input-required::after {
+  content: "*";
+  color: red;
 }
