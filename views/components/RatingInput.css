@@ -15,3 +15,11 @@
 .RatingInput-rating path {
   stroke: var(--gray-400);
 }
+
+.RatingInput-error {
+  border: 1px solid var(--error-base);
+}
+
+.RatingInput-active path {
+  stroke: var(--warning-base);
+}
