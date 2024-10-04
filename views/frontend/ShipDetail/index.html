@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
     <link rel="stylesheet" href="./css/main.css">
-
+    <script type="module" src="./js/main.js"></script>
 </head>
 
 <body>
@@ -233,44 +233,6 @@
                             <img alt="du-thuyen-banner"
                                 src="https://minio.fares.vn/mixivivu-dev/tour/du-thuyen-scarlet%20pearl1/images/pd31qe637l03mk3p.webp"
                                 width="100%" height="100%" loading="lazy" style="object-fit: cover;">
-                        </div>
-                    </div>
-
-                    <div class="Carousel-thumbs flex gap-12">
-                        <div class="Carousel-thumbItem">
-                            <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
-                                <img alt="carousel-item"
-                                    src="https://minio.fares.vn/mixivivu-dev/tour/du-thuyen-scarlet pearl1/images/y0gtn1cm0y9braq8.webp"
-                                    width="100%" height="100%" loading="lazy" style="object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="Carousel-thumbItem">
-                            <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
-                                <img alt="carousel-item"
-                                    src="https://minio.fares.vn/mixivivu-dev/tour/du-thuyen-scarlet%20pearl1/images/hxhzjyk2t4259emc.webp"
-                                    width="100%" height="100%" loading="lazy" style="object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="Carousel-thumbItem Carousel-thumbItem-active">
-                            <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
-                                <img alt="carousel-item"
-                                    src="https://minio.fares.vn/mixivivu-dev/tour/du-thuyen-scarlet%20pearl1/images/8knin9nwa5pt6yik.webp"
-                                    width="100%" height="100%" loading="lazy" style="object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="Carousel-thumbItem">
-                            <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
-                                <img alt="carousel-item"
-                                    src="https://minio.fares.vn/mixivivu-dev/tour/du-thuyen-scarlet%20pearl1/images/q0t7qufnet3tf3ou.webp"
-                                    width="100%" height="100%" loading="lazy" style="object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="Carousel-thumbItem">
-                            <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
-                                <img alt="carousel-item"
-                                    src="https://minio.fares.vn/mixivivu-dev/tour/du-thuyen-scarlet%20pearl1/images/ub3xjcm31yd1szlb.webp"
-                                    width="100%" height="100%" loading="lazy" style="object-fit: cover;">
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1157,88 +1119,117 @@
                                 </div>
                             </div>
 
-                            <form action="#">
+                            <form action="#" id="form-review">
                                 <div class="flex flex-col gap-24" id="review-submit">
                                     <div class="ShipDetail-group-input">
-                                        <div>
+                                        <div class="form-group">
                                             <div class="flex gap-12 align-center RatingInput-rating">
                                                 <label class="sm">Chất lượng</label>
                                                 <div class="RatingInput-star-icon">
-                                                    <img src="/views/assest/svg/star_icon.svg" width="32" height="32"
-                                                        alt="star_icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <path
+                                                            d="M11.2443 4.17391C11.4758 3.50799 11.5916 3.17503 11.7627 3.08276C11.9108 3.00289 12.0892 3.00289 12.2373 3.08276C12.4084 3.17503 12.5242 3.50799 12.7556 4.17391L14.2859 8.5763C14.3518 8.76583 14.3847 8.86059 14.4441 8.93116C14.4965 8.9935 14.5634 9.04209 14.6389 9.07269C14.7244 9.10734 14.8247 9.10938 15.0253 9.11347L19.6851 9.20843C20.3899 9.22279 20.7423 9.22998 20.883 9.36423C21.0047 9.48042 21.0598 9.65005 21.0297 9.81559C20.9948 10.0069 20.7139 10.2198 20.1521 10.6458L16.438 13.4615C16.2782 13.5828 16.1982 13.6434 16.1494 13.7216C16.1063 13.7908 16.0808 13.8694 16.075 13.9506C16.0685 14.0426 16.0975 14.1387 16.1556 14.3307L17.5053 18.7918C17.7094 19.4666 17.8115 19.804 17.7273 19.9792C17.6544 20.1309 17.5101 20.2357 17.3433 20.2582C17.1506 20.2841 16.8613 20.0828 16.2826 19.6801L12.4569 17.018C12.2922 16.9034 12.2099 16.8461 12.1204 16.8239C12.0413 16.8042 11.9587 16.8042 11.8796 16.8239C11.7901 16.8461 11.7078 16.9034 11.5431 17.018L7.71738 19.6801C7.1387 20.0828 6.84936 20.2841 6.65666 20.2582C6.48988 20.2357 6.34559 20.1309 6.2727 19.9792C6.18848 19.804 6.29056 19.4666 6.49471 18.7918L7.84436 14.3307C7.90246 14.1387 7.93151 14.0426 7.92497 13.9506C7.91919 13.8694 7.89365 13.7908 7.85056 13.7216C7.80179 13.6434 7.72184 13.5828 7.56195 13.4615L3.84791 10.6458C3.28611 10.2198 3.00521 10.0069 2.97034 9.81559C2.94015 9.65005 2.99527 9.48042 3.11699 9.36423C3.25764 9.22998 3.61007 9.22279 4.31492 9.20843L8.97472 9.11347C9.17533 9.10938 9.27564 9.10734 9.3611 9.07269C9.43659 9.04209 9.50346 8.9935 9.5559 8.93116C9.61526 8.86059 9.6482 8.76583 9.71408 8.5763L11.2443 4.17391Z"
+                                                            stroke="#101828" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                    </svg>
                                                 </div>
 
                                                 <div class="RatingInput-star-icon">
-                                                    <img src="/views/assest/svg/star_icon.svg" width="32" height="32"
-                                                        alt="star_icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <path
+                                                            d="M11.2443 4.17391C11.4758 3.50799 11.5916 3.17503 11.7627 3.08276C11.9108 3.00289 12.0892 3.00289 12.2373 3.08276C12.4084 3.17503 12.5242 3.50799 12.7556 4.17391L14.2859 8.5763C14.3518 8.76583 14.3847 8.86059 14.4441 8.93116C14.4965 8.9935 14.5634 9.04209 14.6389 9.07269C14.7244 9.10734 14.8247 9.10938 15.0253 9.11347L19.6851 9.20843C20.3899 9.22279 20.7423 9.22998 20.883 9.36423C21.0047 9.48042 21.0598 9.65005 21.0297 9.81559C20.9948 10.0069 20.7139 10.2198 20.1521 10.6458L16.438 13.4615C16.2782 13.5828 16.1982 13.6434 16.1494 13.7216C16.1063 13.7908 16.0808 13.8694 16.075 13.9506C16.0685 14.0426 16.0975 14.1387 16.1556 14.3307L17.5053 18.7918C17.7094 19.4666 17.8115 19.804 17.7273 19.9792C17.6544 20.1309 17.5101 20.2357 17.3433 20.2582C17.1506 20.2841 16.8613 20.0828 16.2826 19.6801L12.4569 17.018C12.2922 16.9034 12.2099 16.8461 12.1204 16.8239C12.0413 16.8042 11.9587 16.8042 11.8796 16.8239C11.7901 16.8461 11.7078 16.9034 11.5431 17.018L7.71738 19.6801C7.1387 20.0828 6.84936 20.2841 6.65666 20.2582C6.48988 20.2357 6.34559 20.1309 6.2727 19.9792C6.18848 19.804 6.29056 19.4666 6.49471 18.7918L7.84436 14.3307C7.90246 14.1387 7.93151 14.0426 7.92497 13.9506C7.91919 13.8694 7.89365 13.7908 7.85056 13.7216C7.80179 13.6434 7.72184 13.5828 7.56195 13.4615L3.84791 10.6458C3.28611 10.2198 3.00521 10.0069 2.97034 9.81559C2.94015 9.65005 2.99527 9.48042 3.11699 9.36423C3.25764 9.22998 3.61007 9.22279 4.31492 9.20843L8.97472 9.11347C9.17533 9.10938 9.27564 9.10734 9.3611 9.07269C9.43659 9.04209 9.50346 8.9935 9.5559 8.93116C9.61526 8.86059 9.6482 8.76583 9.71408 8.5763L11.2443 4.17391Z"
+                                                            stroke="#101828" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                    </svg>
                                                 </div>
 
                                                 <div class="RatingInput-star-icon">
-                                                    <img src="/views/assest/svg/star_icon.svg" width="32" height="32"
-                                                        alt="star_icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <path
+                                                            d="M11.2443 4.17391C11.4758 3.50799 11.5916 3.17503 11.7627 3.08276C11.9108 3.00289 12.0892 3.00289 12.2373 3.08276C12.4084 3.17503 12.5242 3.50799 12.7556 4.17391L14.2859 8.5763C14.3518 8.76583 14.3847 8.86059 14.4441 8.93116C14.4965 8.9935 14.5634 9.04209 14.6389 9.07269C14.7244 9.10734 14.8247 9.10938 15.0253 9.11347L19.6851 9.20843C20.3899 9.22279 20.7423 9.22998 20.883 9.36423C21.0047 9.48042 21.0598 9.65005 21.0297 9.81559C20.9948 10.0069 20.7139 10.2198 20.1521 10.6458L16.438 13.4615C16.2782 13.5828 16.1982 13.6434 16.1494 13.7216C16.1063 13.7908 16.0808 13.8694 16.075 13.9506C16.0685 14.0426 16.0975 14.1387 16.1556 14.3307L17.5053 18.7918C17.7094 19.4666 17.8115 19.804 17.7273 19.9792C17.6544 20.1309 17.5101 20.2357 17.3433 20.2582C17.1506 20.2841 16.8613 20.0828 16.2826 19.6801L12.4569 17.018C12.2922 16.9034 12.2099 16.8461 12.1204 16.8239C12.0413 16.8042 11.9587 16.8042 11.8796 16.8239C11.7901 16.8461 11.7078 16.9034 11.5431 17.018L7.71738 19.6801C7.1387 20.0828 6.84936 20.2841 6.65666 20.2582C6.48988 20.2357 6.34559 20.1309 6.2727 19.9792C6.18848 19.804 6.29056 19.4666 6.49471 18.7918L7.84436 14.3307C7.90246 14.1387 7.93151 14.0426 7.92497 13.9506C7.91919 13.8694 7.89365 13.7908 7.85056 13.7216C7.80179 13.6434 7.72184 13.5828 7.56195 13.4615L3.84791 10.6458C3.28611 10.2198 3.00521 10.0069 2.97034 9.81559C2.94015 9.65005 2.99527 9.48042 3.11699 9.36423C3.25764 9.22998 3.61007 9.22279 4.31492 9.20843L8.97472 9.11347C9.17533 9.10938 9.27564 9.10734 9.3611 9.07269C9.43659 9.04209 9.50346 8.9935 9.5559 8.93116C9.61526 8.86059 9.6482 8.76583 9.71408 8.5763L11.2443 4.17391Z"
+                                                            stroke="#101828" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                    </svg>
                                                 </div>
 
                                                 <div class="RatingInput-star-icon">
-                                                    <img src="/views/assest/svg/star_icon.svg" width="32" height="32"
-                                                        alt="star_icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <path
+                                                            d="M11.2443 4.17391C11.4758 3.50799 11.5916 3.17503 11.7627 3.08276C11.9108 3.00289 12.0892 3.00289 12.2373 3.08276C12.4084 3.17503 12.5242 3.50799 12.7556 4.17391L14.2859 8.5763C14.3518 8.76583 14.3847 8.86059 14.4441 8.93116C14.4965 8.9935 14.5634 9.04209 14.6389 9.07269C14.7244 9.10734 14.8247 9.10938 15.0253 9.11347L19.6851 9.20843C20.3899 9.22279 20.7423 9.22998 20.883 9.36423C21.0047 9.48042 21.0598 9.65005 21.0297 9.81559C20.9948 10.0069 20.7139 10.2198 20.1521 10.6458L16.438 13.4615C16.2782 13.5828 16.1982 13.6434 16.1494 13.7216C16.1063 13.7908 16.0808 13.8694 16.075 13.9506C16.0685 14.0426 16.0975 14.1387 16.1556 14.3307L17.5053 18.7918C17.7094 19.4666 17.8115 19.804 17.7273 19.9792C17.6544 20.1309 17.5101 20.2357 17.3433 20.2582C17.1506 20.2841 16.8613 20.0828 16.2826 19.6801L12.4569 17.018C12.2922 16.9034 12.2099 16.8461 12.1204 16.8239C12.0413 16.8042 11.9587 16.8042 11.8796 16.8239C11.7901 16.8461 11.7078 16.9034 11.5431 17.018L7.71738 19.6801C7.1387 20.0828 6.84936 20.2841 6.65666 20.2582C6.48988 20.2357 6.34559 20.1309 6.2727 19.9792C6.18848 19.804 6.29056 19.4666 6.49471 18.7918L7.84436 14.3307C7.90246 14.1387 7.93151 14.0426 7.92497 13.9506C7.91919 13.8694 7.89365 13.7908 7.85056 13.7216C7.80179 13.6434 7.72184 13.5828 7.56195 13.4615L3.84791 10.6458C3.28611 10.2198 3.00521 10.0069 2.97034 9.81559C2.94015 9.65005 2.99527 9.48042 3.11699 9.36423C3.25764 9.22998 3.61007 9.22279 4.31492 9.20843L8.97472 9.11347C9.17533 9.10938 9.27564 9.10734 9.3611 9.07269C9.43659 9.04209 9.50346 8.9935 9.5559 8.93116C9.61526 8.86059 9.6482 8.76583 9.71408 8.5763L11.2443 4.17391Z"
+                                                            stroke="#101828" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                    </svg>
                                                 </div>
 
                                                 <div class="RatingInput-star-icon">
-                                                    <img src="/views/assest/svg/star_icon.svg" width="32" height="32"
-                                                        alt="star_icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <path
+                                                            d="M11.2443 4.17391C11.4758 3.50799 11.5916 3.17503 11.7627 3.08276C11.9108 3.00289 12.0892 3.00289 12.2373 3.08276C12.4084 3.17503 12.5242 3.50799 12.7556 4.17391L14.2859 8.5763C14.3518 8.76583 14.3847 8.86059 14.4441 8.93116C14.4965 8.9935 14.5634 9.04209 14.6389 9.07269C14.7244 9.10734 14.8247 9.10938 15.0253 9.11347L19.6851 9.20843C20.3899 9.22279 20.7423 9.22998 20.883 9.36423C21.0047 9.48042 21.0598 9.65005 21.0297 9.81559C20.9948 10.0069 20.7139 10.2198 20.1521 10.6458L16.438 13.4615C16.2782 13.5828 16.1982 13.6434 16.1494 13.7216C16.1063 13.7908 16.0808 13.8694 16.075 13.9506C16.0685 14.0426 16.0975 14.1387 16.1556 14.3307L17.5053 18.7918C17.7094 19.4666 17.8115 19.804 17.7273 19.9792C17.6544 20.1309 17.5101 20.2357 17.3433 20.2582C17.1506 20.2841 16.8613 20.0828 16.2826 19.6801L12.4569 17.018C12.2922 16.9034 12.2099 16.8461 12.1204 16.8239C12.0413 16.8042 11.9587 16.8042 11.8796 16.8239C11.7901 16.8461 11.7078 16.9034 11.5431 17.018L7.71738 19.6801C7.1387 20.0828 6.84936 20.2841 6.65666 20.2582C6.48988 20.2357 6.34559 20.1309 6.2727 19.9792C6.18848 19.804 6.29056 19.4666 6.49471 18.7918L7.84436 14.3307C7.90246 14.1387 7.93151 14.0426 7.92497 13.9506C7.91919 13.8694 7.89365 13.7908 7.85056 13.7216C7.80179 13.6434 7.72184 13.5828 7.56195 13.4615L3.84791 10.6458C3.28611 10.2198 3.00521 10.0069 2.97034 9.81559C2.94015 9.65005 2.99527 9.48042 3.11699 9.36423C3.25764 9.22998 3.61007 9.22279 4.31492 9.20843L8.97472 9.11347C9.17533 9.10938 9.27564 9.10734 9.3611 9.07269C9.43659 9.04209 9.50346 8.9935 9.5559 8.93116C9.61526 8.86059 9.6482 8.76583 9.71408 8.5763L11.2443 4.17391Z"
+                                                            stroke="#101828" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                    </svg>
                                                 </div>
                                             </div>
+                                            <div class="error"></div>
                                         </div>
 
-                                        <div>
+                                        <div class="form-group">
                                             <div class="">
                                                 <label for="name" class="input-group">
                                                     <input id="name" class="p-md" placeholder="Nhập họ và tên"
-                                                        name="name" value="">
+                                                        name="name" value="" autocomplete="off">
                                                     <label for="name" class="sm input-required">
                                                         Họ và tên
                                                     </label>
                                                 </label>
                                             </div>
+                                            <div class="error"></div>
                                         </div>
 
-                                        <div>
+                                        <div class="form-group">
                                             <div class="">
                                                 <label for="phone" class="input-group">
                                                     <input id="phone" class="p-md" placeholder="Nhập số điện thoại"
-                                                        name="phone" value="">
+                                                        name="phone" value="" autocomplete="off">
                                                     <label for="phone" class="sm input-required">
                                                         Số điện thoại
                                                     </label>
                                                 </label>
                                             </div>
+                                            <div class="error"></div>
                                         </div>
 
-                                        <div>
+                                        <div class="form-group">
                                             <div class="">
                                                 <label for="email" class="input-group">
                                                     <input id="email" class="p-md" placeholder="Nhập email" name="email"
-                                                        value="">
+                                                        value="" autocomplete="off">
                                                     <label for="email" class="sm input-required">
                                                         Địa chỉ email
                                                     </label>
                                                 </label>
                                             </div>
+                                            <div class="error"></div>
                                         </div>
-
 
                                     </div>
 
-                                    <div>
+                                    <div class="form-group">
                                         <div class="">
                                             <label class="input-group" for="comment">
                                                 <textarea id="comment" class="p-md" name="comment"
-                                                    placeholder="Nhập yêu cầu của bạn"></textarea>
+                                                    placeholder="Nhập yêu cầu của bạn" autocomplete="off"></textarea>
                                                 <label for="comment" class="sm input-required">
                                                     Đánh giá của bạn
                                                 </label>
                                             </label>
                                         </div>
+                                        <div class="error"></div>
                                     </div>
                                 </div>
 
@@ -1387,162 +1378,178 @@
                 </div>
             </footer>
         </div>
+    </div>
 
+    <div class="popup-root">
+        <div class="popup-overlay" tabindex="-1" data-popup="modal" data-testid="overlay"
+            style="position: fixed; inset: 0px; display: flex; z-index: 999; pointer-events: auto;">
+            <div class="popup-content" role="dialog" id="popup"
+                style="position: relative; margin: auto; pointer-events: auto;">
+                <div>
+                    <div class="Modal-close-btn">
+                        <img src="/views/assest/svg/close_icon.svg" alt="close_icon" width="20" height="20">
+                    </div>
+                    <form action="#">
+                        <div class="ShipDetail-booking-detail-modal">
+                            <h6>Đặt du thuyền</h6>
+                            <div class="ShipDetail-divider"></div>
+                            <div class="flex flex-col gap-24">
+                                <div class="ShipDetail-group-input">
+                                    <div class="DatePicker-mixi-date-picker">
+                                        <div class="DatePicker-wrapper">
+                                            <div class="DatePicker-input-container">
+                                                <div class="">
+                                                    <label for="calendar" class="input-group">
+                                                        <img src="/views/assest/svg/calendar_icon.svg"
+                                                            alt="calendar_icon">
+                                                        <input id="calendar" class="p-md" type="button"
+                                                            value="04/10/2024">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            viewBox="0 0 24 24" fill="none">
+                                                            <path d="M6 9L12 15L18 9" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        </svg>
+                                                        <label for="calendar" class="sm">Ngày nhận phòng</label>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Date Picker -->
+                                    </div>
+
+                                    <div class="RoomPicker-room-picker">
+                                        <div class="">
+                                            <label for="quantity" class="input-group">
+                                                <input id="quantity" class="p-md" type="button"
+                                                    value="3 Người lớn - 2 - Trẻ em">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none">
+                                                    <path d="M6 9L12 15L18 9" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                </svg>
+                                                <label for="quantity" class="sm">Số lượng</label>
+                                            </label>
+                                        </div>
+
+                                        <div class="RoomPicker-room-picker-dropdown" style="display: none;">
+                                            <div class="RoomPicker-content flex flex-col gap-16">
+                                                <div class="RoomPicker-item flex gap-8">
+                                                    <div class="subheading md RoomPicker-item-value">3</div>
+                                                    <label class="lg flex-grow">Người lớn</label>
+                                                    <div class="RoomPicker-group-btn">
+                                                        <div class="RoomPicker-item-btn RoomPicker-minus">
+                                                            <img src="/views/assest/svg/minus_icon.svg" alt="minus_icon"
+                                                                width="20" height="20">
+                                                        </div>
+                                                        <div class="RoomPicker-item-btn RoomPicker-plus">
+                                                            <img src="/views/assest/svg/plus_icon.svg" alt="plus_icon"
+                                                                width="20" height="20">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="RoomPicker-item flex gap-8">
+                                                    <div class="subheading md RoomPicker-item-value">3</div>
+                                                    <label class="lg flex-grow">Người lớn</label>
+                                                    <div class="RoomPicker-group-btn">
+                                                        <div class="RoomPicker-item-btn RoomPicker-minus">
+                                                            <img src="/views/assest/svg/minus_icon.svg" alt="minus_icon"
+                                                                width="20" height="20">
+                                                        </div>
+                                                        <div class="RoomPicker-item-btn RoomPicker-plus">
+                                                            <img src="/views/assest/svg/plus_icon.svg" alt="plus_icon"
+                                                                width="20" height="20">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="RoomPicker-actions">
+                                                <button type="button"
+                                                    class="btn RoomPicker-action-btn btn-sm btn-primary">
+                                                    <div class="label sm">Áp dụng</div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="">
+                                        <label for="full_name" class="input-group">
+                                            <input id="full_name" class="p-md" placeholder="Nhập họ và tên"
+                                                name="full_name" value="" autocomplete="off">
+                                            <label for="full_name" class="sm input-required">
+                                                Họ và tên
+                                            </label>
+                                        </label>
+                                    </div>
+                                    <div class="error"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="">
+                                        <label for="phone_number" class="input-group">
+                                            <input id="phone_number" class="p-md" placeholder="Nhập số điện thoại"
+                                                name="phone_number" value="" autocomplete="off">
+                                            <label for="phone_number" class="sm input-required">
+                                                Số điện thoại
+                                            </label>
+                                        </label>
+                                    </div>
+                                    <div class="error"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="">
+                                        <label for="email" class="input-group">
+                                            <input id="email" class="p-md" placeholder="Nhập email" name="email"
+                                                value="" autocomplete="off">
+                                            <label for="email" class="sm input-required">
+                                                Địa chỉ email
+                                            </label>
+                                        </label>
+                                    </div>
+                                    <div class="error"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="">
+                                        <label class="input-group" for="additional_info">
+                                            <textarea id="additional_info" class="p-md" name="additional_info"
+                                                placeholder="Nhập yêu cầu của bạn" autocomplete="off"></textarea>
+                                            <label for="additional_info" class="sm">
+                                                Yêu cầu của bạn
+                                            </label>
+                                        </label>
+                                    </div>
+                                    <div class="error"></div>
+                                </div>
+
+                            </div>
+                            <div class="flex gap-40 justify-between ShipDetail-booking-detail-modal-footer">
+                                <div class="flex flex-col gap-6">
+                                    <label class="sm ShipDetail-price-label">Tổng tiền</label>
+                                    <div class="subheading lg ShipDetail-price"
+                                        style="color: var(--primary-dark, #0E4F4F);">0 đ</div>
+                                </div>
+                                <div class="ShipDetail-actions flex gap-16 flex-grow justify-end">
+                                    <button type="button" class="btn btn-normal btn-outline">
+                                        <div class="label md">Đăng ký tư vấn</div>
+                                    </button>
+
+                                    <button type="submit" class="btn btn-normal btn-primary">
+                                        <div class="label md">Đặt ngay</div>
+                                        <img src="/views/assest/svg/arrowright_icon.svg" alt="arrowright_icon">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
-
-<script>
-    const $ = document.querySelector.bind(document);
-    const $$ = document.querySelectorAll.bind(document);
-
-    const carouselLeftBtn = $('.Carousel-left-btn');
-    const carouselRightBtn = $('.Carousel-right-btn');
-    let carouselItems = $$('.Carousel-carouselItem');
-    let carouselThumbItems = $$('.Carousel-thumbItem');
-
-    let images = [
-        "image1.jpg",
-        "image2.jpg",
-        "image3.jpg",
-        "image4.jpg",
-        "image5.jpg"
-    ];
-
-    let thumbImg = [
-        'imageThumb1.jpg',
-        'imageThumb2.jpg',
-        'imageThumb3.jpg',
-        'imageThumb4.jpg',
-        'imageThumb5.jpg'
-    ]
-
-    currentIndex = 0;
-
-    carouselRightBtn.onclick = (e) => {
-        let temp = [];
-        temp.push(carouselItems[0].querySelector('img').src);
-        temp.push(carouselItems[1].querySelector('img').src);
-        temp.push(carouselItems[2].querySelector('img').src);
-
-        carouselItems[0].querySelector('img').src = temp[1];
-        carouselItems[1].querySelector('img').src = temp[2];
-        carouselItems[2].querySelector('img').src = images[currentIndex];
-
-        currentIndex++;
-        if (currentIndex > images.length - 1) {
-            currentIndex = 0;
-        }
-    }
-
-    carouselLeftBtn.onclick = (e) => {
-        let temp = []
-
-        temp.push(carouselItems[0].querySelector('img').src);
-        temp.push(carouselItems[1].querySelector('img').src);
-        temp.push(carouselItems[2].querySelector('img').src);
-
-        carouselItems[2].querySelector('img').src = temp[1];
-        carouselItems[1].querySelector('img').src = temp[0];
-        carouselItems[0].querySelector('img').src = images[currentIndex];
-
-        currentIndex--;
-        if (currentIndex < 0) {
-            currentIndex = images.length - 1;
-        }
-    }
-
-    for (let i = 0; i < carouselThumbItems.length; i++) {
-        if (i == 2) {
-            continue
-        }
-
-        carouselThumbItems[i].onclick = (e) => {
-            if (i == 3) {
-                let temp = []
-
-                temp.push(carouselThumbItems[0].querySelector('img').src);
-                temp.push(carouselThumbItems[1].querySelector('img').src);
-                temp.push(carouselThumbItems[2].querySelector('img').src);
-                temp.push(carouselThumbItems[3].querySelector('img').src);
-                temp.push(carouselThumbItems[4].querySelector('img').src);
-
-                carouselThumbItems[0].querySelector('img').src = carouselThumbItems[1].querySelector('img').src;
-                carouselThumbItems[1].querySelector('img').src = carouselThumbItems[2].querySelector('img').src;
-                carouselThumbItems[2].querySelector('img').src = carouselThumbItems[3].querySelector('img').src;
-                carouselThumbItems[3].querySelector('img').src = carouselThumbItems[4].querySelector('img').src;
-                carouselThumbItems[4].querySelector('img').src = thumbImg[currentIndex];
-
-                currentIndex++;
-                if (currentIndex > thumbImg.length - 1) {
-                    currentIndex = 0;
-                }
-            }
-
-            if (i == 4) {
-                let temp = []
-
-                temp.push(carouselThumbItems[0].querySelector('img').src);
-                temp.push(carouselThumbItems[1].querySelector('img').src);
-                temp.push(carouselThumbItems[2].querySelector('img').src);
-                temp.push(carouselThumbItems[3].querySelector('img').src);
-                temp.push(carouselThumbItems[4].querySelector('img').src);
-
-                carouselThumbItems[0].querySelector('img').src = carouselThumbItems[2].querySelector('img').src;
-                carouselThumbItems[1].querySelector('img').src = carouselThumbItems[3].querySelector('img').src;
-                carouselThumbItems[2].querySelector('img').src = carouselThumbItems[4].querySelector('img').src;
-                carouselThumbItems[3].querySelector('img').src = thumbImg[currentIndex];
-                carouselThumbItems[4].querySelector('img').src = thumbImg[(currentIndex + 1) % thumbImg.length];
-
-                currentIndex -= 2;
-                if (currentIndex < 0) {
-                    currentIndex = thumbImg.length - 1;
-                }
-            }
-
-            if (i == 1) {
-                let temp = []
-
-                temp.push(carouselThumbItems[0].querySelector('img').src);
-                temp.push(carouselThumbItems[1].querySelector('img').src);
-                temp.push(carouselThumbItems[2].querySelector('img').src);
-                temp.push(carouselThumbItems[3].querySelector('img').src);
-                temp.push(carouselThumbItems[4].querySelector('img').src);
-
-                carouselThumbItems[4].querySelector('img').src = carouselThumbItems[3].querySelector('img').src;
-                carouselThumbItems[3].querySelector('img').src = carouselThumbItems[2].querySelector('img').src;
-                carouselThumbItems[2].querySelector('img').src = carouselThumbItems[1].querySelector('img').src;
-                carouselThumbItems[1].querySelector('img').src = carouselThumbItems[0].querySelector('img').src;
-                carouselThumbItems[0].querySelector('img').src = thumbImg[currentIndex];
-
-                currentIndex--;
-                if (currentIndex < 0) {
-                    currentIndex = thumbImg.length - 1;
-                }
-            }
-
-            if (i == 0) {
-                let temp = [];
-
-                temp.push(carouselThumbItems[0].querySelector('img').src);
-                temp.push(carouselThumbItems[1].querySelector('img').src);
-                temp.push(carouselThumbItems[2].querySelector('img').src);
-                temp.push(carouselThumbItems[3].querySelector('img').src);
-                temp.push(carouselThumbItems[4].querySelector('img').src);
-
-                carouselThumbItems[4].querySelector('img').src = carouselThumbItems[2].querySelector('img').src;
-                carouselThumbItems[3].querySelector('img').src = carouselThumbItems[1].querySelector('img').src;
-                carouselThumbItems[2].querySelector('img').src = carouselThumbItems[0].querySelector('img').src;
-                carouselThumbItems[1].querySelector('img').src = thumbImg[currentIndex];
-                carouselThumbItems[0].querySelector('img').src = thumbImg[(currentIndex + 1) % thumbImg.length];
-
-                currentIndex -= 2;
-                if (currentIndex < 0) {
-                    currentIndex = thumbImg.length - 1;
-                }
-            }
-        }
-    }
-
-</script>
 
 </html>

@@ -19,7 +19,8 @@
   --base-white: #fff;
 
   --infomation-base: #356ad1;
-
+  --error-base: #f04438;
+  --error-light: #fecdca;
 
   --warning-dark: #7a2e0e;
   --warning-light: #fedf89;
