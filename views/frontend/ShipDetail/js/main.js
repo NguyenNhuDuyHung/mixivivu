@@ -1,5 +1,6 @@
 import { Validator, currentRating } from "./validator.js";
 import Carousel from "./carousel.js";
+import displayDate from "./calendar.js";
 
 Validator({
   form: "#form-review",
@@ -58,3 +59,5 @@ roomCardList.forEach((roomCard, index) => {
     shipDetailPrice.innerText = sumPrice.toLocaleString() + " đ";
   });
 });
+
+displayDate();
