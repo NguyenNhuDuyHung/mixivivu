@@ -64,7 +64,7 @@ modalCloseBtn.addEventListener("click", () => {
 });
 
 $(".popup-overlay").addEventListener("click", (e) => {
-  if(e.target === modalOverLay) {
+  if (e.target === modalOverLay) {
     $(".popup-overlay").style.display = "none";
   }
-})
+});
