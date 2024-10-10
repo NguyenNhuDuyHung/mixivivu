@@ -1,5 +1,7 @@
 import { Validator, currentRating } from "./validator.js";
 import Carousel from "./carousel.js";
+import displayDate from "./calendar.js";
+import { handleInreaseAndDecreaseBtn } from "./handleBtn.js";
 
 Validator({
   form: "#form-review",
@@ -24,37 +26,45 @@ Validator({
 
 Carousel();
 
+handleInreaseAndDecreaseBtn(
+  ".RoomPicker-item",
+  ".RoomPicker-group-btn",
+  null,
+  ".RoomPicker-item-value"
+);
+
+handleInreaseAndDecreaseBtn(
+  ".RoomCard-roomCard",
+  ".RoomCard-roomBtn",
+  ".ShipDetail-price",
+  ".RoomCard-price"
+);
+
+displayDate();
+
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const roomCardList = $$(".RoomCard-roomCard");
-const roomCardBtnList = $$(".RoomCard-roomBtn");
-const roomCardPriceList = $$(".RoomCard-price");
-const shipDetailPrice = $(".ShipDetail-price");
+const listBtnActiveModal = $$(".btn-activeModal");
+const modalCloseBtn = $(".Modal-close-btn");
+const modalOverLay = $(".popup-overlay");
 
-let sumPrice = 0;
-
-roomCardList.forEach((roomCard, index) => {
-  const minusBtn = roomCardBtnList[index].querySelector("div:first-child");
-  const plusBtn = roomCardBtnList[index].querySelector("div:last-child");
-  const roomCardPriceValue = Number(
-    roomCardPriceList[index].innerText.slice(0, -2).replace(/,/g, "")
-  );
-
-  minusBtn.addEventListener("click", () => {
-    if (
-      roomCardBtnList[index].querySelector("div[class='label md']").innerText >
-      0
-    ) {
-      roomCardBtnList[index].querySelector("div[class='label md']").innerText--;
-      sumPrice -= roomCardPriceValue;
-      shipDetailPrice.innerText = sumPrice.toLocaleString() + " đ";
+listBtnActiveModal.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if ($(".popup-overlay").style.display === "none") {
+      $(".popup-overlay").style.display = "flex";
+    } else {
+      $(".popup-overlay").style.display = "none";
     }
   });
-
-  plusBtn.addEventListener("click", () => {
-    roomCardBtnList[index].querySelector("div[class='label md']").innerText++;
-    sumPrice += roomCardPriceValue;
-    shipDetailPrice.innerText = sumPrice.toLocaleString() + " đ";
-  });
 });
+
+modalCloseBtn.addEventListener("click", () => {
+  $(".popup-overlay").style.display = "none";
+});
+
+$(".popup-overlay").addEventListener("click", (e) => {
+  if(e.target === modalOverLay) {
+    $(".popup-overlay").style.display = "none";
+  }
+})

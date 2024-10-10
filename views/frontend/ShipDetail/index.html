@@ -676,10 +676,10 @@
                                     </div>
 
                                     <div class="flex gap-16">
-                                        <button type="button" class="btn btn-normal btn-outline">
+                                        <button type="button" class="btn btn-normal btn-outline btn-activeModal">
                                             <div class="label md">Thuê trọn tàu</div>
                                         </button>
-                                        <button type="button" class="btn btn-normal btn-primary">
+                                        <button type="button" class="btn btn-normal btn-primary btn-activeModal">
                                             <div class="label md">Đặt ngay</div>
                                             <img src="/views/assest/svg/arrowright_icon.svg" alt="">
                                         </button>
@@ -1382,7 +1382,7 @@
 
     <div class="popup-root">
         <div class="popup-overlay" tabindex="-1" data-popup="modal" data-testid="overlay"
-            style="position: fixed; inset: 0px; display: flex; z-index: 999; pointer-events: auto;">
+            style="position: fixed; inset: 0px; display: none; z-index: 999; pointer-events: auto;">
             <div class="popup-content" role="dialog" id="popup"
                 style="position: relative; margin: auto; pointer-events: auto;">
                 <div>
@@ -1414,8 +1414,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <!-- Date Picker -->
                                     </div>
 
                                     <div class="RoomPicker-room-picker">

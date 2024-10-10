@@ -76,6 +76,19 @@
   justify-content: flex-start;
 }
 
+.ShipDetail-booking-detail-modal {
+  width: 800px;
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1 0;
+}
+
+.ShipDetail-divider {
+  border-bottom: 1px solid var(--gray-200, #eaecf0);
+}
+
 @media (max-width: 1200px) {
   .ShipDetail-ship-detail {
     padding: 24px;
