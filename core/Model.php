@@ -130,4 +130,24 @@ class Model extends Database
     {
         return (!empty($errors[$fileName])) ? $errors[$fileName] : null;
     }
+
+    function isLogin()
+    {
+        $checkLogin = false;
+        if (!isset($_SESSION['loginToken']) || $this->checkSesstionTimeOut('loginToken')) {
+            return $checkLogin;
+        }
+
+        if ($this->getSession('loginToken')) {
+            $tokenLogin = $this->getSession('loginToken');
+            // Kiểm tra xem token có giống trong database không
+            $queryToken = $this->db->query("SELECT user_id FROM tokenlogin WHERE token = '$tokenLogin'")->fetch(PDO::FETCH_ASSOC);
+            if (!empty($queryToken)) {
+                $checkLogin = true;
+            } else {
+                $this->removeSession('loginToken');
+            }
+        }
+        return $checkLogin;
+    }
 }

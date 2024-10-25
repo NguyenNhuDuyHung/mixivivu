@@ -2,15 +2,17 @@
 class Auth extends Controller
 {
     public $data = [];
+    protected $model;
     public function __construct()
     {
+        $this->model = new Model();
     }
     public function login()
     {
-        if(isset($_SESSION['user'])) {
+        if ($this->model->isLogin()) {
             header('Location: ' . _WEB_ROOT . '/backend/dashboard');
         }
-        
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -27,13 +29,26 @@ class Auth extends Controller
         $this->data['page_title'] = 'Login';
         $this->data['content'] = 'backend/login';
         $this->data['layout'] = 'backend/layout.css';
-        $this->data['style'] = 'backend/login/style.css';
-        $this->data['script'] = 'backend/login/main.js';
+        $this->data['styles'] = [
+            'components/toast.min.css',
+            'backend/login/style.css',
+        ];
+        $this->data['scripts'] = [
+            'components/toast.min.js',
+            'components/toast.js',
+            'backend/login/main.js',
+        ];
         $this->render('layouts/admin_layout', data: $this->data);
     }
 
     public function logout()
     {
-        $this->model('AuthModel')->logout();
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $this->model('AuthModel')->logout();
+
+            $_SESSION['logout-success'] = "Đăng xuất thành công!";
+
+            header('Location: ' . _WEB_ROOT . '/backend/login');
+        }
     }
 }

@@ -32,14 +32,36 @@ class AuthModel extends Model
                     $errors['password'] = $this->getFlashData('error');
                     return $errors;
                 } else {
-                    $this->setSession('user', $userQuery, 60);
-                    header('Location: ' . _WEB_ROOT . '/backend/dashboard');
-                    return true;
+                    $tokenLogin = sha1(uniqid() . time());
+                    try {
+                        $insertToken = $this->db->insert('tokenlogin', [
+                            'token' => $tokenLogin,
+                            'user_id' => $userQuery['id'],
+                            'created_at' => date('Y-m-d H:i:s'),
+                        ]);
+
+                        if ($insertToken) {
+                            $this->setSession('loginToken', $tokenLogin, 60 * 60 * 24 * 7); // 7 ngày
+                            $this->setSession('login-success', 'Đăng nhập thành công!');
+                            header('Location: ' . _WEB_ROOT . '/backend/dashboard');
+                            return true;
+                        }
+                    } catch (Exception $e) {
+                        $this->setFlashData('error-system', value: 'Lỗi hệ thống, vui lòng thử lại sau!');
+                        $errors['login']['system'] = $this->getFlashData('error-system');
+                        return $errors;
+                    }
                 }
             }
         }
-
         return false;
     }
 
+    public function logout()
+    {
+        $this->db->delete('tokenlogin', 'token = "' . $this->getSession('loginToken') . '"');
+
+        $this->removeSession('loginToken');
+        $this->removeSession('time');
+    }
 }

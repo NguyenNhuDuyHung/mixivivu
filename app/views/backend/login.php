@@ -41,11 +41,12 @@
             <div
                 class="LoginAdmin-inputCustom <?php echo !empty($data['error']['password']) ? 'input-destructive' : ''; ?>">
                 <label for="password" class="input-group">
-                    <input id="password" type="password" class="p-md" placeholder="type your password here ..." name="password" value="<?php
-                    if (!empty($data['error'])) {
-                        echo $this->oldInfo('password', $data);
-                    }
-                    ?>" autocomplete="off">
+                    <input id="password" type="password" class="p-md" placeholder="type your password here ..."
+                        name="password" value="<?php
+                        if (!empty($data['error'])) {
+                            echo $this->oldInfo('password', $data);
+                        }
+                        ?>" autocomplete="off">
                     <label for="password" class="sm">Password</label>
                 </label>
                 <p class="sm error">
@@ -63,3 +64,19 @@
         </div>
     </form>
 </div>
+
+<script>
+    $(document).ready(function () {
+        var message =
+            "<?php echo isset($data['error']['login']['system']) ? $data['error']['login']['system'] : ''; ?>";
+
+        if (message) {
+            toastr.error(message);
+        }
+
+        <?php if (isset($_SESSION['logout-success'])): ?>
+            toastr.success("<?= $_SESSION['logout-success'] ?>");
+            <?php unset($_SESSION['logout-success']); ?>
+        <?php endif; ?>
+    });
+</script>
