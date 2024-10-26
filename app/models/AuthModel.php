@@ -42,6 +42,7 @@ class AuthModel extends Model
 
                         if ($insertToken) {
                             $this->setSession('loginToken', $tokenLogin, 60 * 60 * 24 * 7); // 7 ngày
+                            setcookie('loginToken', $tokenLogin, time() + 60 * 60 * 24 * 7);
                             $this->setSession('login-success', 'Đăng nhập thành công!');
                             header('Location: ' . _WEB_ROOT . '/backend/dashboard');
                             return true;
@@ -59,9 +60,13 @@ class AuthModel extends Model
 
     public function logout()
     {
-        $this->db->delete('tokenlogin', 'token = "' . $this->getSession('loginToken') . '"');
+        $token = $_SESSION['loginToken'] ?? $_COOKIE['loginToken'] ?? null;
 
+        if ($token) {
+            $this->db->query("DELETE FROM tokenlogin WHERE token = '$token'");
+        }
         $this->removeSession('loginToken');
         $this->removeSession('time');
     }
+
 }

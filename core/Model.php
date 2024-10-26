@@ -131,23 +131,26 @@ class Model extends Database
         return (!empty($errors[$fileName])) ? $errors[$fileName] : null;
     }
 
-    function isLogin()
+    public function isLogin()
     {
         $checkLogin = false;
-        if (!isset($_SESSION['loginToken']) || $this->checkSesstionTimeOut('loginToken')) {
-            return $checkLogin;
-        }
 
-        if ($this->getSession('loginToken')) {
-            $tokenLogin = $this->getSession('loginToken');
-            // Kiểm tra xem token có giống trong database không
-            $queryToken = $this->db->query("SELECT user_id FROM tokenlogin WHERE token = '$tokenLogin'")->fetch(PDO::FETCH_ASSOC);
+        $token = $_SESSION['loginToken'] ?? $_COOKIE['loginToken'] ?? null;
+
+        if ($token) {
+            $queryToken = $this->db->query("SELECT user_id FROM tokenlogin WHERE token = '$token'")->fetch(PDO::FETCH_ASSOC);
+
             if (!empty($queryToken)) {
                 $checkLogin = true;
+                if (!isset($_SESSION['loginToken'])) {
+                    $_SESSION['loginToken'] = $token;
+                }
             } else {
-                $this->removeSession('loginToken');
+                setcookie('loginToken', '', time() - 3600, "/");
             }
         }
+
         return $checkLogin;
     }
+
 }

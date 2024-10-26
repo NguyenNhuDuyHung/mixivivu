@@ -45,7 +45,6 @@ class Auth extends Controller
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->model('AuthModel')->logout();
-
             $_SESSION['logout-success'] = "Đăng xuất thành công!";
 
             header('Location: ' . _WEB_ROOT . '/backend/login');
