@@ -1,0 +1,192 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none; /* Xóa dấu đầu dòng */
+    display: flex; /* Sắp xếp các mục theo chiều ngang */
+    gap: 16px; /* Khoảng cách giữa các mục */
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.contact {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.contact button {
+    padding: 10px 20px;
+    background-color: #00c2cb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.blog-section {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 80px;
+}
+
+.blog-card {
+    background-color: white;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    flex: 1 1 calc(33% - 70px); /* Đặt chiều rộng cho từng thẻ blog */
+    margin: -10px; /* Khoảng cách bên ngoài giữa các thẻ blog */
+    background: #fff; /* Màu nền cho thẻ blog */
+    border-radius: 20px; /* Bo tròn góc thẻ blog */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho thẻ blog */
+    border: 2px solid #ccc; /* Thêm khung với độ dày 2px và màu xám nhạt */
+}
+
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-card h3 {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+.blog-card p {
+    font-size: 14px;
+    color: #555;
+    padding: 0 15px;
+}
+
+.blog-card span {
+    display: block;
+    padding: 10px;
+    background-color: #f0f0f0;
+    font-size: 12px;
+    color: #999;
+}
+
+
+.profile-photos {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.profile-photos h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.photo-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.photo-card {
+    width: 150px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.pagination {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #333;
+    background-color: #f0f0f0;
+    margin: 0 0px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #00c2cb;
+    color: white;
+}
+
+
+footer {
+    background-color: #00203f;
+    color: white;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.company-info p,
+.footer-links ul,
+.footer-contact p {
+    margin: 10px 0;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.footer-contact p {
+    font-size: 14px;
+}
+.hero {
+    text-align: left;
+    margin-left: 150px;
+  }
