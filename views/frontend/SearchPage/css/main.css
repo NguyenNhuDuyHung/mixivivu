@@ -1,0 +1,352 @@
+@import "/views/components/_reset.css";
+@import "/views/components/_config.css";
+@import "/views/components/_variable.css";
+@import "/views/components/_input.css";
+@import "/views/components/Button.css";
+@import "/views/components/Header.css";
+@import "/views/components/Badge.css";
+@import "/views/components/card.css";
+@import "/views/components/BlogCard.css";
+@import "/views/components/SectionHeader.css";
+@import "/views/components/PartnerSection.css";
+@import "/views/components/ReviewQuote.css";
+@import "/views/components/ReviewSection.css";
+@import "/views/components/Searchbox.css";
+@import "/views/components/BlogSection.css";
+@import "/views/components/CategoryCard.css";
+@import "/views/components/Footer.css";
+
+@import "/views/frontend/HomePage/css/components/PopularShips.css";
+@import "/views/frontend/HomePage/css/components/ProductCard.css";
+@import "./components/mobile.css";
+
+.main {
+    background-image: url(https://mixivivu.com/section-background.png);
+    background-repeat: repeat;
+    flex-grow: 1;
+}
+
+.SearchPageDetail-search-page {
+    padding: 80px 32px !important;
+}
+
+
+.SearchPageDetail-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    margin-bottom: 80px;
+}
+.flex.justify-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.SearchPageDetail-search-box {
+    width: 100%!important;
+}
+
+.SearchBox-searchBox {
+    padding: 40px 24px 24px;
+    width: 1008px;
+    margin: auto;
+}
+
+.SearchPageDetail-filter-btn {
+    display: none;
+}
+
+.SearchPageDetail-header
+.SearchPageDetail-sort-btn {
+    position: relative;
+}
+
+.SearchPageDetail-collapse {
+    border-radius: 16px;
+}
+
+.SearchPageDetail-header
+.SearchPageDetail-dropdown {
+    min-width: 200px;
+    padding-top: 10px;
+    position: absolute;
+    inset: 0 0 auto auto;
+    transform: translate3d(0, 70px, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 8px;
+    border: 1px solid var(--gray-100, #f2f4f7);
+    background: var(--base-white, #fff);
+    box-shadow: 0 8px 8px -4px rgba(16, 24, 40, .03), 0 20px 24px -4px rgba(16, 24, 40, .08);
+    z-index: 1;
+}
+
+.SearchPageDetail-header
+.SearchPageDetail-dropdown-item {
+    width: 100%;
+    padding: 15px 30px;
+    cursor: pointer;
+}
+
+
+
+.search-box-select-input .search-box-dropdown {
+  min-width: 300px;
+}
+
+.search-box-dropdown {
+  display: none;
+  width: fit-content;
+  padding-top: 10px;
+  position: absolute;
+  inset: 0 auto auto 0;
+  transform: translate3d(0, 70px, 0);
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 8px;
+  border: 1px solid var(--gray-100, #f2f4f7);
+  background: var(--base-white, #fff);
+  box-shadow: 0 8px 8px -4px rgba(16, 24, 40, 0.03),
+    0 20px 24px -4px rgba(16, 24, 40, 0.08);
+  z-index: 1;
+  overflow-y: auto;
+  max-height: 240px;
+}
+
+.SearchPageDetail-side-bar-2 {
+    top: 120px;
+    width: 280px;
+    min-width: 280px;
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: 24px;
+    border: 1px solid var(--gray-200, #eaecf0);
+    background: var(--base-white, #fff);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+}
+.SearchPageDetail-side-bar-header {
+    display: flex;
+    padding: 20px 24px;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--gray-200, #eaecf0);
+}
+
+.SearchPageDetail-apply-mb-btn {
+    display: none;
+}
+
+.SearchPageDetail-filter-item {
+    display: flex;
+    padding: 20px 24px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+.SearchPageDetail-ship-list {
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.Checkbox-container {
+    width: fit-content;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.Checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.Checkbox-container>input[type=checkbox]~.Checkbox-checkmark {
+    border-radius: 4px;
+}
+.Checkbox-checkmark.Checkbox-sm {
+    width: 16px;
+    height: 16px;
+}
+.Checkbox-checkmark {
+    border: 1px solid var(--gray-300);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.Checkbox-checkmark.Checkbox-sm>svg {
+    width: 12px;
+    height: 12px;
+    stroke-width: 1.6;
+}
+
+.Checkbox-checkmark:after, 
+.Checkbox-checkmark>svg {
+    content: "";
+    display: none;
+}
+
+.Checkbox-textGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0;
+}
+
+.Checkbox-title {
+    color: var(--gray-700, #344054);
+}
+
+.SearchPageDetail-ship-list {
+    display: flex;
+    flex-grow: 1;
+    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 32px;
+    
+}
+
+.ProductCard-description 
+p, 
+.ProductCard-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ProductCard-body {
+    padding: 0;
+}
+
+.ProductCard-tags {
+    margin: 24px 0;
+    padding: 0;
+}
+
+.ProductCard-list
+.ProductCard-footer {
+    padding: 20px 0 0;
+    border-top: 1px solid var(--gray-200, #eaecf0);
+}
+
+.ProductCard-list .ProductCard-cardContent {
+    padding-right: 20px;
+}
+
+
+.Pagination-pagination {
+    padding: 12px 24px 16px;
+    border-top: 1px solid var(--gray-200, #eaecf0);
+    color: var(--gray-700, #344054);
+}
+
+.Pagination-pagination
+.Pagination-page-size {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--gray-300, #d0d5dd);
+    background: var(--base-white, #fff);
+    box-shadow: var(--shadow-xs);
+}
+
+.Pagination-pagination label, .Pagination-pagination p {
+    color: var(--gray-700, #344054);
+}
+
+.Pagination-page-size>input[type=number] {
+    border: none;
+    outline: none;
+    width: 30px;
+    height: 24px;
+    color: var(--gray-900, #101828);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.Pagination-pagination-container
+.Pagination-pagination-item
+.Pagination-selected {
+    background: var(--gray-50, #f9fafb);
+}
+
+.Pagination-pagination-container {
+    display: flex;
+    list-style-type: none;
+    border-radius: 100px;
+    border: 1px solid var(--gray-300, #d0d5dd);
+    box-shadow: var(--shadow-xs);
+    width: -moz-fit-content;
+    width: fit-content;
+    overflow: hidden;
+}
+
+.Pagination-pagination-container
+.Pagination-pagination-item {
+    display: flex;
+    width: 40px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid var(--gray-300, #d0d5dd);
+    background: var(--base-white, #fff);
+    color: var(--gray-800, #1d2939);
+}
+
+.Pagination-pagination-container 
+.Pagination-pagination-item:last-child, 
+.Pagination-pagination-item:first-child {
+    padding: 10px 16px;
+    gap: 8px;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+.Pagination-pagination-container 
+.Pagination-pagination-item:last-child {
+    border-right: none;
+}
+
+
+/*  search mobile */
+
+
+.SearchPageDetail-collapse 
+.SearchPageDetail-collapse-header {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border: none;
+}
+
+.SearchPageDetail-custom-header {
+    border-bottom: none;
+}
+
+.SearchPageDetail-collapse {
+    border-radius: 16px;
+}
+
+.Collapse-collapsed-content {
+    overflow: hidden;
+}
+
+.Collapse-collapse {
+    transition: height .25s cubic-bezier(.4,0,.2,1);
+}
+
+
+

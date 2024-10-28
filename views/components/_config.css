@@ -68,6 +68,10 @@ h6 {
   gap: 40px;
 }
 
+.gap-80 {
+  gap: 80px;
+}
+
 /*  */
 
 .h-full {
@@ -233,4 +237,16 @@ label.sm {
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;
+}
+
+/* Ẩn mũi tên cho Chrome, Safari, Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Ẩn mũi tên cho Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

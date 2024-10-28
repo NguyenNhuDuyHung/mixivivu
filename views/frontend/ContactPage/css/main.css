@@ -1,0 +1,44 @@
+@import "/views/components/_reset.css";
+@import "/views/components/_config.css";
+@import "/views/components/_variable.css";
+@import "/views/components/_input.css";
+@import "/views/components/Button.css";
+@import "/views/components/Header.css";
+@import "/views/components/Badge.css";
+@import "/views/components/card.css";
+@import "/views/components/BlogCard.css";
+@import "/views/components/SectionHeader.css";
+@import "/views/components/PartnerSection.css";
+@import "/views/components/ReviewQuote.css";
+@import "/views/components/ReviewSection.css";
+@import "/views/components/Searchbox.css";
+@import "/views/components/BlogSection.css";
+@import "/views/components/CategoryCard.css";
+@import "/views/components/Footer.css";
+
+
+.Layout-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.Layout-main {
+    flex-grow: 1;
+}
+
+.Contact-contact
+.Contact-contact-card {
+    position: absolute;
+    display: flex;
+    width: 1008px;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 40px 24px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    top: 400px;
+    transform: translateX(-50%);
+    left: 50%;
+}

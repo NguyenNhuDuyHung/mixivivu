@@ -76,3 +76,10 @@ button {
   gap: 0;
   padding: 8px;
 }
+
+.btn-color {
+  background-color: var(--primary-base);
+  border: 1px solid var(--primary-base);
+  color: var(--primary-dark);
+  fill: var(--primary-dark);
+}
