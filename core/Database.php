@@ -35,7 +35,6 @@ class Database
 
     function update($table, $data, $condition = '')
     {
-
         if (!empty($data)) {
             $updateStr = '';
             foreach ($data as $key => $value) {

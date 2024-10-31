@@ -1,3 +1,7 @@
-@import '../components/_reset.css';
-@import '../components/_config.css';
-@import '../components/_variable.css';
+@import "../components/_reset.css";
+@import "../components/_config.css";
+@import "../components/_variable.css";
+@import "../components/Button.css";
+@import "../components/_input.css";
+@import "../components/Sidebar.css";
+@import "../components/Pagination.css";

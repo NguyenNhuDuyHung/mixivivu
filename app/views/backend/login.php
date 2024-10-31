@@ -20,19 +20,19 @@
             </a>
 
             <div
-                class="LoginAdmin-inputCustom <?php echo !empty($data['error']['username']) ? 'input-destructive' : ''; ?>">
-                <label for="username" class="input-group">
-                    <input id="username" class="p-md" placeholder="type your username here ..." name="username" value="<?php
+                class="LoginAdmin-inputCustom <?php echo !empty($data['error']['email']) ? 'input-destructive' : ''; ?>">
+                <label for="email" class="input-group">
+                    <input id="email" class="p-md" placeholder="type your email here ..." name="email" value="<?php
                     if (!empty($data['error'])) {
-                        echo $this->oldInfo('username', $data);
+                        echo $this->oldInfo('email', $data);
                     }
                     ?>" autocomplete="off">
-                    <label for="username" class="sm">Username</label>
+                    <label for="email" class="sm">Email</label>
                 </label>
                 <p class="sm error">
                     <?php
-                    if (!empty($data['error']['username'])) {
-                        echo $data['error']['username'];
+                    if (!empty($data['error']['email'])) {
+                        echo $data['error']['email'];
                     }
                     ?>
                 </p>

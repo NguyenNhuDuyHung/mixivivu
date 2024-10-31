@@ -282,6 +282,10 @@ label.sm {
   background-repeat: repeat;
 }
 
+input:disabled {
+  cursor: not-allowed;
+}
+
 /* Ẩn mũi tên cho Chrome, Safari, Edge */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {

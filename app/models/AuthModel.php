@@ -8,20 +8,20 @@ class AuthModel extends Model
         parent::__construct();
     }
 
-    public function checkLogin($username, $password)
+    public function checkLogin($email, $password)
     {
         if ($this->isPost()) {
             $fillterAll = $this->filter();
 
-            $username = $fillterAll['username'];
+            $email = $fillterAll['email'];
             $password = $fillterAll['password'];
 
             $errors = [];
-            $userQuery = $this->db->query('SELECT * FROM ' . $this->_table . ' WHERE name = "' . $username . '"')->fetch(PDO::FETCH_ASSOC);
+            $userQuery = $this->db->query('SELECT * FROM ' . $this->_table . ' WHERE email = "' . $email . '"')->fetch(PDO::FETCH_ASSOC);
 
             if (!$userQuery) {
-                $this->setFlashData('error', value: 'username is invalid');
-                $errors['username'] = $this->getFlashData('error');
+                $this->setFlashData('error', value: 'email is invalid');
+                $errors['email'] = $this->getFlashData('error');
                 return $errors;
             } else {
                 $passwordHash = $userQuery['password'];

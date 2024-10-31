@@ -19,8 +19,10 @@ class Dashboard extends Controller
         $this->model->removeSession('login-success');
 
         $this->data['page_title'] = 'Dashboard';
-        $this->data['header'] = 'components/admin/header';
-        $this->data['content'] = 'backend/dashboard';
+        $this->data['contents'] = [
+            'components/admin/sidebar',
+            'backend/dashboard',
+        ];
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',

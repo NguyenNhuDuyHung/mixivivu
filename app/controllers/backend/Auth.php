@@ -14,20 +14,20 @@ class Auth extends Controller
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = $_POST['username'];
+            $email = $_POST['email'];
             $password = $_POST['password'];
-            $this->model('AuthModel')->checkLogin($username, $password);
+            $this->model('AuthModel')->checkLogin($email, $password);
 
-            if ($this->model('AuthModel')->checkLogin($username, $password)) {
-                $this->data['error'] = $this->model('AuthModel')->checkLogin($username, $password);
+            if ($this->model('AuthModel')->checkLogin($email, $password)) {
+                $this->data['error'] = $this->model('AuthModel')->checkLogin($email, $password);
             }
 
-            $this->data['username'] = $username;
+            $this->data['email'] = $email;
             $this->data['password'] = $password;
         }
 
         $this->data['page_title'] = 'Login';
-        $this->data['content'] = 'backend/login';
+        $this->data['contents'] = ['backend/login'];
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
@@ -43,7 +43,7 @@ class Auth extends Controller
 
     public function logout()
     {
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->model('AuthModel')->logout();
             $_SESSION['logout-success'] = "Đăng xuất thành công!";
 

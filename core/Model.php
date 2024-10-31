@@ -152,5 +152,4 @@ class Model extends Database
 
         return $checkLogin;
     }
-
 }

@@ -24,7 +24,9 @@
     ?>
     <div class="LayoutAdmin">
         <?php
-        $this->render($content, $data);
+        foreach ($contents as $content) {
+            $this->render($content, $data);
+        }
         ?>
     </div>
 

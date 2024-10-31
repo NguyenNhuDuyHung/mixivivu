@@ -6,7 +6,8 @@ Validator({
   errorMessageSelector: ".error",
   errorDestructiveElement: "div",
   rules: [
-    Validator.isRequired("#username", "required"),
+    Validator.isRequired("#email", "required"),
+    Validator.isEmail("#email"),
     Validator.isRequired("#password", "required"),
   ],
 });
