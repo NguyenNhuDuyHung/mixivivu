@@ -10,30 +10,73 @@ class User extends Controller
     }
     public function index($currentPage = 1)
     {
-        $recordsPerPage = 5;
-        $offset = ($currentPage - 1) * $recordsPerPage;
-        $numberPage = $this->model('UserModel')->countPage($recordsPerPage);
-        $this->data['users'] = $this->model('UserModel')->pagination($offset, $recordsPerPage);
-        $this->data['countAllUser'] = $this->model('UserModel')->countAllUser();
-        $this->data['recordsPerPage'] = $recordsPerPage;
-        $this->data['numberPage'] = $numberPage;
-        $this->data['currentPage'] = $currentPage;
-        $this->data['page_title'] = 'User';
-        $this->data['layout'] = 'backend/layout.css';
-        $this->data['styles'] = [
-            'components/toast.min.css',
-            'backend/user/style.css'
-        ];
-        $this->data['contents'] = [
-            'components/admin/sidebar',
-            'backend/user/user'
-        ];
-        $this->data['scripts'] = [
-            'components/toast.min.js',
-            'components/toast.js',
-            'backend/user/main.js'
-        ];
-        $this->render('layouts/admin_layout', $this->data);
+        if (isset($_GET['keyword'])) {
+            $keyword = $_GET['keyword'];
+            $searchUser = $this->model('UserModel')->search($keyword);
+
+            if ($searchUser == false) {
+                $this->data['page_title'] = 'Not found';
+                $this->data['href-back'] = _WEB_ROOT . '/backend/user';
+                $this->data['layout'] = 'backend/layout.css';
+                $this->data['contents'] = [
+                    'components/admin/sidebar',
+                    'components/errors/not_found'
+                ];
+                $this->render('layouts/admin_layout', $this->data);
+            } else {
+                $recordsPerPage = 5;
+                $offset = ($currentPage - 1) * $recordsPerPage;
+                $numberPage = $this->model('UserModel')->countPageByKeyword($keyword, $recordsPerPage);
+
+                $this->data['users'] = $searchUser;
+                $this->data['countAllUser'] = $this->model('UserModel')->countUserByKeyword($keyword);
+                $this->data['recordsPerPage'] = $recordsPerPage;
+                $this->data['numberPage'] = $numberPage;
+                $this->data['currentPage'] = $currentPage;
+                $this->data['page_title'] = 'User';
+                $this->data['layout'] = 'backend/layout.css';
+                $this->data['styles'] = [
+                    'components/toast.min.css',
+                    'backend/user/style.css'
+                ];
+                $this->data['contents'] = [
+                    'components/admin/sidebar',
+                    'backend/user/user'
+                ];
+                $this->data['scripts'] = [
+                    'components/toast.min.js',
+                    'components/toast.js',
+                    'backend/user/main.js'
+                ];
+                $this->render('layouts/admin_layout', $this->data);
+            }
+        } else {
+            $recordsPerPage = 5;
+            $offset = ($currentPage - 1) * $recordsPerPage;
+            $numberPage = $this->model('UserModel')->countPage($recordsPerPage);
+
+            $this->data['users'] = $this->model('UserModel')->pagination($offset, $recordsPerPage);
+            $this->data['countAllUser'] = $this->model('UserModel')->countAllUser();
+            $this->data['recordsPerPage'] = $recordsPerPage;
+            $this->data['numberPage'] = $numberPage;
+            $this->data['currentPage'] = $currentPage;
+            $this->data['page_title'] = 'User';
+            $this->data['layout'] = 'backend/layout.css';
+            $this->data['styles'] = [
+                'components/toast.min.css',
+                'backend/user/style.css'
+            ];
+            $this->data['contents'] = [
+                'components/admin/sidebar',
+                'backend/user/user'
+            ];
+            $this->data['scripts'] = [
+                'components/toast.min.js',
+                'components/toast.js',
+                'backend/user/main.js'
+            ];
+            $this->render('layouts/admin_layout', $this->data);
+        }
     }
 
     public function create()

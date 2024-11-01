@@ -2,6 +2,15 @@
   padding-top: 14px;
 }
 
+.User-page-action {
+  padding-top: 20px;
+  justify-content: space-between;
+}
+
+.User-search-box-search-input {
+  width: 400px;
+}
+
 .User-page-content {
   margin-top: 20px;
 }

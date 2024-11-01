@@ -35,6 +35,20 @@ class UserModel extends Model
         return $total['total'];
     }
 
+    public function countUserByKeyword($keyword)
+    {
+        $sql = "SELECT COUNT(*) AS total FROM users WHERE name LIKE '%" . $keyword . "%'";
+        $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $total['total'];
+    }
+
+    public function countPageByKeyword($keyword, $recordsPerPage)
+    {
+        $sql = "SELECT COUNT(*) AS total FROM users WHERE name LIKE '%" . $keyword . "%'";
+        $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return ceil($total['total'] / $recordsPerPage);
+    }
+
     private function checkUser($email, $phone, $id = null)
     {
         if (!empty($id)) {
@@ -146,5 +160,23 @@ class UserModel extends Model
             $this->setSession('toast-error', 'Có lỗi xảy ra: ' . $e->getMessage());
             return false;
         }
+    }
+
+    public function search($keyword)
+    {
+        $sql = "SELECT u.id AS id, u.name AS name, u.email AS email, u.publish AS publish, 
+            uc.name AS role
+        FROM users u
+        JOIN user_catalogues uc     
+        ON u.user_catalogue_id = uc.id
+        WHERE u.name LIKE '%" . $keyword . "%'
+        OR u.email LIKE '%" . $keyword . "%'
+        ORDER BY u.id ASC
+        ";
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        if (empty($data)) {
+            return false;
+        }
+        return $data;
     }
 }

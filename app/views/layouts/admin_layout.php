@@ -12,8 +12,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/css/<?php echo $layout; ?>">
     <?php
-    foreach ($styles as $style) {
-        echo (!empty($style) ? '<link rel="stylesheet" href="' . _WEB_ROOT . '/public/css/' . $style . '">' : '');
+    if (!empty($styles)) {
+        foreach ($styles as $style) {
+            echo (!empty($style) ? '<link rel="stylesheet" href="' . _WEB_ROOT . '/public/css/' . $style . '">' : '');
+        }
     }
     ?>
 </head>
@@ -35,8 +37,10 @@
     ?>
 
     <?php
-    foreach ($scripts as $script) {
-        echo (!empty($script) ? '<script type="module" src="' . _WEB_ROOT . '/public/js/' . $script . '"></script>' : '');
+    if (!empty($scripts)) {
+        foreach ($scripts as $script) {
+            echo (!empty($script) ? '<script type="module" src="' . _WEB_ROOT . '/public/js/' . $script . '"></script>' : '');
+        }
     }
     ?>
 

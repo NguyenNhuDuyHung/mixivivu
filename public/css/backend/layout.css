@@ -5,3 +5,10 @@
 @import "../components/_input.css";
 @import "../components/Sidebar.css";
 @import "../components/Pagination.css";
+@import "../components/Searchbox.css";
+@import "../components/NotFound.css";
+@import "../components/Card.css";
+
+.admin-notFound {
+    width: 80%;
+}
