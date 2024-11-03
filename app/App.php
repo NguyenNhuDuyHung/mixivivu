@@ -103,6 +103,6 @@ class App
 
     public function loadError($name = '404')
     {
-        require_once 'errors/' . $name . '.php';
+        require_once 'views/components/errors/' . $name . '.php';
     }
 }

@@ -72,6 +72,11 @@
   background: var(--gray-50, #f9fafb);
 }
 
+.Pagination-pagination-container .Pagination-pagination-item:hover {
+  background: var(--gray-50, #f9fafb);
+  cursor: pointer;
+}
+
 @media (max-width: 1024px) {
   .Pagination-pagination {
     padding: 12px 0;

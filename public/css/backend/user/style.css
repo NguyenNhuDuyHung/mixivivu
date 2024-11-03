@@ -1,21 +1,21 @@
-.User-page {
+.page {
   padding-top: 14px;
 }
 
-.User-page-action {
+.page-action {
   padding-top: 20px;
   justify-content: space-between;
 }
 
-.User-search-box-search-input {
+.search-box-search-input {
   width: 400px;
 }
 
-.User-page-content {
+.page-content {
   margin-top: 20px;
 }
 
-.User-page-title {
+.page-title {
   color: #202224;
   font-size: 32px;
   font-style: normal;
@@ -50,6 +50,14 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
+.custom-table td {
+  max-width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 /* Hover cho các hàng */
 .custom-table tbody tr:hover {
   background-color: #f1f1f1;
@@ -82,7 +90,7 @@
 }
 
 /* Add */
-.User-action-page {
+.action-page {
   margin: 20px 0;
   width: 1141px;
   padding-top: 24px;
@@ -90,7 +98,7 @@
   border-radius: 8px;
 }
 
-.User-modal {
+.modal {
   display: flex;
   padding: 24px;
   flex-direction: column;
@@ -98,7 +106,7 @@
   flex: 1 0;
 }
 
-.User-group-input {
+.group-input {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 24px;
@@ -106,7 +114,7 @@
   justify-content: flex-start;
 }
 
-.User-actions {
+.actions {
   display: flex;
   justify-content: flex-end;
 }

@@ -152,4 +152,91 @@ class Model extends Database
 
         return $checkLogin;
     }
+
+    private function checkColumnExist($table, $column)
+    {
+        $sql = "SHOW COLUMNS FROM " . $table . " LIKE '" . $column . "'";
+        $result = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return !empty($result);
+    }
+
+    private function handleSqlForCount($table, $keyword = null, array $fields = [])
+    {
+        $sql = "SELECT COUNT(*) AS total FROM " . $table;
+        $checkColumnExist = $this->checkColumnExist($table, 'deleted_at');
+
+        if ($checkColumnExist) {
+            $sql .= " WHERE deleted_at IS NULL";
+        }
+
+        if ($keyword && !empty($fields)) {
+            $conditions = [];
+            foreach ($fields as $field) {
+                $conditions[] = $field . " LIKE '%" . $keyword . "%'";
+            }
+            if (str_contains($sql, 'WHERE')) {
+                $sql .= " AND " . implode(" OR ", $conditions);
+            } else {
+                $sql .= " WHERE " . implode(" OR ", $conditions);
+            }
+        }
+
+        return $sql;
+    }
+
+    public function findById($table, int $id, array $fields = ['*'])
+    {
+        $sql = "SELECT " . implode(', ', $fields) . " FROM " . $table . " WHERE id = " . $id;
+        $result = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function checkRecord($table, array $fields, array $values, $id = null, array $customErrorMessages = [])
+    {
+        $conditions = [];
+        foreach ($fields as $index => $field) {
+            $condition = $field . " = '" . $values[$index] . "'";
+            if (!empty($id)) {
+                $condition .= " AND id != $id";
+            }
+            $conditions[] = $condition;
+        }
+
+        $sql = "SELECT * FROM " . $table . " WHERE " . implode(" OR ", $conditions);
+        $result = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+        if (!empty($result)) {
+            foreach ($fields  as $index => $field) {
+                if ($result[$field] == $values[$index]) {
+                    $errorMessage = isset($customErrorMessages[$field]) ? $customErrorMessages[$field] : ucfirst($field) . ' đã tồn tại! ';
+                    $this->setSession('toast-error', $errorMessage);
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public function checkRecordExist($table, $field, $value)
+    {
+        $sql = "SELECT COUNT(*) AS total FROM " . $table . " WHERE " . $field . " = '" . $value . "'";
+
+        $result = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $result['total'] > 0;
+    }
+
+    public function countPages($recordsPerPage, $table, $keyword = null, array $fields = [])
+    {
+        $sql = $this->handleSqlForCount($table, $keyword, $fields);
+        $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+        return ceil($total['total'] / $recordsPerPage);
+    }
+
+    public function countAllOrByKeyword($table, $keyword = null, array $fields = [])
+    {
+        $sql = $this->handleSqlForCount($table, $keyword, $fields);
+        $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $total['total'];
+    }
 }

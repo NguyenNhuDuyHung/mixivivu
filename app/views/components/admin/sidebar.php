@@ -21,30 +21,22 @@
 
     <div class="Dashboard-sidebar-menu">
         <a href="#" class="Dashboard-sidebar-menu-item">
-            <div class="Dashboard-sidebar-menu-item-icon">
-                <img src="<?php echo _WEB_ROOT ?>/public/img/dashboard.png" alt="">
-            </div>
             <label class="md">Dashboard</label>
         </a>
 
-        <a href="<?php echo _WEB_ROOT ?>/backend/user" class="Dashboard-sidebar-menu-item active">
-            <div class="Dashboard-sidebar-menu-item-icon">
-                <img src="<?php echo _WEB_ROOT ?>/public/img/dashboard.png" alt="">
-            </div>
+        <a href="<?php echo _WEB_ROOT ?>/backend/user/catalogue" class="Dashboard-sidebar-menu-item active">
+            <label class="md">Quản lý nhóm người dùng</label>
+        </a>
+
+        <a href="<?php echo _WEB_ROOT ?>/backend/user" class="Dashboard-sidebar-menu-item">
             <label class="md">Quản lý người dùng</label>
         </a>
 
         <a class="Dashboard-sidebar-menu-item">
-            <div class="Dashboard-sidebar-menu-item-icon">
-                <img src="<?php echo _WEB_ROOT ?>/public/img/dashboard.png" alt="">
-            </div>
             <label class="md">Quản lý du thuyền</label>
         </a>
 
         <a class="Dashboard-sidebar-menu-item">
-            <div class="Dashboard-sidebar-menu-item-icon">
-                <img src="<?php echo _WEB_ROOT ?>/public/img/dashboard.png" alt="">
-            </div>
             <label class="md">Quản lý orders</label>
         </a>
 

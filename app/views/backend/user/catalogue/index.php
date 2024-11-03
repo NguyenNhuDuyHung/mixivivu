@@ -1,15 +1,15 @@
-<div class="User-page">
-    <div class="User-page-container">
-        <div class="User-page-title">Danh sách người dùng</div>
+<div class="page">
+    <div class="page-container">
+        <div class="page-title"><?= $data['page_title'] ?></div>
 
-        <div class="flex User-page-action">
-            <a href="<?= _WEB_ROOT ?>/backend/user/create">
-                <button type="button" class="btn btn-normal btn-primary">Tạo người dùng</button>
+        <div class="flex page-action">
+            <a href="<?= _WEB_ROOT ?>/backend/user/catalogue/create">
+                <button type="button" class="btn btn-normal btn-primary">Tạo nhóm người dùng</button>
             </a>
 
-            <form class="User-page-action-search search-box-input-group" method="get"
-                action="<?= _WEB_ROOT ?>/backend/user" id="UserSearchForm">
-                <div class="search-box-search-input User-search-box-search-input">
+            <form class="page-action-search search-box-input-group" method="get"
+                action="<?= _WEB_ROOT ?>/backend/user/catalogue" id="UserCatalogueSearchForm">
+                <div class="search-box-search-input search-box-search-input">
                     <label for="" class="input-group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path
@@ -18,22 +18,23 @@
                                 stroke-linejoin="round">
                             </path>
                         </svg>
-                        <input class="p-md" type="text" name="keyword" placeholder="Tìm kiếm email, tên người dùng" value="" autocomplete="off">
+                        <input class="p-md" type="text" name="keyword" placeholder="Tìm kiếm nhóm người dùng"
+                            value="" autocomplete="off">
                     </label>
                 </div>
             </form>
         </div>
-        <div class="User-page-content">
-            <div class="User-page-content-item">
-                <div class="User-page-content-item-body">
+        <div class="page-content">
+            <div class="page-content-item">
+                <div class="page-content-item-body">
                     <table class="custom-table">
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Vai trò</th>
-                                <th>Action</th>
+                                <th>Tên</th>
+                                <th>Mô tả</th>
+                                <th>Số thành viên</th>
+                                <th>Tùy chọn</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,16 +42,16 @@
                             $count = 0;
                             $startNumber = ($currentPage - 1) * $data['recordsPerPage'] + 1;
                             ?>
-                            <?php foreach ($data['users'] as $index => $user):
+                            <?php foreach ($data['user_catalogues'] as $index => $user_catalogue):
                                 $count++ ?>
                                 <tr>
                                     <td><?= $startNumber + $index ?></td>
-                                    <td><?= $user['name'] ?></td>
-                                    <td><?= $user['email'] ?></td>
-                                    <td><?= $user['role'] ?></td>
+                                    <td><?= $user_catalogue['name'] ?></td>
+                                    <td><?= $user_catalogue['description'] ?></td>
+                                    <td><?= $user_catalogue['user_count'] ?? 0 ?></td>
                                     <td>
                                         <div style="display: flex; align-items: center; gap: 0 16px;">
-                                            <a href="<?= _WEB_ROOT ?>/backend/user/update/<?= $user['id'] ?>">
+                                            <a href="<?= _WEB_ROOT ?>/backend/user/catalogue/update/<?= $user_catalogue['id'] ?>">
                                                 <button class="btn btn-normal btn-outline btn-iconOnly">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                                         <path
@@ -58,7 +59,7 @@
                                                     </svg>
                                                 </button>
                                             </a>
-                                            <a href="<?= _WEB_ROOT ?>/backend/user/delete/<?= $user['id'] ?>">
+                                            <a href="<?= _WEB_ROOT ?>/backend/user/catalogue/delete/<?= $user_catalogue['id'] ?>">
                                                 <button class="btn btn-normal btn-outline btn-iconOnly">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                         <path
@@ -90,29 +91,32 @@
             </div>
 
             <ul class="Pagination-pagination-container">
-                <li class="Pagination-pagination-left-item Pagination-pagination-item Pagination-disabled">
+                <a href="<?= _WEB_ROOT ?>/backend/user/catalogue/page/<?= $data['currentPage'] - 1 ?>"
+                    class="Pagination-pagination-left-item Pagination-pagination-item <?= $data['currentPage'] == 1 ? 'Pagination-disabled' : '' ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M4.16602 10H15.8327M4.16602 10L9.16602 5M4.16602 10L9.16602 15"
                             stroke="var(--gray-800, #1d2939)" stroke-width="1.67" stroke-linecap="round"
                             stroke-linejoin="round"></path>
                     </svg>
                     <div class="sm">Trước</div>
-                </li>
+                </a>
 
                 <?php for ($i = 1; $i <= $data['numberPage']; $i++): ?>
-                    <li class="Pagination-pagination-item <?= $data['currentPage'] == $i ? 'Pagination-selected' : '' ?>">
-                        <a href="<?= _WEB_ROOT ?>/backend/user/page/<?= $i ?>"><?= $i ?></a>
-                    </li>
+                    <a href="<?= _WEB_ROOT ?>/backend/user/catalogue/page/<?= $i ?>"
+                        class="Pagination-pagination-item <?= $data['currentPage'] == $i ? 'Pagination-selected' : '' ?>">
+                        <?= $i ?>
+                    </a>
                 <?php endfor; ?>
 
-                <li class="Pagination-pagination-right-item
-                                        Pagination-pagination-item Pagination-disabled">
+                <a href="<?= _WEB_ROOT ?>/backend/user/catalogue/page/<?= $data['currentPage'] + 1 ?>"
+                    class="Pagination-pagination-right-item
+                                        Pagination-pagination-item <?= $data['currentPage'] == $data['numberPage'] ? 'Pagination-disabled' : '' ?>">
                     <div class="sm">Tiếp</div>
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="var(--gray-800, #1d2939)"
                             stroke-linecap="round" stroke-linejoin="round"></path>
                     </svg>
-                </li>
+                </a>
             </ul>
         </div>
     </div>
