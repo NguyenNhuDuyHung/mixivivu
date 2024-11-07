@@ -8,6 +8,51 @@ class User extends Controller
     {
         $this->model = new Model();
     }
+
+    public function search($currentPage = 1)
+    {
+        $recordsPerPage = 5;
+        $keyword = $_GET['keyword'] ?? '';
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($currentPage - 1) * $recordsPerPage;
+        $this->data['layout'] = 'backend/layout.css';
+        $this->data['styles'] = [
+            'components/toast.min.css',
+            'backend/user/style.css'
+        ];
+        $this->data['contents'] = [
+            'components/admin/sidebar',
+            'backend/user/user/index'
+        ];
+        $this->data['scripts'] = [
+            'components/toast.min.js',
+            'components/toast.js',
+            'backend/user/main.js'
+        ];
+        if (!empty($keyword)) {
+            $searchUser = $this->model('UserModel')->search($keyword, $offset, $recordsPerPage);
+
+            if ($searchUser === false) {
+                $this->data['page_title'] = 'Not found';
+                $this->data['href-back'] = _WEB_ROOT . '/backend/user';
+                $this->data['contents'] = [
+                    'components/admin/sidebar',
+                    'components/errors/not_found'
+                ];
+            } else {
+                $numberPage = $this->model->countPages($recordsPerPage, 'users', $keyword, ['name', 'email']);
+                $this->data['users'] = $searchUser;
+                $this->data['countAll'] = $this->model->countAllOrByKeyword('users', $keyword, ['name', 'email']);
+                $this->data['numberPage'] = $numberPage;
+            }
+        }
+
+        $this->data['recordsPerPage'] = $recordsPerPage;
+        $this->data['currentPage'] = $currentPage;
+        $this->render('layouts/admin_layout', $this->data);
+    }
+
+
     public function index($currentPage = 1)
     {
         $recordsPerPage = 5;
@@ -28,29 +73,10 @@ class User extends Controller
             'backend/user/main.js'
         ];
 
-        if (isset($_GET['keyword'])) {
-            $keyword = $_GET['keyword'];
-            $searchUser = $this->model('UserModel')->search($keyword, $offset, $recordsPerPage);
-
-            if ($searchUser === false) {
-                $this->data['page_title'] = 'Not found';
-                $this->data['href-back'] = _WEB_ROOT . '/backend/user';
-                $this->data['contents'] = [
-                    'components/admin/sidebar',
-                    'components/errors/not_found'
-                ];
-            } else {
-                $numberPage = $this->model->countPages($recordsPerPage, 'users', $keyword, ['name', 'email']);
-                $this->data['users'] = $searchUser;
-                $this->data['countAllUser'] = $this->model->countAllOrByKeyword('users', $keyword, ['name', 'email']);
-                $this->data['numberPage'] = $numberPage;
-            }
-        } else {
-            $numberPage = $this->model->countPages($recordsPerPage, 'users');
-            $this->data['users'] = $this->model('UserModel')->pagination($offset, $recordsPerPage);
-            $this->data['countAllUser'] = $this->model->countAllOrByKeyword('users');
-            $this->data['numberPage'] = $numberPage;
-        }
+        $numberPage = $this->model->countPages($recordsPerPage, 'users');
+        $this->data['users'] = $this->model('UserModel')->pagination($offset, $recordsPerPage);
+        $this->data['countAll'] = $this->model->countAllOrByKeyword('users');
+        $this->data['numberPage'] = $numberPage;
 
         $this->data['recordsPerPage'] = $recordsPerPage;
         $this->data['currentPage'] = $currentPage;

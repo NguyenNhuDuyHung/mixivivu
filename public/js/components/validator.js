@@ -41,7 +41,6 @@ function Validator(options) {
   const formElement = $(options.form);
 
   if (formElement) {
-    
     formElement.onsubmit = function (e) {
       let isFormValid = true;
       e.preventDefault();
@@ -209,6 +208,29 @@ Validator.isPhone = function (selector, message) {
       return phoneRegex.test(value)
         ? undefined
         : message || "Số điện thoại không hợp lệ";
+    },
+  };
+};
+
+Validator.isYear = function (selector, message) {
+  return {
+    selector: selector,
+    test: function (value) {
+      const yearRegex = /^\d{4}$/;
+      if(value < 2018) {
+        return message || "Du thuyền đã hạ thủy quá lâu, không đủ điều kiện yêu cầu";
+      }
+      return yearRegex.test(value) ? undefined : message || "Năm không hợp lệ";
+    },
+  };
+};
+
+Validator.isNumber = function (selector, message) {
+  return {
+    selector: selector,
+    test: function (value) {
+      const numberRegex = /^\d+$/;
+      return numberRegex.test(value) ? undefined : message || "Vui lòng nhập số hợp lệ!";
     },
   };
 };

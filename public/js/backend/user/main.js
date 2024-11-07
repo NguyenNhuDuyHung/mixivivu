@@ -4,10 +4,10 @@ import { handleDropdown } from "../../components/dropdown.js";
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const roleSelect = $('input[id="role"]');
-const roleDropdownItemList = $$(".role-dropdown-item");
+const inputSelect = $('.select-input input');
+const dropdownItemList = $$(".dropdown-item");
 
-handleDropdown(roleSelect, roleDropdownItemList);
+handleDropdown(inputSelect, dropdownItemList);
 
 Validator({
   form: "#UserAddForm",

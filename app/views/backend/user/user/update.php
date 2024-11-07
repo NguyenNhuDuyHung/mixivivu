@@ -66,7 +66,7 @@
 
             <div class="group-input">
                 <div class="form-group">
-                    <div class="role-select-input">
+                    <div class="select-input">
                         <label for="role" class="input-group">
                             <input id="role" class="p-md" placeholder="Chọn vai trò" name="role" value="<?php
                             echo $this->oldInfo('role', $data) ??
@@ -77,11 +77,11 @@
                             </label>
                         </label>
 
-                        <div class="role-dropdown">
-                            <div class="role-dropdown-item" value="Quản trị viên">
+                        <div class="dropdown">
+                            <div class="dropdown-item" value="Quản trị viên">
                                 Quản trị viên
                             </div>
-                            <div class="role-dropdown-item" value="Cộng tác viên">
+                            <div class="dropdown-item" value="Cộng tác viên">
                                 Cộng tác viên
                             </div>
                         </div>

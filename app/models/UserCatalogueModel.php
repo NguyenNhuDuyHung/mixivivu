@@ -30,7 +30,7 @@ class UserCatalogueModel extends Model
 
     public function search($keyword, $offset, $recordsPerPage)
     {
-        $sql = "SELECT * FROM user_catalogues WHERE name LIKE '%" . $keyword . "%' OR description LIKE '%" . $keyword . "%' ORDER BY id ASC LIMIT " . $offset . ", " . $recordsPerPage . "";
+        $sql = "SELECT uc.id AS id, uc.name AS name, uc.description AS description, COUNT(u.id) AS user_count FROM user_catalogues uc LEFT JOIN users u ON uc.id = u.user_catalogue_id AND u.deleted_at IS NULL WHERE uc.name LIKE '%" . $keyword . "%' OR description LIKE '%" . $keyword . "%' ORDER BY id ASC LIMIT " . $offset . ", " . $recordsPerPage . "";
         $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         if (empty($data)) {
             return false;

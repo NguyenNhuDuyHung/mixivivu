@@ -175,7 +175,7 @@ class Model extends Database
                 $conditions[] = $field . " LIKE '%" . $keyword . "%'";
             }
             if (str_contains($sql, 'WHERE')) {
-                $sql .= " AND " . implode(" OR ", $conditions);
+                $sql .= " AND " . '(' . implode(" OR ", $conditions) . ')';
             } else {
                 $sql .= " WHERE " . implode(" OR ", $conditions);
             }
@@ -184,9 +184,21 @@ class Model extends Database
         return $sql;
     }
 
-    public function findById($table, int $id, array $fields = ['*'])
+    public function findById($table, int $id, array $fields = ['*'], array $joins = [], $primaryKey = 'id')
     {
-        $sql = "SELECT " . implode(', ', $fields) . " FROM " . $table . " WHERE id = " . $id;
+        $sql = "SELECT " . implode(', ', $fields) . " FROM " . $table;
+
+        if (!empty($joins)) {
+            foreach ($joins as $joinTable => $joinCondition) {
+                $sql .= " JOIN " . $joinTable . " ON " . $joinCondition;
+            }
+        }
+
+        if (!empty($joins)) {
+            $sql .= " WHERE " . substr($table, strpos($table, " ") + 1, 1) . "." . $primaryKey . " = " . $id;
+        } else {
+            $sql .= " WHERE id = " . $id;
+        }
         $result = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
         return $result;
     }

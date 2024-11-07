@@ -140,8 +140,9 @@ class UserModel extends Model
         FROM users u
         JOIN user_catalogues uc     
         ON u.user_catalogue_id = uc.id
-        WHERE u.name LIKE '%" . $keyword . "%'
-        OR u.email LIKE '%" . $keyword . "%'
+        WHERE u.deleted_at IS NULL 
+        AND (u.name LIKE '%" . $keyword . "%'
+        OR u.email LIKE '%" . $keyword . "%')
         ORDER BY u.id ASC
         LIMIT " . $offset . ", " . $recordsPerPage . "
         ";

@@ -24,7 +24,7 @@
             <label class="md">Dashboard</label>
         </a>
 
-        <a href="<?php echo _WEB_ROOT ?>/backend/user/catalogue" class="Dashboard-sidebar-menu-item active">
+        <a href="<?php echo _WEB_ROOT ?>/backend/user/catalogue" class="Dashboard-sidebar-menu-item">
             <label class="md">Quản lý nhóm người dùng</label>
         </a>
 
@@ -32,8 +32,12 @@
             <label class="md">Quản lý người dùng</label>
         </a>
 
-        <a class="Dashboard-sidebar-menu-item">
+        <a href="<?php echo _WEB_ROOT ?>/backend/ship" class="Dashboard-sidebar-menu-item">
             <label class="md">Quản lý du thuyền</label>
+        </a>
+
+        <a href="<?php echo _WEB_ROOT ?>/backend/feature" class="Dashboard-sidebar-menu-item active">
+            <label class="md">Quản lý đặc trưng</label>
         </a>
 
         <a class="Dashboard-sidebar-menu-item">

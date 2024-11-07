@@ -7,6 +7,55 @@ class UserCatalogue extends Controller
     {
         $this->model = new Model();
     }
+
+    public function search($currentPage = 1)
+    {
+        $recordsPerPage = 5;
+        $keyword = $_GET['keyword'] ?? '';
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($currentPage - 1) * $recordsPerPage;
+
+        $this->data['page_title'] = 'Danh sách nhóm người dùng';
+        $this->data['layout'] = 'backend/layout.css';
+        $this->data['styles'] = [
+            'components/toast.min.css',
+            'backend/user/style.css'
+        ];
+        $this->data['contents'] = [
+            'components/admin/sidebar',
+            'backend/user/catalogue/index'
+        ];
+        $this->data['scripts'] = [
+            'components/toast.min.js',
+            'components/toast.js',
+            'backend/user/user/main.js'
+        ];
+
+        if (!empty($_GET['keyword'])) {
+            $keyword = $_GET['keyword'];
+            $searchUser = $this->model('UserCatalogueModel')->search($keyword, $offset, $recordsPerPage);
+
+            if ($searchUser === false) {
+                $this->data['page_title'] = 'Not found';
+                $this->data['href-back'] = _WEB_ROOT . '/backend/user/catalogue';
+                $this->data['contents'] = [
+                    'components/admin/sidebar',
+                    'components/errors/not_found'
+                ];
+            } else {
+                $numberPage = $this->model->countPages($recordsPerPage, 'user_catalogues', $keyword, ['name']);
+                $this->data['user_catalogues'] = $searchUser;
+                $this->data['countAll'] = $this->model->countAllOrByKeyword('user_catalogues', $keyword, ['name']);
+                $this->data['numberPage'] = $numberPage;
+            }
+        }
+
+        $this->data['recordsPerPage'] = $recordsPerPage;
+        $this->data['currentPage'] = $currentPage;
+
+        $this->render('layouts/admin_layout', $this->data);
+    }
+
     public function index($currentPage = 1)
     {
         $recordsPerPage = 5;
@@ -27,29 +76,10 @@ class UserCatalogue extends Controller
             'backend/user/user/main.js'
         ];
 
-        if (isset($_GET['keyword'])) {
-            $keyword = $_GET['keyword'];
-            $searchUser = $this->model('UserCatalogueModel')->search($keyword, $offset, $recordsPerPage);
-
-            if ($searchUser === false) {
-                $this->data['page_title'] = 'Not found';
-                $this->data['href-back'] = _WEB_ROOT . '/backend/user/catalogue';
-                $this->data['contents'] = [
-                    'components/admin/sidebar',
-                    'components/errors/not_found'
-                ];
-            } else {
-                $numberPage = $this->model->countPages($recordsPerPage, 'user_catalogues', $keyword, ['name']);
-                $this->data['user_catalogues'] = $searchUser;
-                $this->data['countAllUser'] = $this->model->countAllOrByKeyword('user_catalogues', $keyword, ['name']);
-                $this->data['numberPage'] = $numberPage;
-            }
-        } else {
-            $numberPage = $this->model->countPages($recordsPerPage, 'user_catalogues');
-            $this->data['user_catalogues'] = $this->model('UserCatalogueModel')->pagination($offset, $recordsPerPage);
-            $this->data['countAllUser'] = $this->model->countAllOrByKeyword('user_catalogues');
-            $this->data['numberPage'] = $numberPage;
-        }
+        $numberPage = $this->model->countPages($recordsPerPage, 'user_catalogues');
+        $this->data['user_catalogues'] = $this->model('UserCatalogueModel')->pagination($offset, $recordsPerPage);
+        $this->data['countAll'] = $this->model->countAllOrByKeyword('user_catalogues');
+        $this->data['numberPage'] = $numberPage;
 
         $this->data['recordsPerPage'] = $recordsPerPage;
         $this->data['currentPage'] = $currentPage;

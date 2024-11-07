@@ -3,12 +3,12 @@
         <div class="page-title"><?= $data['page_title'] ?></div>
 
         <div class="flex page-action">
-            <a href="<?= _WEB_ROOT ?>/backend/user/catalogue/create">
-                <button type="button" class="btn btn-normal btn-primary">Tạo nhóm người dùng</button>
+            <a href="<?= _WEB_ROOT ?>/backend/ship/create">
+                <button type="button" class="btn btn-normal btn-primary">Thêm du thuyền</button>
             </a>
 
             <form class="page-action-search search-box-input-group" method="get"
-                action="<?= _WEB_ROOT ?>/backend/user/catalogue/search" id="UserCatalogueSearchForm">
+                action="<?= _WEB_ROOT ?>/backend/ship/search" id="ShipsearchForm">
                 <div class="search-box-search-input search-box-search-input">
                     <label for="" class="input-group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -18,7 +18,7 @@
                                 stroke-linejoin="round">
                             </path>
                         </svg>
-                        <input class="p-md" type="text" name="keyword" placeholder="Tìm kiếm nhóm người dùng"
+                        <input class="p-md" type="text" name="keyword" placeholder="Tìm kiếm email, tên người dùng"
                             value="" autocomplete="off">
                     </label>
                 </div>
@@ -31,9 +31,9 @@
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Tên</th>
-                                <th>Mô tả</th>
-                                <th>Số thành viên</th>
+                                <th>Tên du thuyền</th>
+                                <th>Địa chỉ</th>
+                                <th>Công ty điều hành</th>
                                 <th>Tùy chọn</th>
                             </tr>
                         </thead>
@@ -42,16 +42,16 @@
                             $count = 0;
                             $startNumber = ($currentPage - 1) * $data['recordsPerPage'] + 1;
                             ?>
-                            <?php foreach ($data['user_catalogues'] as $index => $user_catalogue):
+                            <?php foreach ($data['ships'] as $index => $ship):
                                 $count++ ?>
                                 <tr>
                                     <td><?= $startNumber + $index ?></td>
-                                    <td><?= $user_catalogue['name'] ?></td>
-                                    <td><?= $user_catalogue['description'] ?></td>
-                                    <td><?= $user_catalogue['user_count'] ?? 0 ?></td>
+                                    <td><?= $ship['title'] ?></td>
+                                    <td><?= $ship['address'] ?></td>
+                                    <td><?= $ship['admin'] ?></td>
                                     <td>
                                         <div style="display: flex; align-items: center; gap: 0 16px;">
-                                            <a href="<?= _WEB_ROOT ?>/backend/user/catalogue/update/<?= $user_catalogue['id'] ?>">
+                                            <a href="<?= _WEB_ROOT ?>/backend/ship/update/<?= $ship['id'] ?>">
                                                 <button class="btn btn-normal btn-outline btn-iconOnly">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                                         <path
@@ -59,7 +59,7 @@
                                                     </svg>
                                                 </button>
                                             </a>
-                                            <a href="<?= _WEB_ROOT ?>/backend/user/catalogue/delete/<?= $user_catalogue['id'] ?>">
+                                            <a href="<?= _WEB_ROOT ?>/backend/ship/delete/<?= $ship['id'] ?>">
                                                 <button class="btn btn-normal btn-outline btn-iconOnly">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                         <path
@@ -91,7 +91,8 @@
             </div>
 
             <ul class="Pagination-pagination-container">
-                <a href="<?= _WEB_ROOT ?>/backend/user/catalogue<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] - 1 : '/page/' . $data['currentPage'] - 1 ?>"
+                <a href="<?= _WEB_ROOT ?>/backend/ship<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] - 1 : '/page/' . $data['currentPage'] - 1;
+                                                        ?>"
                     class="Pagination-pagination-left-item Pagination-pagination-item <?= $data['currentPage'] == 1 ? 'Pagination-disabled' : '' ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M4.16602 10H15.8327M4.16602 10L9.16602 5M4.16602 10L9.16602 15"
@@ -102,13 +103,13 @@
                 </a>
 
                 <?php for ($i = 1; $i <= $data['numberPage']; $i++): ?>
-                    <a href="<?= _WEB_ROOT ?>/backend/user/catalogue<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $i : '/page/' . $i ?>"
+                    <a href="<?= _WEB_ROOT ?>/backend/ship<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $i : '/page/' . $i ?>"
                         class="Pagination-pagination-item <?= $data['currentPage'] == $i ? 'Pagination-selected' : '' ?>">
                         <?= $i ?>
                     </a>
                 <?php endfor; ?>
 
-                <a href="<?= _WEB_ROOT ?>/backend/user/catalogue<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] + 1 : '/page/' . $data['currentPage'] + 1 ?>"
+                <a href="<?= _WEB_ROOT ?>/backend/ship<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] + 1 : '/page/' . $data['currentPage'] + 1 ?>"
                     class="Pagination-pagination-right-item
                                         Pagination-pagination-item <?= $data['currentPage'] == $data['numberPage'] ? 'Pagination-disabled' : '' ?>">
                     <div class="sm">Tiếp</div>

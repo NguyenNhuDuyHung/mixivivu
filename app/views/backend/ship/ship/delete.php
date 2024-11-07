@@ -1,5 +1,5 @@
 <div class="action-page">
-    <form method="post" action="" id="UserDeleteForm">
+    <form method="post" action="" id="CruiseDeleteForm">
         <div class="modal">
             <h6><?= $data['page_title']; ?></h6>
             <div class="divider" style="border-bottom: 1px solid var(--gray-200, #eaecf0);"></div>
@@ -12,11 +12,11 @@
                 </div>
                 <div class="form-group">
                     <div class="">
-                        <label for="email" class="input-group">
-                            <input id="email" class="p-md" placeholder="Nhập họ và tên" name="email"
-                                value="<?= $data['user']['email']; ?>" autocomplete="off" disabled>
-                            <label for="email" class="sm input-required">
-                                Email
+                        <label for="title" class="input-group">
+                            <input id="title" class="p-md" placeholder="Nhập họ và tên" name="title"
+                                value="<?= $data['ships']['title']; ?>" autocomplete="off" disabled>
+                            <label for="title" class="sm input-required">
+                                Tiêu đề
                             </label>
                         </label>
                     </div>

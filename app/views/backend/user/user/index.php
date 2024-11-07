@@ -7,8 +7,8 @@
                 <button type="button" class="btn btn-normal btn-primary">Tạo người dùng</button>
             </a>
 
-            <form class="page-action-search search-box-input-group" method="get"
-                action="<?= _WEB_ROOT ?>/backend/user" id="UserSearchForm">
+            <form class="page-action-search search-box-input-group" method="get" action="<?= _WEB_ROOT ?>/backend/user/search"
+                id="UserSearchForm">
                 <div class="search-box-search-input search-box-search-input">
                     <label for="" class="input-group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -87,11 +87,12 @@
                     </label>
                 </div>
 
-                <p class="sm">của <?= $data['countAllUser'] ?></p>
+                <p class="sm">của <?= $data['countAll'] ?></p>
             </div>
 
             <ul class="Pagination-pagination-container">
-                <a href="<?= _WEB_ROOT ?>/backend/user/page/<?= $data['currentPage'] - 1 ?>"
+                <a href="<?= _WEB_ROOT ?>/backend/user<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] - 1 : '/page/' . $data['currentPage'] - 1;
+                                                        ?>"
                     class="Pagination-pagination-left-item Pagination-pagination-item <?= $data['currentPage'] == 1 ? 'Pagination-disabled' : '' ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M4.16602 10H15.8327M4.16602 10L9.16602 5M4.16602 10L9.16602 15"
@@ -102,13 +103,13 @@
                 </a>
 
                 <?php for ($i = 1; $i <= $data['numberPage']; $i++): ?>
-                    <a href="<?= _WEB_ROOT ?>/backend/user/page/<?= $i ?>"
+                    <a href="<?= _WEB_ROOT ?>/backend/user<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $i : '/page/' . $i ?>"
                         class="Pagination-pagination-item <?= $data['currentPage'] == $i ? 'Pagination-selected' : '' ?>">
                         <?= $i ?>
                     </a>
                 <?php endfor; ?>
 
-                <a href="<?= _WEB_ROOT ?>/backend/user/page/<?= $data['currentPage'] + 1 ?>"
+                <a href="<?= _WEB_ROOT ?>/backend/user<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] + 1 : '/page/' . $data['currentPage'] + 1 ?>"
                     class="Pagination-pagination-right-item
                                         Pagination-pagination-item <?= $data['currentPage'] == $data['numberPage'] ? 'Pagination-disabled' : '' ?>">
                     <div class="sm">Tiếp</div>
@@ -123,7 +124,7 @@
 </div>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         var errorMessage = "<?php echo isset($_SESSION['toast-error']) ? $_SESSION['toast-error'] : ''; ?>";
         var successMessage = "<?php echo isset($_SESSION['toast-success']) ? $_SESSION['toast-success'] : ''; ?>";
 
