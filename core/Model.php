@@ -194,14 +194,18 @@ class Model extends Database
             }
         }
 
-        if (!empty($joins)) {
-            $sql .= " WHERE " . substr($table, strpos($table, " ") + 1, 1) . "." . $primaryKey . " = " . $id;
+        $tableParts = explode(" ", $table);
+        if (count($tableParts) > 1) {
+            $alias = end(array: $tableParts); // Lấy phần sau dấu " "
+            $sql .= " WHERE " . $alias . "." . $primaryKey . " = " . $id;
         } else {
-            $sql .= " WHERE id = " . $id;
+            $sql .= " WHERE " . $primaryKey . " = " . $id;
         }
+
         $result = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+
 
     public function checkRecord($table, array $fields, array $values, $id = null, array $customErrorMessages = [])
     {

@@ -31,7 +31,7 @@ class UserCatalogue extends Controller
             'backend/user/user/main.js'
         ];
 
-        if (!empty($_GET['keyword'])) {
+        if (isset($_GET['keyword'])) {
             $keyword = $_GET['keyword'];
             $searchUser = $this->model('UserCatalogueModel')->search($keyword, $offset, $recordsPerPage);
 

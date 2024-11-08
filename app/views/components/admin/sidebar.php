@@ -32,12 +32,24 @@
             <label class="md">Quản lý người dùng</label>
         </a>
 
+        <a href="<?php echo _WEB_ROOT ?>/backend/ship/catalogue" class="Dashboard-sidebar-menu-item active">
+            <label class="md">Quản lý nhóm du thuyền</label>
+        </a>
+
         <a href="<?php echo _WEB_ROOT ?>/backend/ship" class="Dashboard-sidebar-menu-item">
             <label class="md">Quản lý du thuyền</label>
         </a>
 
-        <a href="<?php echo _WEB_ROOT ?>/backend/feature" class="Dashboard-sidebar-menu-item active">
+        <a href="<?php echo _WEB_ROOT ?>/backend/feature/catalogue" class="Dashboard-sidebar-menu-item">
+            <label class="md">Quản lý nhóm đặc trưng</label>
+        </a>
+
+        <a href="<?php echo _WEB_ROOT ?>/backend/feature" class="Dashboard-sidebar-menu-item">
             <label class="md">Quản lý đặc trưng</label>
+        </a>
+
+        <a href="<?php echo _WEB_ROOT ?>/backend/short-desc" class="Dashboard-sidebar-menu-item">
+            <label class="md">Quản lý short-desc</label>
         </a>
 
         <a class="Dashboard-sidebar-menu-item">
