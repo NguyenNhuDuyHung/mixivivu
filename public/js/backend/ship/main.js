@@ -1,6 +1,5 @@
 import { Validator } from "../../components/validator.js";
 import { handleDropdown } from "../../components/dropdown.js";
-
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 

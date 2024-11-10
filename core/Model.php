@@ -255,4 +255,33 @@ class Model extends Database
         $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
         return $total['total'];
     }
+
+
+    public function handleUploadFile($targetDir, $file, $option = false)
+    {
+        $uploadedFiles = [];
+        $files_array = array_combine($_FILES[$file]['tmp_name'], $_FILES[$file]['name']);
+        $flag = true;
+
+        foreach ($files_array as $tmp_name => $name) {
+            $target_file = $targetDir . basename($name);
+            $uploadedFiles[] = $target_file;
+            if ($option == false) {
+                if (move_uploaded_file($tmp_name, $target_file)) {
+                    // $this->setSession('toast-success', 'Upload file ' . $name . ' thành công!');
+                    $uploadedFiles[] = $target_file;
+                } else {
+                    $flag = false;
+                    // $this->setSession('toast-error', 'Có lỗi xảy ra khi upload file ' . $name . '!');
+                    return $flag;
+                }
+            }
+        }
+
+        if ($option) {
+            return implode(',', $uploadedFiles);
+        }
+
+        return $flag;
+    }
 }

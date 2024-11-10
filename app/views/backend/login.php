@@ -23,10 +23,10 @@
                 class="LoginAdmin-inputCustom <?php echo !empty($data['error']['email']) ? 'input-destructive' : ''; ?>">
                 <label for="email" class="input-group">
                     <input id="email" class="p-md" placeholder="type your email here ..." name="email" value="<?php
-                    if (!empty($data['error'])) {
-                        echo $this->oldInfo('email', $data);
-                    }
-                    ?>" autocomplete="off">
+                                                                                                                if (!empty($data['error'])) {
+                                                                                                                    echo $this->oldInfo('email', $data);
+                                                                                                                }
+                                                                                                                ?>" autocomplete="off">
                     <label for="email" class="sm">Email</label>
                 </label>
                 <p class="sm error">
@@ -43,10 +43,10 @@
                 <label for="password" class="input-group">
                     <input id="password" type="password" class="p-md" placeholder="type your password here ..."
                         name="password" value="<?php
-                        if (!empty($data['error'])) {
-                            echo $this->oldInfo('password', $data);
-                        }
-                        ?>" autocomplete="off">
+                                                if (!empty($data['error'])) {
+                                                    echo $this->oldInfo('password', $data);
+                                                }
+                                                ?>" autocomplete="off">
                     <label for="password" class="sm">Password</label>
                 </label>
                 <p class="sm error">
@@ -66,7 +66,7 @@
 </div>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         var message =
             "<?php echo isset($data['error']['login']['system']) ? $data['error']['login']['system'] : ''; ?>";
 

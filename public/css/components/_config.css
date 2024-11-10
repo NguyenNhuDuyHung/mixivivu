@@ -286,6 +286,10 @@ input:disabled {
   cursor: not-allowed;
 }
 
+input[type="file"] {
+  display: none;
+}
+
 /* Ẩn mũi tên cho Chrome, Safari, Edge */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {

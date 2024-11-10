@@ -82,7 +82,7 @@ class ShipModel extends Model
 
                     $insertCruise = $this->db->insert('cruise', $cruiseData);
                     if ($insertCruise) {
-                        $this->setSession('toast-success', 'Cập nhật người dùng thành công!');
+                        $this->setSession('toast-success', 'Cập nhật thành công!');
                         return true;
                     }
                 }
@@ -140,7 +140,7 @@ class ShipModel extends Model
 
                 $this->db->update('cruise', $cruiseData, 'id = ' . $id);
                 $this->db->update('products', $productData, 'id = ' . $id);
-                $this->setSession('toast-success', 'Cập nhật người dùng thành công!');
+                $this->setSession('toast-success', 'Cập nhật thành công!');
                 return true;
                 // }
             } catch (Exception $e) {
@@ -154,7 +154,7 @@ class ShipModel extends Model
     {
         try {
             $this->db->delete('products', 'id = ' . $id);
-            $this->setSession('toast-success', 'Xóa người dùng thành công!');
+            $this->setSession('toast-success', 'Xóa thành công!');
             return true;
         } catch (Exception $e) {
             $this->setSession('toast-error', 'Có lỗi xảy ra: ' . $e->getMessage());
