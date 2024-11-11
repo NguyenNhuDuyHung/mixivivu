@@ -96,7 +96,6 @@ class Shipcatalogue extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $name = $_POST['name'];
             $this->data['name'] = $name;
-
             $create = $this->model('ShipCatalogueModel')->createShipCatalogue();
 
             if ($create) {
@@ -130,6 +129,9 @@ class Shipcatalogue extends Controller
 
         $this->data['target_dir'] = 'public/img/ship-category/';
         $this->data['ship_catalogue'] = $this->model->findById('cruise_category', $id);
+        if (!empty($this->data['ship_catalogue']['image'])) {
+            $_FILES['image'][] = $this->data['ship_catalogue']['image'];
+        }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $update = $this->model('ShipCatalogueModel')->updateShipCatalogue($id);

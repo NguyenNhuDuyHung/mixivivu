@@ -32,8 +32,8 @@
                                 <div class="preview-image">
                                     <div class="temp-img">
                                         <?php
-                                        if ($data['ship_catalogue']['image'] != $data['target_dir']) {
-                                            echo '<img class="preview-upload-image" src="' . _WEB_ROOT . '/' . $data['ship_catalogue']['image'] . '" alt="">';
+                                        if ($data['ship_catalogue']['image']) {
+                                            echo '<img class="preview-upload-image" src="'  . $data['ship_catalogue']['image'] . '" alt="">';
                                         } else {
                                             echo '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
                                             <rect width="100" height="100" rx="5" fill="#E2E6EC" />

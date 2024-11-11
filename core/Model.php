@@ -256,17 +256,19 @@ class Model extends Database
         return $total['total'];
     }
 
-
     public function handleUploadFile($targetDir, $file, $option = false)
     {
         $uploadedFiles = [];
-        $files_array = array_combine($_FILES[$file]['tmp_name'], $_FILES[$file]['name']);
-        $flag = true;
+        if (!empty($_FILES[$file]['tmp_name']) && !empty($_FILES[$file]['name'])) {
+            $flag = true;
+            $files_array = array_combine($_FILES[$file]['tmp_name'], $_FILES[$file]['name']);
 
-        foreach ($files_array as $tmp_name => $name) {
-            $target_file = $targetDir . basename($name);
-            $uploadedFiles[] = $target_file;
-            if ($option == false) {
+            if (!is_dir($targetDir)) {
+                mkdir($targetDir, 0777, true);
+            }
+
+            foreach ($files_array as $tmp_name => $name) {
+                $target_file = $targetDir . basename($name);
                 if (move_uploaded_file($tmp_name, $target_file)) {
                     // $this->setSession('toast-success', 'Upload file ' . $name . ' thành công!');
                     $uploadedFiles[] = $target_file;
@@ -281,7 +283,5 @@ class Model extends Database
         if ($option) {
             return implode(',', $uploadedFiles);
         }
-
-        return $flag;
     }
 }

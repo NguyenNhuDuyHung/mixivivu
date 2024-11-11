@@ -2,32 +2,33 @@ function handleFileImageUpload(
   inputElement,
   previewImageElement,
   tempImage,
+  uploadBtn,
   flag = false
 ) {
-  const fileSelected = document.getElementById(inputElement).files;
-  const previewImage = document.querySelector(previewImageElement);
-  const tempImg = document.querySelector(tempImage);
-  const uploadImgBtn = document.querySelector(".upload-image-btn");
-  if (tempImg) {
-    previewImage.removeChild(tempImg);
+  const fileSelected = inputElement.files;
+ 
+  if (tempImage && previewImageElement.contains(tempImage)) {
+    previewImageElement.removeChild(tempImage);
   }
 
   if (fileSelected.length > 0) {
+    let tempImage = [];
     for (let i = 0; i < fileSelected.length; i++) {
-      var fileToLoad = fileSelected[i];
-      var fileReader = new FileReader();
+      const fileToLoad = fileSelected[i];
+      const fileReader = new FileReader();
       fileReader.onload = function (fileLoadedEvent) {
-        var srcData = fileLoadedEvent.target.result;
-        var newImage = document.createElement("img");
+        const srcData = fileLoadedEvent.target.result;
+        const newImage = document.createElement("img");
         newImage.classList.add("preview-upload-image");
         newImage.src = srcData;
         if (flag) {
-          previewImage.innerHTML = "";
-          previewImage.appendChild(newImage);
+          previewImageElement.innerHTML = "";
+          previewImageElement.appendChild(newImage);
         } else {
-          previewImage.innerHTML += newImage.outerHTML;
+          tempImage.push(newImage);
+          previewImageElement.appendChild(newImage);
         }
-        uploadImgBtn.style.display = "none";
+        uploadBtn.style.display = "none";
       };
       fileReader.readAsDataURL(fileToLoad);
     }

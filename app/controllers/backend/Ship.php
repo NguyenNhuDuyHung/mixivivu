@@ -166,6 +166,8 @@ class Ship extends Controller
             'p.schedule AS schedule',
             'p.active AS active',
             'p.slug AS slug',
+            'p.thumbnail AS thumbnail',
+            'p.images AS images',
             'pt.name AS name',
             'cr.year AS year',
             'cr.cabin AS cabin',
@@ -180,6 +182,21 @@ class Ship extends Controller
             'cruise_category ct' => 'cr.category_id = ct.id'
         ]);
 
+        if (!empty($this->data['ships']['images'])) {
+            $this->data['ships']['images'] = explode(',', $this->data['ships']['images']);
+            $temp = [];
+            foreach ($this->data['ships']['images'] as $key => $image) {
+                $temp[$key] = $image;
+            }
+            $_FILES['images'][] = implode(',', $temp);
+        }
+
+        if(!empty($this->data['ships']['thumbnail'])) {
+            $_FILES['thumbnail'][] = $this->data['ships']['thumbnail'];
+        }
+
+        $this->data['targetDir_thumbnail'] = 'public/img/thumbnail';
+        $this->data['targetDir_tour'] = 'public/img/tour';
         $this->data['cruise_categories'] = $this->model('ShipModel')->getCategoryCruise();
         $this->data['type_products'] = $this->model('ShipModel')->getTypeProduct();
 

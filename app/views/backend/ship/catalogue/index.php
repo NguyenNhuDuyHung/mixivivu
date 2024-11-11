@@ -46,7 +46,7 @@
                                 <tr>
                                     <td><?= $startNumber + $index ?></td>
                                     <td><?= $shipCatalogue['name'] ?></td>
-                                    <td><img src="<?= _WEB_ROOT . '/' . $shipCatalogue['image'] ?>" alt=""></td>
+                                    <td><img src="<?= $shipCatalogue['image'] ?>" alt=""></td>
                                     <td>
                                         <div style="display: flex; align-items: center; gap: 0 16px;">
                                             <a href="<?= _WEB_ROOT ?>/backend/ship/catalogue/update/<?= $shipCatalogue['id'] ?>">

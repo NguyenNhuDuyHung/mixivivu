@@ -7,7 +7,13 @@ const $$ = document.querySelectorAll.bind(document);
 const uploadImage = $("#upload-image");
 
 uploadImage.addEventListener("change", (e) => {
-  handleFileImageUpload("upload-image", ".preview-image", ".temp-img", true);
+  handleFileImageUpload(
+    e.target,
+    document.querySelector(".preview-image"),
+    document.querySelector(".temp-img"),
+    document.querySelector(".upload-image-btn"),
+    true
+  );
 });
 
 Validator({

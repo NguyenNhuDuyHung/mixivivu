@@ -25,7 +25,7 @@
                     <div class="">
                         <label for="upload-image" class="flex align-center">
                             <div class="flex align-center gap-16">
-                                <input type="file" id="upload-image" name="image[]">
+                                <input accept="image/*" type="file" id="upload-image" name="image[]">
                                 <label for="upload-image" class="sm input-required">Chọn ảnh</label>
                                 <label for="upload-image" class="upload-image-btn btn btn-primary btn-normal">
                                     Choose file
@@ -48,7 +48,7 @@
             </div>
 
             <div class="actions">
-                <button type="submit" class="btn btn-normal btn-primary">
+                <button id="uploadBtn" class="btn btn-normal btn-primary">
                     <div class="label md">Tạo</div>
                 </button>
             </div>

@@ -1,5 +1,6 @@
 import { Validator } from "../../components/validator.js";
 import { handleDropdown } from "../../components/dropdown.js";
+import { handleFileImageUpload } from "../../components/upload.js";
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -39,7 +40,7 @@ Validator({
 });
 
 Validator({
-  form: "#CruiseCreateForm",
+  form: "#CruiseUpdateForm",
   formGroupSelector: ".form-group",
   errorMessageSelector: ".error",
   errorDestructiveElement: "div",
@@ -61,4 +62,27 @@ Validator({
     Validator.isRequired("#active", "Vui lòng chọn trạng thái"),
     Validator.isRequired("#category_id", "Vui lòng chọn loại sản phẩm"),
   ],
+});
+
+const uploadThumbnail = $("#upload-thumbnail");
+const uploadImages = $("#upload-image");
+
+uploadThumbnail.addEventListener("change", (e) => {
+  handleFileImageUpload(
+    e.target, // Input element
+    document.querySelector(".preview-thumb"), // Preview container
+    document.querySelector(".temp-thumb"), // Temp image
+    document.querySelector(".upload-thumb-btn"), // Upload button
+    true // Flag to replace image
+  );
+});
+
+uploadImages.addEventListener("change", (e) => {
+  handleFileImageUpload(
+    e.target, // Input element
+    document.querySelector(".preview-image"), // Preview container
+    document.querySelector(".temp-img"), // Temp image
+    document.querySelector(".upload-images-btn"), // Upload button
+    false // Flag to append image
+  );
 });
