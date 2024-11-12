@@ -38,6 +38,7 @@ $routes['feature/create'] = 'feature/create';
 $routes['feature/update/(\d+)'] = 'feature/update/$1';
 $routes['feature/delete/(\d+)'] = 'feature/delete/$1';
 $routes['feature/page/(\d+)'] = 'feature/index/$1';
+$routes['ship/feature/(\d+)'] = 'ship/feature/$1';
 
 $routes['feature/catalogue'] = 'featurecatalogue/index';
 $routes['feature/catalogue/search'] = 'featurecatalogue/search';

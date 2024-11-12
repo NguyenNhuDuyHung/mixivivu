@@ -183,3 +183,11 @@
   object-position: center;
   border-radius: 20px;
 }
+
+.select-feature {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 24px;
+  gap: 24px;
+  justify-content: flex-start;
+}

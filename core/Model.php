@@ -187,7 +187,7 @@ class Model extends Database
         return $sql;
     }
 
-    public function findById($table, int $id, array $fields = ['*'], array $joins = [], $primaryKey = 'id')
+    public function findById($table, int $id, array $fields = ['*'], array $joins = [], $primaryKey = 'id', $option = false)
     {
         $sql = "SELECT " . implode(', ', $fields) . " FROM " . $table;
 
@@ -205,6 +205,10 @@ class Model extends Database
             $sql .= " WHERE " . $primaryKey . " = " . $id;
         }
 
+        if ($option) {
+            $result = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
         $result = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
         return $result;
     }

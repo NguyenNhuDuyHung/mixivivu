@@ -30,7 +30,7 @@ class Ship extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/user/main.js'
+            'backend/ship/main.js'
         ];
 
         if (isset($_GET['keyword'])) {
@@ -77,7 +77,7 @@ class Ship extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/user/main.js'
+            'backend/ship/main.js'
         ];
 
         $numberPage = $this->model->countPages($recordsPerPage, 'products');
@@ -191,7 +191,7 @@ class Ship extends Controller
             $_FILES['images'][] = implode(',', $temp);
         }
 
-        if(!empty($this->data['ships']['thumbnail'])) {
+        if (!empty($this->data['ships']['thumbnail'])) {
             $_FILES['thumbnail'][] = $this->data['ships']['thumbnail'];
         }
 
@@ -216,8 +216,8 @@ class Ship extends Controller
             $active = $_POST['active'];
             $categoryId =  $_POST['category_id'];
 
-            $updateUser = $this->model('ShipModel')->updateInfoCruise($id);
-            if ($updateUser) {
+            $update = $this->model('ShipModel')->updateInfoCruise($id);
+            if ($update) {
                 header('Location: ' . _WEB_ROOT . '/backend/ship');
             }
 
@@ -286,5 +286,42 @@ class Ship extends Controller
             'backend/ship/main.js',
         ];
         $this->render('layouts/admin_layout', data: $this->data);
+    }
+
+    public function feature($id)
+    {
+        if (empty($id)) {
+            header('Location: ' . _WEB_ROOT . '/backend/ship');
+        }
+
+        $this->data['features'] = $this->model('FeatureModel')->getAllFeatures();
+        $this->data['productFeatures'] = $this->model->findById('product_feature', $id, ['feature_id'], [], 'product_id', true);
+        $this->data['productFeatures'] = array_column($this->data['productFeatures'], 'feature_id');
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $update = $this->model('ShipModel')->updateProductFeature($id);
+            if ($update) {
+                header('Location: ' . _WEB_ROOT . '/backend/ship/update/' . $id);
+            }
+        }
+
+        $this->data['page_title'] = 'Cập nhật tính năng của du thuyền';
+        $this->data['layout'] = 'backend/layout.css';
+        $this->data['styles'] = [
+            'components/toast.min.css',
+            'backend/ship/style.css'
+        ];
+
+        $this->data['contents'] = [
+            'components/admin/sidebar',
+            'backend/ship/ship/feature'
+        ];
+        $this->data['scripts'] = [
+            'components/toast.min.js',
+            'components/toast.js',
+            'backend/ship/main.js'
+        ];
+
+        $this->render('layouts/admin_layout', $this->data);
     }
 }

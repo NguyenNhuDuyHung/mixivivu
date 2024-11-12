@@ -92,7 +92,6 @@ class Feature extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $text = $_POST['text'];
-            $icon = $_POST['icon'];
             $type = $_POST['type'];
             $createFeature = $this->model('FeatureModel')->create();
             if ($createFeature) {
@@ -100,7 +99,6 @@ class Feature extends Controller
             }
 
             $this->data['text'] = $text;
-            $this->data['icon'] = $icon;
             $this->data['type'] = $type;
         }
 
@@ -134,7 +132,6 @@ class Feature extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $text = $_POST['text'];
-            $icon = $_POST['icon'];
             $type = $_POST['type'];
 
             $updateFeature = $this->model('FeatureModel')->updateFeature($id);
@@ -143,7 +140,6 @@ class Feature extends Controller
             }
 
             $this->data['text'] = $text;
-            $this->data['icon'] = $icon;
             $this->data['type'] = $type;
         }
 

@@ -14,6 +14,12 @@ class FeatureModel extends Model
         return $data;
     }
 
+    public function getAllFeatures()
+    {
+        $sql = "SELECT * FROM features";
+        $features = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $features;
+    }
     public function getFeatureType()
     {
         $sql = "SELECT * FROM feature_types";
@@ -77,7 +83,7 @@ class FeatureModel extends Model
             } else {
                 $iconUrl = $this->uploadImageToCloudinary($iconTargerDir, 'icon', 'icon');
             }
-            
+
             $newData = [
                 'text' => $filterAll['text'],
                 'type' => $featureType,

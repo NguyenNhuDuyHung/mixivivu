@@ -207,4 +207,45 @@ class ShipModel extends Model
             return false;
         }
     }
+
+    public function updateProductFeature($productId)
+    {
+        if ($this->isPost()) {
+            if (empty($_POST['features'])) {
+                header('Location: ' . _WEB_ROOT . '/backend/ship/update/' . $productId);
+            }
+
+            $filterAll = $this->filter();
+            $features = $filterAll['features'];
+            $data = [
+                'feature_id' => $features,
+                'product_id' => $productId,
+            ];
+            try {
+                $clearSql = "DELETE FROM product_feature WHERE product_id = " . $productId;
+                $clear = $this->db->query($clearSql);
+
+                if (!$clear) {
+                    $this->setSession('toast-error', "Có lỗi! Vui lòng thử lại sau!");
+                    return false;
+                }
+
+                foreach ($data['feature_id'] as $key => $featureId) {
+                    $insertData = [
+                        'product_id' => $data['product_id'],
+                        'feature_id' => $featureId
+                    ];
+                    $update = $this->db->insert('product_feature', $insertData);
+                }
+
+                if ($update) {
+                    $this->setSession('toast-success', 'Cập nhật thành công!');
+                    return true;
+                }
+            } catch (Exception $e) {
+                $this->setSession('toast-error', 'Có lỗi xảy ra: ' . $e->getMessage());
+                return false;
+            }
+        }
+    }
 }

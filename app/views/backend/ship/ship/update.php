@@ -292,10 +292,14 @@
                 </div>
             </div>
 
-            <div class="actions">
+            <div class="flex align-center gap-16 actions">
                 <button type="submit" class="btn btn-normal btn-primary">
                     <div class="label md">Tạo</div>
                 </button>
+
+                <a href="<?= _WEB_ROOT ?>/backend/ship/feature/<?= $data['ships']['id'] ?>" class="btn btn-normal btn-outline">
+                    <div class="label md">Cập nhật tính năng</div>
+                </a>
             </div>
         </div>
     </form>
@@ -303,10 +307,17 @@
 
 <script>
     $(document).ready(function() {
-        var message = "<?php echo isset($_SESSION['toast-error']) ? $_SESSION['toast-error'] : ''; ?>";
-        if (message) {
-            toastr.error(message);
+        var errorMessage = "<?php echo isset($_SESSION['toast-error']) ? $_SESSION['toast-error'] : ''; ?>";
+        var successMessage = "<?php echo isset($_SESSION['toast-success']) ? $_SESSION['toast-success'] : ''; ?>";
+
+        if (errorMessage) {
+            toastr.error(errorMessage);
+        }
+
+        if (successMessage) {
+            toastr.success(successMessage);
         }
         <?php $this->model->removeSession('toast-error'); ?>
+        <?php $this->model->removeSession('toast-success'); ?>
     });
 </script>
