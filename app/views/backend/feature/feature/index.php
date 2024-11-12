@@ -47,7 +47,17 @@
                                 <tr>
                                     <td><?= $startNumber + $index ?></td>
                                     <td><?= $feature['text'] ?></td>
-                                    <td><?= $feature['icon'] ?></td>
+                                    <td>
+                                        <div>
+                                            <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;">
+                                                <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;">
+                                                    <img alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2724%27%20height=%2724%27/%3e" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
+                                                </span>
+                                                <img src="<?= $feature['icon'] ?>" decoding="async" data-nimg="intrinsic" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                                                    srcset="<?= $feature['icon'] ?> 1x, <?= $feature['icon'] ?> 2x">
+                                            </span>
+                                        </div>
+                                    </td>
                                     <td><?= $feature['type'] ?></td>
                                     <td>
                                         <div style="display: flex; align-items: center; gap: 0 16px;">

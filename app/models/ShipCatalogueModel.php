@@ -48,7 +48,8 @@ class ShipCatalogueModel extends Model
     public function createShipCatalogue()
     {
         if ($this->isPost()) {
-            $urls = $this->uploadImageToCloudinary();
+            $targetDir = 'public/img/ship-category/';
+            $urls = $this->uploadImageToCloudinary($targetDir, 'image', 'ship-category');
             $filterAll = $this->filter();
             $data = [
                 'name' => $filterAll['name'],
@@ -75,45 +76,51 @@ class ShipCatalogueModel extends Model
     public function updateShipCatalogue($id)
     {
         if ($this->isPost()) {
+            $targetDir = 'public/img/ship-category/';
+
             if (empty($_FILES['image']['name'][0])) {
-                header('Location: ' . _WEB_ROOT . '/backend/ship/catalogue');
+                $urls = $this->findById(
+                    'cruise_category',
+                    $id,
+                    ['image'],
+                );
             } else {
-                $urls = $this->uploadImageToCloudinary();
+                $urls = $this->uploadImageToCloudinary($targetDir, 'image', 'ship-category');
+            }
 
-                $filterAll = $this->filter();
-                $data = [
-                    'name' => $filterAll['name'],
-                    'image' => $urls,
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ];
+            $filterAll = $this->filter();
+            $data = [
+                'name' => $filterAll['name'],
+                'image' => $urls,
+                'updated_at' => date('Y-m-d H:i:s'),
+            ];
 
-                try {
-                    $check = $this->checkRecord(
-                        'cruise_category',
-                        ['name'],
-                        [$data['name']],
-                        $id,
-                        [
-                            'name' => 'Danh mục đã tồn tại'
-                        ]
-                    );
+            try {
+                $check = $this->checkRecord(
+                    'cruise_category',
+                    ['name'],
+                    [$data['name']],
+                    $id,
+                    [
+                        'name' => 'Danh mục đã tồn tại'
+                    ]
+                );
 
-                    if ($check == false) {
-                        return false;
-                    }
-
-                    $update =  $this->db->update('cruise_category', $data, 'id = ' . $id);
-                    if ($update) {
-                        $this->setSession('toast-success', 'Cập nhật thành công!');
-                        return true;
-                    } else {
-                        $this->setSession('toast-error', 'Có lỗi xảy ra!');
-                        return false;
-                    }
-                } catch (Exception $e) {
-                    $this->setSession('toast-error', 'Có lỗi xảy ra: ' . $e->getMessage());
+                if ($check == false) {
                     return false;
                 }
+
+                $update =  $this->db->update('cruise_category', $data, 'id = ' . $id);
+                if ($update) {
+                    $this->setSession('toast-success', 'Cập nhật thành công!');
+                    return true;
+                } else {
+                    $this->setSession('toast-error', 'Có lỗi xảy ra!');
+                    return false;
+                }
+            } catch (Exception $e) {
+                $this->setSession('toast-error', 'Có lỗi xảy ra: ' . $e->getMessage());
+                return false;
             }
         }
     }
@@ -128,64 +135,5 @@ class ShipCatalogueModel extends Model
             $this->setSession('toast-error', 'Có lỗi xảy ra: ' . $e->getMessage());
             return false;
         }
-    }
-
-    private function uploadImageToCloudinary()
-    {
-        $client = new Client();
-        $promises = [];
-
-        $makeFile = $this->handleUploadFile('public/img/ship-category/', 'image', false);
-
-        foreach ($_FILES['image']['name'] as $key => $name) {
-            $filepath = 'public/img/ship-category/' . $_FILES['image']['name'][$key];
-
-            $promises[] = $client->postAsync('https://api.cloudinary.com/v1_1/' . _CLOUDINARY_CLOUD_NAME . '/upload', [
-                'multipart' => [
-                    [
-                        'name' => 'public_id',
-                        'contents' => $name
-                    ],
-                    [
-                        'name' => 'file',
-                        'contents' => fopen($filepath, 'r'),
-                    ],
-                    [
-                        'name'     => 'upload_preset',
-                        'contents' => 'mixivivu',
-                    ],
-                    [
-                        'name'     => 'folder',
-                        'contents' => 'mixivivu',
-                    ],
-                    [
-                        'name' => 'folder',
-                        'contents' => 'ship-category',
-                    ],
-                ],
-            ]);
-        }
-        $responses = Promise\Utils::settle($promises)->wait();
-
-        $urls = [];
-        foreach ($responses as $response) {
-            if ($response['state'] === 'fulfilled') {
-                // Thành công, lấy URL
-                $result = $response['value']->getBody();
-                $json = json_decode($result, true);
-
-                if (isset($json['secure_url'])) {
-                    $fileUrl = $json['secure_url'];
-                    $urls[] = $fileUrl;
-                }
-            } else {
-                // Thất bại, xử lý lỗi
-                $error = $response['reason'];
-                echo 'Error: ' . $error;
-            }
-        }
-
-        $urls = implode(",", $urls);
-        return $urls;
     }
 }

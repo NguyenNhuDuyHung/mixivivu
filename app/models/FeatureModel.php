@@ -25,11 +25,13 @@ class FeatureModel extends Model
     {
         if ($this->isPost()) {
             $filterAll = $this->filter();
+            $iconTargerDir = 'public/img/feature/';
+            $iconUrl = $this->uploadImageToCloudinary($iconTargerDir, 'icon', 'icon');
 
             $featureType = $filterAll['type'] == 'room' ? 1 : 2;
             $data = [
                 'text' => $filterAll['text'],
-                'icon' => $filterAll['icon'],
+                'icon' => $iconUrl,
                 'type' => $featureType,
                 'created_at' => date('Y-m-d H:i:s'),
             ];
@@ -69,13 +71,19 @@ class FeatureModel extends Model
             $filterAll = $this->filter();
             $featureType = $filterAll['type'] == 'room' ? 1 : 2;
 
+            $iconTargerDir = 'public/img/feature/';
+            if (empty($_FILES['icon']['name'][0])) {
+                $iconUrl = $this->findById('features', $id, ['icon']);
+            } else {
+                $iconUrl = $this->uploadImageToCloudinary($iconTargerDir, 'icon', 'icon');
+            }
+            
             $newData = [
                 'text' => $filterAll['text'],
                 'type' => $featureType,
-                'icon' => $filterAll['icon'],
+                'icon' => $iconUrl,
                 'updated_at' => date('Y-m-d H:i:s'),
             ];
-
 
             try {
                 $checkFeature = $this->checkRecord(
@@ -105,6 +113,7 @@ class FeatureModel extends Model
     public function deleteFeature($id)
     {
         try {
+            $this->db->delete('product_feature', 'feature_id = ' . $id);
             $this->db->delete('features', 'id = ' . $id);
             $this->setSession('toast-success', 'Xóa thành công!');
             return true;

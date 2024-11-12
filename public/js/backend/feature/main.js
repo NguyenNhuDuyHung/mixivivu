@@ -1,5 +1,6 @@
 import { Validator } from "../../components/validator.js";
 import { handleDropdown } from "../../components/dropdown.js";
+import { handleFileImageUpload } from "../../components/upload.js";
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -22,7 +23,6 @@ Validator({
   rules: [
     Validator.isRequired("#text"),
     Validator.isRequired("#type", "Vui lòng chọn trường này"),
-    Validator.isRequired("#icon"),
   ],
 });
 
@@ -34,7 +34,6 @@ Validator({
   rules: [
     Validator.isRequired("#text"),
     Validator.isRequired("#type", "Vui lòng chọn trường này"),
-    Validator.isRequired("#icon"),
   ],
 });
 
@@ -56,4 +55,17 @@ Validator({
   rules: [
     Validator.isRequired("#name"),
   ],
+});
+
+
+const uploadIcon = $("#upload-icon");
+
+uploadIcon.addEventListener("change", (e) => {
+  handleFileImageUpload(
+    e.target, // Input element
+    document.querySelector(".preview-icon"), // Preview container
+    document.querySelector(".temp-icon"), // Temp image
+    document.querySelector(".upload-icon-btn"), // Upload button
+    true // Flag to replace image
+  );
 });

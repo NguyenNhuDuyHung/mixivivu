@@ -32,7 +32,7 @@
             <label class="md">Quản lý người dùng</label>
         </a>
 
-        <a href="<?php echo _WEB_ROOT ?>/backend/ship/catalogue" class="Dashboard-sidebar-menu-item active">
+        <a href="<?php echo _WEB_ROOT ?>/backend/ship/catalogue" class="Dashboard-sidebar-menu-item">
             <label class="md">Quản lý nhóm du thuyền</label>
         </a>
 

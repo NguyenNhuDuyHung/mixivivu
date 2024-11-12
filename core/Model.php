@@ -1,5 +1,8 @@
 <?php
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Promise;
+
 class Model extends Database
 {
     protected $db;
@@ -206,7 +209,6 @@ class Model extends Database
         return $result;
     }
 
-
     public function checkRecord($table, array $fields, array $values, $id = null, array $customErrorMessages = [])
     {
         $conditions = [];
@@ -283,5 +285,69 @@ class Model extends Database
         if ($option) {
             return implode(',', $uploadedFiles);
         }
+    }
+
+    public function uploadImageToCloudinary($targetDir, $file, $folder)
+    {
+        $client = new Client();
+        $promises = [];
+
+        $makeFile = $this->handleUploadFile($targetDir, $file, false);
+
+        foreach ($_FILES[$file]['name'] as $key => $name) {
+            $filepath = $targetDir . $_FILES[$file]['name'][$key];
+
+            $multipart = [
+                'multipart' => array_merge(
+                    [
+                        [
+                            'name' => 'public_id',
+                            'contents' => $name
+                        ],
+                        [
+                            'name' => 'file',
+                            'contents' => fopen($filepath, 'r'),
+                        ],
+                        [
+                            'name'     => 'upload_preset',
+                            'contents' => 'mixivivu',
+                        ],
+                        [
+                            'name'     => 'folder',
+                            'contents' => 'mixivivu',
+                        ],
+                        [
+                            'name'     => 'folder',
+                            'contents' => $folder,
+                        ]
+                    ],
+                )
+            ];
+
+            $promises[] = $client->postAsync('https://api.cloudinary.com/v1_1/' . _CLOUDINARY_CLOUD_NAME . '/upload', $multipart);
+        }
+
+        $responses = Promise\Utils::settle($promises)->wait();
+
+        $urls = [];
+        foreach ($responses as $response) {
+            if ($response['state'] === 'fulfilled') {
+                // Thành công, lấy URL
+                $result = $response['value']->getBody();
+                $json = json_decode($result, true);
+
+                if (isset($json['secure_url'])) {
+                    $fileUrl = $json['secure_url'];
+                    $urls[] = $fileUrl;
+                }
+            } else {
+                // Thất bại, xử lý lỗi
+                $error = $response['reason'];
+                echo 'Error: ' . $error;
+            }
+        }
+
+        $urls = implode(",", $urls);
+        return $urls;
     }
 }

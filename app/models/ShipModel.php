@@ -1,8 +1,4 @@
 <?php
-
-use GuzzleHttp\Client;
-use GuzzleHttp\Promise;
-
 class ShipModel extends Model
 {
     public function __construct()
@@ -47,76 +43,12 @@ class ShipModel extends Model
         return $product_types;
     }
 
-    private function uploadImageToCloudinary($targetDir, $file, $folder)
-    {
-        $client = new Client();
-        $promises = [];
-
-        $makeFile = $this->handleUploadFile($targetDir, $file, false);
-
-        foreach ($_FILES[$file]['name'] as $key => $name) {
-            $filepath = $targetDir . $_FILES[$file]['name'][$key];
-
-            $promises[] = $client->postAsync('https://api.cloudinary.com/v1_1/' . _CLOUDINARY_CLOUD_NAME . '/upload', [
-                'multipart' => array_merge(
-                    [
-                        [
-                            'name' => 'public_id',
-                            'contents' => $name
-                        ],
-                        [
-                            'name' => 'file',
-                            'contents' => fopen($filepath, 'r'),
-                        ],
-                        [
-                            'name'     => 'upload_preset',
-                            'contents' => 'mixivivu',
-                        ],
-                        [
-                            'name'     => 'folder',
-                            'contents' => 'mixivivu',
-                        ],
-                        [
-                            'name'     => 'folder',
-                            'contents' => $folder,
-                        ],
-                    ],
-                )
-            ]);
-        }
-        $responses = Promise\Utils::settle($promises)->wait();
-
-        $urls = [];
-        foreach ($responses as $response) {
-            if ($response['state'] === 'fulfilled') {
-                // Thành công, lấy URL
-                $result = $response['value']->getBody();
-                $json = json_decode($result, true);
-
-                if (isset($json['secure_url'])) {
-                    $fileUrl = $json['secure_url'];
-                    $urls[] = $fileUrl;
-                }
-            } else {
-                // Thất bại, xử lý lỗi
-                $error = $response['reason'];
-                echo 'Error: ' . $error;
-            }
-        }
-
-        $urls = implode(",", $urls);
-        return $urls;
-    }
-
     public function createInfoShip()
     {
-
         if ($this->isPost()) {
             $filterAll = $this->filter();
             $thumbTargetDir = 'public/img/thumbnail/' . $filterAll['slug'] . '/';
             $imageTargetDir = 'public/img/tour/' . $filterAll['slug'] . '/';
-            $makeThumbFile = $this->handleUploadFile($thumbTargetDir, 'thumbnail', false);
-            $makeTourFile = $this->handleUploadFile($imageTargetDir, 'images', false);
 
             $thumbUrl = $this->uploadImageToCloudinary($thumbTargetDir, 'thumbnail', 'thumbnail');
             $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images',  'tour');
@@ -191,19 +123,15 @@ class ShipModel extends Model
             $imageTargetDir = 'public/img/tour/' . $filterAll['slug'] . '/';
 
             if (empty($_FILES['thumbnail']['name'][0])) {
-                $makeThumbFile = null;
                 $thumbUrl = $imagesCruise['thumbnail'];
             } else {
-                $makeThumbFile = $this->handleUploadFile($thumbTargetDir, 'thumbnail', false);
                 $thumbUrl = $this->uploadImageToCloudinary($thumbTargetDir, 'thumbnail', 'thumbnail');
             }
 
             if (empty($_FILES['images']['name'][0])) {
-                $makeTourFile = null;
                 $imageUrls = $imagesCruise['images'];
             } else {
-                $makeTourFile = $this->handleUploadFile($imageTargetDir, 'images', false);
-                $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images', 'tour');
+                $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images', $filterAll['slug']);
                 if (!empty($imagesCruise['images'])) {
                     $imageUrls = $imageUrls . ',' . $imagesCruise['images'];
                 }
@@ -226,6 +154,7 @@ class ShipModel extends Model
             ];
 
             $categoryId = ($filterAll['category_id'] == "Vịnh Hạ Long") ? 1 : (($filterAll['category_id'] == "Vịnh Lan Hạ") ? 2 : 3);
+
             $cruiseData = [
                 'shell' => $filterAll['shell'],
                 'year' => $filterAll['year'],
@@ -251,11 +180,15 @@ class ShipModel extends Model
                     return false;
                 }
 
-                $this->db->query("UPDATE products SET thumbnail = NULL, images = NULL WHERE id = $id");
-                $this->db->update('cruise', $cruiseData, 'id = ' . $id);
-                $this->db->update('products', $productData, 'id = ' . $id);
-                $this->setSession('toast-success', 'Cập nhật thành công!');
-                return true;
+                $clear = $this->db->query("UPDATE products SET thumbnail = NULL, images = NULL WHERE id = $id");
+                if ($clear) {
+                    $this->db->update('cruise', $cruiseData, 'id = ' . $id);
+                    $this->db->update('products', $productData, 'id = ' . $id);
+                    $this->setSession('toast-success', 'Cập nhật thành công!');
+                    return true;
+                } else {
+                    return false;
+                }
             } catch (Exception $e) {
                 $this->setSession('toast-error', 'Có lỗi xảy ra: ' . $e->getMessage());
                 return false;

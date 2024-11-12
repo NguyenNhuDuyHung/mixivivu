@@ -236,7 +236,6 @@
                                     Choose file
                                 </label>
                                 <div class="preview-thumb">
-
                                     <?php
                                     if (!empty($data['ships']['thumbnail'])) {
                                         echo '<img class="preview-upload-image" src="'  . $data['ships']['thumbnail'] . '" alt="">';
