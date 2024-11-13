@@ -18,7 +18,7 @@
                                 stroke-linejoin="round">
                             </path>
                         </svg>
-                        <input class="p-md" type="text" name="keyword" placeholder="Tìm kiếm email, tên người dùng"
+                        <input class="p-md" type="text" name="keyword" placeholder="Tìm kiếm"
                             value="" autocomplete="off">
                     </label>
                 </div>
@@ -31,8 +31,8 @@
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Description</th>
                                 <th>Product</th>
+                                <th>Số mô tả</th>
                                 <th>Tùy chọn</th>
                             </tr>
                         </thead>
@@ -41,12 +41,13 @@
                             $count = 0;
                             $startNumber = ($currentPage - 1) * $data['recordsPerPage'] + 1;
                             ?>
+
                             <?php foreach ($data['short_descs'] as $index => $shortDesc):
                                 $count++ ?>
                                 <tr>
                                     <td><?= $startNumber + $index ?></td>
-                                    <td><?= $shortDesc['description'] ?></td>
                                     <td><?= $shortDesc['title'] ?></td>
+                                    <td><?= $shortDesc['countDesc'] ?></td>
                                     <td>
                                         <div style="display: flex; align-items: center; gap: 0 16px;">
                                             <a href="<?= _WEB_ROOT ?>/backend/short-desc/update/<?= $shortDesc['id'] ?>">
@@ -90,7 +91,7 @@
 
             <ul class="Pagination-pagination-container">
                 <a href="<?= _WEB_ROOT ?>/backend/short-desc<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] - 1 : '/page/' . $data['currentPage'] - 1;
-                                                        ?>"
+                                                            ?>"
                     class="Pagination-pagination-left-item Pagination-pagination-item <?= $data['currentPage'] == 1 ? 'Pagination-disabled' : '' ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M4.16602 10H15.8327M4.16602 10L9.16602 5M4.16602 10L9.16602 15"

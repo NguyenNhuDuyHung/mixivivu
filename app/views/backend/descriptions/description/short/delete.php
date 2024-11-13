@@ -4,23 +4,11 @@
             <h6><?= $data['page_title']; ?></h6>
             <div class="divider" style="border-bottom: 1px solid var(--gray-200, #eaecf0);"></div>
 
-            <div class="group-input-3">
+            <div class="group-input">
                 <div class="warning-title">
                     <div style="color: red;" class="subheading lg">Lưu ý: Một khi xóa sẽ không thể khôi phục, hãy cân
                         nhắc
                         trước khi xóa!</div>
-                </div>
-                <div class="form-group">
-                    <div class="">
-                        <label for="description" class="input-group">
-                            <input id="description" class="p-md" name="description"
-                                value="<?= $data['short_desc']['description']; ?>" autocomplete="off" disabled>
-                            <label for="description" class="sm input-required">
-                                Description
-                            </label>
-                        </label>
-                    </div>
-                    <div class="error"></div>
                 </div>
 
                 <div class="form-group">

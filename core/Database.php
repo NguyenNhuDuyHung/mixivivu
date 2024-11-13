@@ -87,40 +87,4 @@ class Database
     {
         return $this->__conn->lastInsertId();
     }
-
-
-    public function insert1($table, $data)
-    {
-        if (!empty($data)) {
-            if (is_array($data['feature_id'])) {
-                // Chèn từng cặp product_id và feature_id
-                foreach ($data['feature_id'] as $featureId) {
-                    // Chuẩn bị dữ liệu cho mỗi feature_id
-                    $insertData = [
-                        'product_id' => $data['product_id'],
-                        'feature_id' => $featureId
-                    ];
-
-                    // Tạo chuỗi câu lệnh SQL để chèn dữ liệu vào bảng trung gian
-                    $fieldStr = 'product_id, feature_id';
-                    $valueStr = "'" . $insertData['product_id'] . "', '" . $insertData['feature_id'] . "'";
-
-                    $sql = 'INSERT INTO ' . $table . ' (' . $fieldStr . ') VALUES (' . $valueStr . ')';
-                    echo $sql;
-                    die();
-                    // Thực thi câu lệnh SQL
-                    $status = $this->query($sql);
-
-                    // Nếu có lỗi trong quá trình chèn, trả về false
-                    if (!$status) {
-                        return false;
-                    }
-                }
-
-                // Trả về true nếu tất cả các bản ghi đã được chèn thành công
-                return true;
-            }
-        }
-        return false;
-    }
 }

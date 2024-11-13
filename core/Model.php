@@ -255,9 +255,30 @@ class Model extends Database
         return ceil($total['total'] / $recordsPerPage);
     }
 
+    public function countPagesDistinct($recordsPerPage, $table, $keyword = null, array $fieldsDistinct = [], array $fields = [])
+    {
+        $sql = "SELECT COUNT(DISTINCT " . implode(', ', $fieldsDistinct) . ") AS total FROM " . $table;
+
+        if($keyword) {
+            $sql .= " WHERE " . implode(' OR ', $fields) . " LIKE '%" . $keyword . "%'";
+        }
+        $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return ceil($total['total'] / $recordsPerPage);
+    }
+
     public function countAllOrByKeyword($table, $keyword = null, array $fields = [])
     {
         $sql = $this->handleSqlForCount($table, $keyword, $fields);
+        $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $total['total'];
+    }
+
+    public function countAllDistinct($table, $keyword = null, array $fields = [])
+    {
+        $sql = "SELECT COUNT(DISTINCT " . implode(', ', $fields) . ") AS total FROM " . $table;
+        if ($keyword) {
+            $sql .= " WHERE " . implode(' OR ', $fields) . " LIKE '%" . $keyword . "%'";
+        }
         $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
         return $total['total'];
     }

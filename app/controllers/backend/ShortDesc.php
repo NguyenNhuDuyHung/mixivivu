@@ -44,9 +44,9 @@ class ShortDesc extends Controller
                     'components/errors/not_found'
                 ];
             } else {
-                $numberPage = $this->model->countPages($recordsPerPage, 'short_desc', $keyword, ['description']);
+                $numberPage = $this->model('DescriptionModel')->countPageShortDescSearch($keyword, $recordsPerPage);
                 $this->data['short_descs'] = $search;
-                $this->data['countAll'] = $this->model->countAllOrByKeyword('short_desc', $keyword, ['description']);
+                $this->data['countAll'] = $this->model('DescriptionModel')->countAllShortDescSearch($keyword);
                 $this->data['numberPage'] = $numberPage;
             }
         }
@@ -78,9 +78,9 @@ class ShortDesc extends Controller
             'backend/descriptions/main.js'
         ];
 
-        $numberPage = $this->model->countPages($recordsPerPage, 'short_desc');
+        $numberPage = $this->model->countPagesDistinct($recordsPerPage, 'short_desc', null, ['product_id']);
         $this->data['short_descs'] = $this->model('DescriptionModel')->paginationShortDesc($offset, $recordsPerPage);
-        $this->data['countAll'] = $this->model->countAllOrByKeyword('short_desc');
+        $this->data['countAll'] = $this->model->countAllDistinct('short_desc', null, ['product_id']);
         $this->data['numberPage'] = $numberPage;
 
         $this->data['recordsPerPage'] = $recordsPerPage;
@@ -95,15 +95,10 @@ class ShortDesc extends Controller
         $this->data['products'] = $products;
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $description = $_POST['description'];
-            $product_id = $_POST['product_id'];
             $create = $this->model('DescriptionModel')->createShortDesc();
             if ($create) {
                 header('Location: ' . _WEB_ROOT . '/backend/short-desc');
             }
-
-            $this->data['description'] = $description;
-            $this->data['product_id'] = $product_id;
         }
 
         $this->data['page_title'] = 'Tạo mô tả ngắn';
@@ -131,7 +126,10 @@ class ShortDesc extends Controller
         }
 
         $products = $this->model('DescriptionModel')->getProduct();
+        $descriptions = array_column($this->model('DescriptionModel')->findById('short_desc', $id, ['description'], [], 'product_id', true), 'description');
+        $this->data['descriptions'] = $descriptions;
         $this->data['products'] = $products;
+        $this->data['id'] = $id;
         $this->data['short_desc'] = $this->model->findById('short_desc', $id);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -159,6 +157,8 @@ class ShortDesc extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
+            'backend/descriptions/update.js',
+            'backend/descriptions/validate.js',
             'backend/descriptions/main.js',
         ];
         $this->render('layouts/admin_layout', data: $this->data);
@@ -170,9 +170,7 @@ class ShortDesc extends Controller
             header('Location: ' . _WEB_ROOT . '/backend/short-desc');
         }
 
-        $this->data['short_desc'] = $this->model->findById('short_desc', $id);
-        $this->data['product'] = $this->model->findById('short_desc sd', $id, ['p.title AS title'], ['products p' => 'sd.product_id = p.id']);
-
+        $this->data['product'] = $this->model->findById('products', $id, ['title'],);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $delete = $this->model('DescriptionModel')->deleteShortDesc($id);
             if ($delete) {
@@ -180,7 +178,9 @@ class ShortDesc extends Controller
             }
         }
 
-        $this->data['page_title'] = 'Xóa mô tả ngắn';
+
+
+        $this->data['page_title'] = 'Xóa tất cả mô tả ngắn của sản phẩm ';
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',

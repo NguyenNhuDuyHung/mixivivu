@@ -18,7 +18,7 @@
                                 stroke-linejoin="round">
                             </path>
                         </svg>
-                        <input class="p-md" type="text" name="keyword" placeholder="Tìm kiếm email, tên người dùng"
+                        <input class="p-md" type="text" name="keyword" placeholder="Tìm kiếm"
                             value="" autocomplete="off">
                     </label>
                 </div>
