@@ -61,6 +61,11 @@ button {
   white-space: nowrap;
 }
 
+.btn-normal > svg {
+  width: 20px;
+  height: 20px;
+}
+
 .btn-normal > img,
 .btn-sm > img {
   width: 20px;
@@ -82,4 +87,12 @@ button {
   border: 1px solid var(--primary-base);
   color: var(--primary-dark);
   fill: var(--primary-dark);
+}
+
+.btn-color > svg > path {
+  stroke: var(--primary-dark);
+}
+
+.btn-w-full {
+  width: 100%;
 }
