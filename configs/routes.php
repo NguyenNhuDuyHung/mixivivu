@@ -54,6 +54,20 @@ $routes['short-desc/update/(\d+)'] = 'shortdesc/update/$1';
 $routes['short-desc/delete/(\d+)'] = 'shortdesc/delete/$1';
 $routes['short-desc/page/(\d+)'] = 'shortdesc/index/$1';
 
+$routes['long-desc'] = 'longdesc/index';
+$routes['long-desc/search'] = 'longdesc/search';
+$routes['long-desc/create'] = 'longdesc/create';
+$routes['long-desc/update/(\d+)'] = 'longdesc/update/$1';
+$routes['long-desc/delete/(\d+)'] = 'longdesc/delete/$1';
+$routes['long-desc/page/(\d+)'] = 'longdesc/index/$1';
+
+$routes['long-desc/catalogue'] = 'longdesccatalogue/index';
+$routes['long-desc/catalogue/search'] = 'longdesccatalogue/search';
+$routes['long-desc/catalogue/create'] = 'longdesccatalogue/create';
+$routes['long-desc/catalogue/update/(\d+)'] = 'longdesccatalogue/update/$1';
+$routes['long-desc/catalogue/delete/(\d+)'] = 'longdesccatalogue/delete/$1';
+$routes['long-desc/catalogue/page/(\d+)'] = 'longdesccatalogue/index/$1';
+
 $routes['trang-chu'] = 'home';
 $routes['tin-tuc'] = 'news/index';
 $routes['tin-tuc/.+-(\d+).html'] = 'news/category/$1';
