@@ -178,8 +178,6 @@ class ShortDesc extends Controller
             }
         }
 
-
-
         $this->data['page_title'] = 'Xóa tất cả mô tả ngắn của sản phẩm ';
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [

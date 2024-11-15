@@ -217,7 +217,7 @@ Validator.isYear = function (selector, message) {
     selector: selector,
     test: function (value) {
       const yearRegex = /^\d{4}$/;
-      if(value < 2011) {
+      if(value < 2010) {
         return message || "Du thuyền đã hạ thủy quá lâu, không đủ điều kiện yêu cầu";
       }
       return yearRegex.test(value) ? undefined : message || "Năm không hợp lệ";

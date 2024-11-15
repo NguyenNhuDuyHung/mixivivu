@@ -48,6 +48,14 @@
             <label class="md">Quản lý đặc trưng</label>
         </a>
 
+        <a href="<?php echo _WEB_ROOT ?>/backend/long-desc/catalogue" class="Dashboard-sidebar-menu-item">
+            <label class="md">Quản lý nhóm long-desc</label>
+        </a>
+
+        <a href="<?php echo _WEB_ROOT ?>/backend/long-desc" class="Dashboard-sidebar-menu-item">
+            <label class="md">Quản lý long-desc</label>
+        </a>
+
         <a href="<?php echo _WEB_ROOT ?>/backend/short-desc" class="Dashboard-sidebar-menu-item">
             <label class="md">Quản lý short-desc</label>
         </a>

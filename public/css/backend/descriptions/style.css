@@ -159,3 +159,11 @@
 .select-input:focus-within .dropdown {
   display: flex;
 }
+
+.preview-image {
+  width: 1024px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}

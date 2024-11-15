@@ -259,7 +259,7 @@ class Model extends Database
     {
         $sql = "SELECT COUNT(DISTINCT " . implode(', ', $fieldsDistinct) . ") AS total FROM " . $table;
 
-        if($keyword) {
+        if ($keyword) {
             $sql .= " WHERE " . implode(' OR ', $fields) . " LIKE '%" . $keyword . "%'";
         }
         $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
@@ -290,6 +290,13 @@ class Model extends Database
             $flag = true;
             $files_array = array_combine($_FILES[$file]['tmp_name'], $_FILES[$file]['name']);
 
+            // echo '<pre>';
+            // print_r($files_array);
+            // echo '</pre>';
+            // die();
+
+            // $files_array = array_combine(array_filter($_FILES[$file]['tmp_name']), array_filter($_FILES[$file]['name']));
+
             if (!is_dir($targetDir)) {
                 mkdir($targetDir, 0777, true);
             }
@@ -312,16 +319,16 @@ class Model extends Database
         }
     }
 
-    public function uploadImageToCloudinary($targetDir, $file, $folder)
+    public function uploadImageToCloudinary($targetDir, $file, $folder, $implode = false)
     {
         $client = new Client();
         $promises = [];
-
         $makeFile = $this->handleUploadFile($targetDir, $file, false);
-
         foreach ($_FILES[$file]['name'] as $key => $name) {
+            if (empty($name)) {
+                continue;
+            }
             $filepath = $targetDir . $_FILES[$file]['name'][$key];
-
             $multipart = [
                 'multipart' => array_merge(
                     [
@@ -372,7 +379,11 @@ class Model extends Database
             }
         }
 
-        $urls = implode(",", $urls);
+        if ($implode) {
+            $urls = implode(",", $urls);
+            return $urls;
+        }
+
         return $urls;
     }
 }

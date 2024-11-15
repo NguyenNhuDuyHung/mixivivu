@@ -50,8 +50,8 @@ class ShipModel extends Model
             $thumbTargetDir = 'public/img/thumbnail/' . $filterAll['slug'] . '/';
             $imageTargetDir = 'public/img/tour/' . $filterAll['slug'] . '/';
 
-            $thumbUrl = $this->uploadImageToCloudinary($thumbTargetDir, 'thumbnail', 'thumbnail');
-            $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images',  'tour');
+            $thumbUrl = $this->uploadImageToCloudinary($thumbTargetDir, 'thumbnail', 'thumbnail', true);
+            $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images',  'tour', true);
 
             $active = $filterAll['type_product'] == "Kích hoạt" ? 1 : 0;
             $typeProduct = $filterAll['type_product'] == "ship" ? 1 : 2;
@@ -125,13 +125,13 @@ class ShipModel extends Model
             if (empty($_FILES['thumbnail']['name'][0])) {
                 $thumbUrl = $imagesCruise['thumbnail'];
             } else {
-                $thumbUrl = $this->uploadImageToCloudinary($thumbTargetDir, 'thumbnail', 'thumbnail');
+                $thumbUrl = $this->uploadImageToCloudinary($thumbTargetDir, 'thumbnail', 'thumbnail',true);
             }
 
             if (empty($_FILES['images']['name'][0])) {
                 $imageUrls = $imagesCruise['images'];
             } else {
-                $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images', $filterAll['slug']);
+                $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images', $filterAll['slug'] ,true);
                 if (!empty($imagesCruise['images'])) {
                     $imageUrls = $imageUrls . ',' . $imagesCruise['images'];
                 }
