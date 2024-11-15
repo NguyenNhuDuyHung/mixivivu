@@ -1,5 +1,15 @@
 /* HomePopularSection */
 .popularSections {
-    padding-top: 136px;
+  padding-top: 136px;
+}
+
+@media (max-width: 1024px) {
+  .popularSections {
+    padding-top: 0px;
   }
-  
+
+  .PopularShips-section {
+    padding: 24px;
+    gap: 24px;
+  }
+}

@@ -31,11 +31,44 @@
 }
 
 .BlogCard-title {
+  height: 56px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .BlogCard-description {
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.BlogCard-description .BlogCard-footer {
+  color: var(--gray-600, #475467);
 }
 
 .BlogCard-footer {
   padding: 0 24px;
+}
+
+.BlogCard-imageWrapper-image {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -2px rgba(16, 24, 40, 0.06),
+    0 12px 16px -4px rgba(16, 24, 40, 0.1);
+  max-width: 100% !important;
+}
+
+@media (max-width: 1024px) {
+  .BlogSection-section {
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .BlogSection-cardList {
+    gap: 16px;
+  }
+
+  .BlogCard-blogCard {
+    width: 100%;
+  }
 }

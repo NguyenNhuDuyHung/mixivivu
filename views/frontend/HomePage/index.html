@@ -19,7 +19,18 @@
                 <div class="flex align-center gap-40 h-full">
                     <div class="header-logo">
                         <a href="/">
-                            <img src="https://mixivivu.com/_next/image?url=%2Fblack-logo.png&w=256&q=75" alt="">
+                            <span
+                                style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
+                                <span
+                                    style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
+                                    <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0"
+                                        alt="" aria-hidden="true"
+                                        src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27156%27%20height=%2742%27/%3e">
+                                </span>
+                                <img src="/views/assest/img/black-logo.webp" decoding="async" data-nimg="intrinsic"
+                                    style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
+                                    srcset="/views/assest/img/black-logo.webp 1x, /views/assest/img/black-logo.webp 2x">
+                            </span>
                         </a>
                     </div>
 
@@ -58,14 +69,68 @@
                             <div class="label sm">Liên hệ Mixivivu</div>
                         </button>
                     </div>
+
+                    <div class="header-menu-mb">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path
+                                    d="M4 7C4 5.34315 5.34315 4 7 4C8.65685 4 10 5.34315 10 7C10 8.65685 8.65685 10 7 10C5.34315 10 4 8.65685 4 7Z"
+                                    stroke="#1D2939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                                <path
+                                    d="M14 7C14 5.34315 15.3431 4 17 4C18.6569 4 20 5.34315 20 7C20 8.65685 18.6569 10 17 10C15.3431 10 14 8.65685 14 7Z"
+                                    stroke="#1D2939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                                <path
+                                    d="M14 17C14 15.3431 15.3431 14 17 14C18.6569 14 20 15.3431 20 17C20 18.6569 18.6569 20 17 20C15.3431 20 14 18.6569 14 17Z"
+                                    stroke="#1D2939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                                <path
+                                    d="M4 17C4 15.3431 5.34315 14 7 14C8.65685 14 10 15.3431 10 17C10 18.6569 8.65685 20 7 20C5.34315 20 4 18.6569 4 17Z"
+                                    stroke="#1D2939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div style="display: none;" class="Dropdown-dropdown header-menu-mb-content">
+                        <div class="header-menu-mb-nav-item">
+                            <label for="" class="md">Tìm du thuyền</label>
+                        </div>
+
+                        <div class="header-menu-mb-nav-item">
+                            <label for="" class="md">Tìm vé máy bay</label>
+                        </div>
+
+                        <div class="header-menu-mb-nav-item">
+                            <label for="" class="md">Doanh nghiệp</label>
+                        </div>
+
+                        <div class="header-menu-mb-nav-item">
+                            <label for="" class="md">Blog</label>
+                        </div>
+
+                        <div class="header-menu-mb-nav-item">
+                            <a href="tel:0922222016">
+                                <label for="" class="md">Hotline: 0922222016</label>
+                            </a>
+                        </div>
+
+                        <div class="header-menu-mb-nav-item">
+                            <a href="mailto:info@mixivivu.com">
+                                <label for="" class="md">Email: info@mixivivu.com</label>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="main">
-            <div class="banner">
-                <video class="video" src="/views/assest/video/Mixivivuduthuyen.mp4" autoplay muted
-                    playinside loop></video>
+            <div class="home-banner">
+                <video class="home-bg-video" src="/views/assest/video/Mixivivuduthuyen.mp4" autoplay muted playinside
+                    loop></video>
 
                 <div class="card flex flex-col justify-center gap-40 search-box home-search-box">
                     <div class="flex flex-col gap-16 gray-900">
@@ -133,7 +198,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-normal btn-primary">
+                        <button type="button" class="btn btn-btn search-box-submit-btn btn-normal btn-primary">
                             <div class="label md">Tìm kiếm</div>
                         </button>
                     </div>
@@ -1069,7 +1134,7 @@
         </div>
 
         <div class="flex justify-center Footer-footer1">
-            <footer class="Footer-footer container">
+            <footer class="container Footer-footer">
                 <div class="flex flex-col gap-20">
                     <a href="">
                         <span
@@ -1167,17 +1232,21 @@
             <footer class="Footer-footer container">
                 <p class="md">Bản quyền © 2024 Mixivivu.</p>
                 <div class="flex gap-24 align-center">
-                    <a href="http://online.gov.vn/Home/WebDetails/110960"><span
+                    <a href="http://online.gov.vn/Home/WebDetails/110960">
+                        <span
                             style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span
-                                style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img
-                                    style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0"
+                                style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
+                                <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0"
                                     alt="" aria-hidden="true"
-                                    src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27120%27%20height=%2750%27/%3e"></span><img
-                                alt="" title=""
+                                    src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27120%27%20height=%2750%27/%3e">
+                            </span>
+                            <img alt="" title=""
                                 src="https://mixivivu.com/_next/image?url=http%3A%2F%2Fonline.gov.vn%2FContent%2FEndUser%2FLogoCCDVSaleNoti%2FlogoSaleNoti.png&w=128&q=75"
                                 decoding="async" data-nimg="intrinsic"
                                 style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
-                                srcset="https://mixivivu.com/_next/image?url=http%3A%2F%2Fonline.gov.vn%2FContent%2FEndUser%2FLogoCCDVSaleNoti%2FlogoSaleNoti.png&w=128&q=75 1x, https://mixivivu.com/_next/image?url=http%3A%2F%2Fonline.gov.vn%2FContent%2FEndUser%2FLogoCCDVSaleNoti%2FlogoSaleNoti.png&w=128&q=75 2x"></span></a>
+                                srcset="https://mixivivu.com/_next/image?url=http%3A%2F%2Fonline.gov.vn%2FContent%2FEndUser%2FLogoCCDVSaleNoti%2FlogoSaleNoti.png&w=128&q=75 1x, https://mixivivu.com/_next/image?url=http%3A%2F%2Fonline.gov.vn%2FContent%2FEndUser%2FLogoCCDVSaleNoti%2FlogoSaleNoti.png&w=128&q=75 2x">
+                        </span>
+                    </a>
                 </div>
             </footer>
         </div>

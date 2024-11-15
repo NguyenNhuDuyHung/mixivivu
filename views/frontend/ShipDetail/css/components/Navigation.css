@@ -1,0 +1,29 @@
+.ShipDetail-navigation {
+  display: flex;
+  gap: 32px;
+  padding: 80px 32px;
+}
+
+.ShipDetail-navigation .ShipDetail-mapLink {
+  color: var(--primary-base, #77dada);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+
+@media (max-width: 1200px) {
+  .ShipDetail-navigation {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .ShipDetail-navigation .ShipDetail-badge-list {
+    flex-direction: column;
+  }
+
+  .ShipDetail-navigation > h4 {
+    font-size: 24px;
+  }
+}
