@@ -45,10 +45,10 @@
                     <div class="flex align-center gap-8">
                                     <div class="form-group" style="flex: 1">
                                         <div class="">
-                                            <label for="description" class="input-group">
+                                            <label for="description ' . $uniqueId . '" class="input-group">
                                                 <textarea id="' . $uniqueId . '" class="p-md" placeholder="Nhập mô tả ngắn" name="description[]"
                                                     autocomplete="off">' . $description . '</textarea>
-                                                <label for="description" class="sm input-required">
+                                                <label for="description ' . $uniqueId . '" class="sm input-required">
                                                     Description
                                                 </label>
                                             </label>

@@ -49,7 +49,7 @@ class ShipCatalogueModel extends Model
     {
         if ($this->isPost()) {
             $targetDir = 'public/img/ship-category/';
-            $urls = $this->uploadImageToCloudinary($targetDir, 'image', 'ship-category');
+            $urls = $this->uploadImageToCloudinary($targetDir, 'image', 'ship-category', true);
             $filterAll = $this->filter();
             $data = [
                 'name' => $filterAll['name'],
@@ -85,7 +85,7 @@ class ShipCatalogueModel extends Model
                     ['image'],
                 );
             } else {
-                $urls = $this->uploadImageToCloudinary($targetDir, 'image', 'ship-category');
+                $urls = $this->uploadImageToCloudinary($targetDir, 'image', 'ship-category', true);
             }
 
             $filterAll = $this->filter();

@@ -32,7 +32,7 @@ class FeatureModel extends Model
         if ($this->isPost()) {
             $filterAll = $this->filter();
             $iconTargerDir = 'public/img/feature/';
-            $iconUrl = $this->uploadImageToCloudinary($iconTargerDir, 'icon', 'icon');
+            $iconUrl = $this->uploadImageToCloudinary($iconTargerDir, 'icon', 'icon', true);
 
             $featureType = $filterAll['type'] == 'room' ? 1 : 2;
             $data = [
@@ -81,7 +81,7 @@ class FeatureModel extends Model
             if (empty($_FILES['icon']['name'][0])) {
                 $iconUrl = $this->findById('features', $id, ['icon']);
             } else {
-                $iconUrl = $this->uploadImageToCloudinary($iconTargerDir, 'icon', 'icon');
+                $iconUrl = $this->uploadImageToCloudinary($iconTargerDir, 'icon', 'icon', true);
             }
 
             $newData = [

@@ -113,7 +113,7 @@ class LongDescCatalogue extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/descriptions/main.js'
+            'backend/descriptions/longdesctype.js'
         ];
         $this->render('layouts/admin_layout', $this->data);
     }
@@ -146,7 +146,7 @@ class LongDescCatalogue extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/descriptions/main.js'
+            'backend/descriptions/longdesctype.js'
         ];
         $this->render('layouts/admin_layout', $this->data);
     }
