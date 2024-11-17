@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+    
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+<body>
+    <div class="app">
+        <div class="Layout-layout">
+            <div class="header-wrapper home-header">
+                <div class="container flex justify-between align-center header-container">
+                    <div class="flex align-center gap-40 h-full">
+                        <div class="header-logo">
+                            <a href="/">
+                                <img src="https://mixivivu.com/_next/image?url=%2Fblack-logo.png&w=256&q=75" alt="">
+                            </a>
+                        </div>
+    
+                        <ul class="flex gap-24 h-full align-center cursor-pointer header-nav-container">
+                            <li class="header-menu h-full flex align-center">
+                                <label for="" class="md">Tìm du thuyền</label>
+                            </li>
+    
+                            <li class="header-menu h-full flex align-center">
+                                <label for="" class="md">Tìm vé máy bay</label>
+                            </li>
+    
+                            <li class="header-menu h-full flex align-center">
+                                <label for="" class="md">Doanh nghiệp</label>
+                            </li>
+    
+                            <li class="header-menu h-full flex align-center">
+                                <label for="" class="md">Blog</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex gap-16 align-center">
+                        <div class="header-menu"></div>
+                        <div class="header-phone">
+                            <div class="header-phone-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M21.384,17.752a2.108,2.108,0,0,1-.522,3.359,7.543,7.543,0,0,1-5.476.642C10.5,20.523,3.477,13.5,2.247,8.614a7.543,7.543,0,0,1,.642-5.476,2.108,2.108,0,0,1,3.359-.522L8.333,4.7a2.094,2.094,0,0,1,.445,2.328A3.877,3.877,0,0,1,8,8.2c-2.384,2.384,5.417,10.185,7.8,7.8a3.877,3.877,0,0,1,1.173-.781,2.092,2.092,0,0,1,2.328.445Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <a href="tel:0922222016">Hotline: 0922222016</a>
+                        </div>
+    
+                        <div>
+                            <button type="button" class="btn btn-primary btn-sm btn-contact">
+                                <div class="label sm">Liên hệ Mixivivu</div>
+                            </button>
+                        </div>
+                        <div class="header-menu-mb">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M4 7C4 5.34315 5.34315 4 7 4C8.65685 4 10 5.34315 10 7C10 8.65685 8.65685 10 7 10C5.34315 10 4 8.65685 4 7Z" stroke="#1D2939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M14 7C14 5.34315 15.3431 4 17 4C18.6569 4 20 5.34315 20 7C20 8.65685 18.6569 10 17 10C15.3431 10 14 8.65685 14 7Z" stroke="#1D2939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M14 17C14 15.3431 15.3431 14 17 14C18.6569 14 20 15.3431 20 17C20 18.6569 18.6569 20 17 20C15.3431 20 14 18.6569 14 17Z" stroke="#1D2939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M4 17C4 15.3431 5.34315 14 7 14C8.65685 14 10 15.3431 10 17C10 18.6569 8.65685 20 7 20C5.34315 20 4 18.6569 4 17Z" stroke="#1D2939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                            <!-- <div style="margin: -4px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <path d="M17.8782 15.9977L23.606 10.2832C23.8568 10.0324 23.9977 9.69222 23.9977 9.33749C23.9977 8.98277 23.8568 8.64257 23.606 8.39174C23.3552 8.14091 23.015 8 22.6602 8C22.3055 8 21.9653 8.14091 21.7145 8.39174L16 14.1195L10.2855 8.39174C10.0347 8.14091 9.6945 8 9.33977 8C8.98504 8 8.64485 8.14091 8.39402 8.39174C8.14319 8.64257 8.00227 8.98277 8.00227 9.33749C8.00227 9.69222 8.14319 10.0324 8.39402 10.2832L14.1218 15.9977L8.39402 21.7122C8.26917 21.836 8.17007 21.9834 8.10244 22.1457C8.03482 22.308 8 22.4821 8 22.658C8 22.8338 8.03482 23.0079 8.10244 23.1702C8.17007 23.3325 8.26917 23.4799 8.39402 23.6037C8.51785 23.7286 8.66517 23.8277 8.8275 23.8953C8.98982 23.9629 9.16392 23.9977 9.33977 23.9977C9.51562 23.9977 9.68972 23.9629 9.85204 23.8953C10.0144 23.8277 10.1617 23.7286 10.2855 23.6037L16 17.8759L21.7145 23.6037C21.8383 23.7286 21.9856 23.8277 22.148 23.8953C22.3103 23.9629 22.4844 23.9977 22.6602 23.9977C22.8361 23.9977 23.0102 23.9629 23.1725 23.8953C23.3348 23.8277 23.4822 23.7286 23.606 23.6037C23.7308 23.4799 23.8299 23.3325 23.8976 23.1702C23.9652 23.0079 24 22.8338 24 22.658C24 22.4821 23.9652 22.308 23.8976 22.1457C23.8299 21.9834 23.7308 21.836 23.606 21.7122L17.8782 15.9977Z" fill="black"></path>
+                                </svg>
+                            </div> -->
+                        </div>
+                        <div class="Dropdown-dropdown header-menu-mb-content">
+                            <div class=" header-menu-mb-nav-item">
+                                <label for="" class="md">Tìm du thuyền</label>
+                            </div>
+                            <div class=" header-menu-mb-nav-item">
+                                <label for="" class="md">Tìm vé máy bay</label>
+                            </div><div class=" header-menu-mb-nav-item">
+                                <label for="" class="md">Tìm khách sạn</label>
+                            </div>
+                            <div class=" header-menu-mb-nav-item">
+                                <label for="" class="md">Doanh nghiệp</label>
+                            </div>
+                            <div class="header-menu-mb-nav-item-active header-menu-mb-nav-item">
+                                <label for="" class="md">Blog</label>
+                            </div>
+                            <div class="header-menu-mb-nav-item">
+                                <a href="tel:0922222016">
+                                    <label class="md">Hotline: 0922222016</label>
+                                </a>
+                            </div>
+                            <div class="header-menu-mb-nav-item">
+                                <a href="mailto:info@mixivivu.com">
+                                    <label class="md">Email: info@mixivivu.com</label>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Layout-main">
+                <div class="Contact-contact">
+                    <iframe title="contact" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d232.78000083101227!2d105.8167993!3d21.0134711!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab05255ac095%3A0xac1b475116786bdb!2sMixiVivu!5e0!3m2!1sen!2s!4v1699933131083!5m2!1sen!2s" id="gmap_canvas" width="100%" height="720" style="border: 0px; border-radius: 24px;">
+                        
+                    </iframe>
+                    <div class="Card-card Contact-contact-card">
+                        <div class="flex flex-col gap-16 text-center align-center w-full">
+                            <h4>Khám phá Hạ Long thông qua Du thuyền</h4>
+                            <p class="lg">
+                                Khám phá Hạ Long qua Du thuyền cùng Mixivivu - Hãy liên hệ ngay để trải nghiệm hành trình tuyệt vời!
+                            </p>
+                        </div>
+                        <form action="#" class="w-full">
+                            <div class="flex flex-col gap-24 w-full">
+                                <div>
+                                    <div class=" ">
+                                        <label for=":r3:" class="input-group">
+                                            <input id=":r3:" class="p-md" placeholder="Nhập họ và tên" name="full-name" value="">
+                                            <label for=":r3:" class="sm input-required">Họ và tên</label>
+                                        </label>
+                                    </div>
+                                    <div class="error">Bạn phải nhập họ và tên</div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-24 Contact-group-input">
+                                    <div>
+                                        <div class=" ">
+                                            <label for=":r4:" class="input-group">
+                                                <input id=":r4:" class="p-md" placeholder="Nhập email" name="email" value="">
+                                                <label for=":r4:" class="sm input-required">Email</label>
+                                            </label>
+                                        </div>
+                                        <div class="error">Bạn phải nhập email</div>
+                                    </div>
+                                    <div>
+                                        <div class=" ">
+                                            <label for=":r5:" class="input-group">
+                                                <input id=":r5:" class="p-md" placeholder="Nhập số điện thoại" name="phone-number" value="">
+                                                <label for=":r5:" class="sm input-required">Số điện thoại</label>
+                                            </label>
+                                        </div>
+                                        <div class="error">Bạn phải nhập số điện thoại</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class=" ">
+                                        <label for=":r6:" class="input-group">
+                                            <textarea id=":r6:" class="p-md" placeholder="Nhập yêu cầu của bạn" name="additional-info"></textarea>
+                                            <label for=":r6:" class="sm input-required">Nội dung</label>
+                                        </label>
+                                    </div>
+                                    <div class="error">Bạn cần nhập nội dung yêu cầu</div>
+                                </div>
+                                <button type="submit" class="btn-btn  btn-normal btn-color btn-w-full btn-primary ">
+                                    <div class="label md">Liên hệ với Mixivivu</div>
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center Footer-footer1">
+                <footer class="Footer-footer container">
+                    <div class="flex flex-col gap-20">
+                        <a href="/">
+                            <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
+                                <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
+                                    <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0"alt="" aria-hidden="true"src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27218%27%20height=%2759%27/%3e">
+                                </span>
+                                <img src="https://mixivivu.com/_next/image?url=%2Fwhite-logo.png&w=256&q=75"decoding="async" data-nimg="intrinsic"style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"srcset="https://mixivivu.com/_next/image?url=%2Fwhite-logo.png&w=256&q=75 1x, https://mixivivu.com/_next/image?url=%2Fwhite-logo.png&w=256&q=75 2x">
+                            </span>
+                        </a>
+                        <label for="" class="md" style="color: var(--gray-300);">
+                            Công ty TNHH Du Lịch và Dịch Vụ Mixivivu
+                            <br>
+                            <br>
+                            Tầng 7, số nhà 25, ngõ 38 phố Yên Lãng, phường Láng Hạ, quận Đống Đa, TP. Hà Nội
+                            <br>
+                            <br>
+                            Mã số doanh nghiệp: 0110376372 do Sở Kế hoạch và Đầu tư Thành phố Hà Nội cấp ngày 05/06/2023
+                        </label>
+                    </div>
+                    <div class="Footer-footer-list flex justify-between gap-32">
+                        <div class="flex flex-col gap-16">
+                            <span class="detail-sm">GIỚI THIỆU</span>
+                            <div class="flex flex-col gap-12">
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng tôi</a>
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Điều khoản và điều kiện</a>
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Chính sách riêng tư</a>
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Hướng dẫn sử dụng</a>
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Hình thức thanh toán</a>
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Liên hệ</a>
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Hotline: 0922222016</a>
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Email: info@mixivivu.com</a>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-16">
+                            <span class="detail-sm">ĐIỂM ĐẾN</span>
+                            <div class="flex flex-col gap-12">
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Vịnh Hạ Long</a>
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Vịnh Lan Hạ</a>
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Đảo Cát Bà</a>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-16">
+                            <span class="detail-sm">DU THUYỀN</span>
+                            <div class="flex flex-col gap-12">
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Blog</a>
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Quy định chung và lưu ý</a>
+                                <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Câu hỏi thường gặp</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+            <div class="flex justify-center Footer-footer2">
+                <footer class="Footer-footer container">
+                    <p class="md">Bản quyền © 2024 Mixivivu.</p>
+                    <div class="flex gap-24 align-center">
+                        <a href="http://online.gov.vn/Home/WebDetails/110960">
+                            <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
+                                <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
+                                    <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27120%27%20height=%2750%27/%3e">
+                                </span>
+                                <img alt="" title=""src="https://mixivivu.com/_next/image?url=http%3A%2F%2Fonline.gov.vn%2FContent%2FEndUser%2FLogoCCDVSaleNoti%2FlogoSaleNoti.png&w=128&q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" srcset="https://mixivivu.com/_next/image?url=http%3A%2F%2Fonline.gov.vn%2FContent%2FEndUser%2FLogoCCDVSaleNoti%2FlogoSaleNoti.png&w=128&q=75 1x, https://mixivivu.com/_next/image?url=http%3A%2F%2Fonline.gov.vn%2FContent%2FEndUser%2FLogoCCDVSaleNoti%2FlogoSaleNoti.png&w=128&q=75 2x">
+                            </span>
+                        </a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <div class="Loading-loading">
+
+        </div>
+    </div>
+    <script src="https://accounts.google.com/gsi/client" async="" defer=""></script>
+    <script id="facebook-jssdk" async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js"></script>
+    
+</body>
+</html>
