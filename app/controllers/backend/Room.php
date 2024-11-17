@@ -6,17 +6,25 @@ class Room extends Controller
     public function __construct()
     {
         $this->model = new Model;
+        $this->checkLogin();
     }
 
-    public function index($currentPage = 1)
+    public function search($currentPage = 1)
     {
+        $recordsPerPage = 5;
+        $keyword = $_GET['keyword'] ?? '';
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($currentPage - 1) * $recordsPerPage;
+
         $recordsPerPage = 5;
         $offset = ($currentPage - 1) * $recordsPerPage;
         $this->data['page_title'] = 'Quản lý phòng';
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
-            'backend/descriptions/style.css'
+            'backend/main.css',
+            'backend/main.css',
+            'backend/room/style.css'
         ];
 
         $this->data['contents'] = [
@@ -27,10 +35,56 @@ class Room extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/descriptions/main.js'
         ];
 
-        $numberPage = $this->model->countPagesDistinct($recordsPerPage, 'rooms', null, ['product_id']);
+        if (isset($_GET['keyword'])) {
+            $keyword = $_GET['keyword'];
+            $search = $this->model('RoomModel')->search($keyword, $offset, $recordsPerPage);
+
+            if ($search === false) {
+                $this->data['page_title'] = 'Not found';
+                $this->data['href-back'] = _WEB_ROOT . '/backend/room';
+                $this->data['contents'] = [
+                    'components/admin/sidebar',
+                    'components/errors/not_found'
+                ];
+            } else {
+                $numberPage = $this->model->countPagesDistinct($recordsPerPage, 'rooms', ['product_id']);
+                $this->data['rooms'] = $search;
+                $this->data['countAll'] = $this->model->countAllOrByKeyword('products', $keyword, ['title']);
+                $this->data['numberPage'] = $numberPage;
+            }
+        }
+
+        $this->data['recordsPerPage'] = $recordsPerPage;
+        $this->data['currentPage'] = $currentPage;
+
+        $this->render('layouts/admin_layout', $this->data);
+    }
+
+    public function index($currentPage = 1)
+    {
+        $recordsPerPage = 5;
+        $offset = ($currentPage - 1) * $recordsPerPage;
+        $this->data['page_title'] = 'Quản lý phòng';
+        $this->data['layout'] = 'backend/layout.css';
+        $this->data['styles'] = [
+            'components/toast.min.css',
+            'backend/main.css',
+            'backend/room/style.css'
+        ];
+
+        $this->data['contents'] = [
+            'components/admin/sidebar',
+            'backend/room/index'
+        ];
+
+        $this->data['scripts'] = [
+            'components/toast.min.js',
+            'components/toast.js',
+        ];
+
+        $numberPage = $this->model->countPagesDistinct($recordsPerPage, 'rooms', ['product_id']);
         $this->data['rooms'] = $this->model('RoomModel')->pagination($offset, $recordsPerPage);
         $this->data['countAll'] = $this->model->countAllDistinct('rooms', null, ['product_id']);
         $this->data['numberPage'] = $numberPage;
@@ -74,6 +128,7 @@ class Room extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/room/style.css',
         ];
         $this->data['contents'] = [
@@ -98,6 +153,7 @@ class Room extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/room/style.css',
         ];
         $this->data['contents'] = [
@@ -153,6 +209,7 @@ class Room extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/room/style.css',
         ];
         $this->data['contents'] = [
@@ -185,6 +242,7 @@ class Room extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/room/style.css',
         ];
         $this->data['contents'] = [
@@ -218,7 +276,8 @@ class Room extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
-            'backend/descriptions/style.css',
+            'backend/main.css',
+            'backend/room/style.css',
         ];
         $this->data['contents'] = [
             'components/admin/sidebar',

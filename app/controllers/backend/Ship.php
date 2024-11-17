@@ -7,6 +7,7 @@ class Ship extends Controller
     public function __construct()
     {
         $this->model = new Model();
+        $this->checkLogin();
     }
 
     public function search($currentPage = 1)
@@ -20,6 +21,7 @@ class Ship extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/ship/style.css'
         ];
 
@@ -30,7 +32,6 @@ class Ship extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/ship/main.js'
         ];
 
         if (isset($_GET['keyword'])) {
@@ -67,6 +68,7 @@ class Ship extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/ship/style.css'
         ];
 
@@ -77,7 +79,6 @@ class Ship extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/ship/main.js'
         ];
 
         $numberPage = $this->model->countPages($recordsPerPage, 'products');
@@ -138,6 +139,7 @@ class Ship extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/ship/style.css'
         ];
         $this->data['contents'] = [
@@ -241,6 +243,7 @@ class Ship extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/ship/style.css',
         ];
         $this->data['contents'] = [
@@ -274,6 +277,7 @@ class Ship extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/ship/style.css',
         ];
         $this->data['contents'] = [
@@ -283,7 +287,6 @@ class Ship extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/ship/main.js',
         ];
         $this->render('layouts/admin_layout', data: $this->data);
     }
@@ -309,6 +312,7 @@ class Ship extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/ship/style.css'
         ];
 

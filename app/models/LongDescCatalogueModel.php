@@ -23,6 +23,9 @@ class LongDescCatalogueModel extends Model
         LIMIT " . $offset . ", " . $recordsPerPage . "";
 
         $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        if (empty($data)) {
+            return false;
+        }
         return $data;
     }
 

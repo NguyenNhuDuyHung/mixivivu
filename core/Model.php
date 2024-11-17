@@ -255,13 +255,9 @@ class Model extends Database
         return ceil($total['total'] / $recordsPerPage);
     }
 
-    public function countPagesDistinct($recordsPerPage, $table, $keyword = null, array $fieldsDistinct = [], array $fields = [])
+    public function countPagesDistinct($recordsPerPage, $table, array $fieldsDistinct = [])
     {
         $sql = "SELECT COUNT(DISTINCT " . implode(', ', $fieldsDistinct) . ") AS total FROM " . $table;
-
-        if ($keyword) {
-            $sql .= " WHERE " . implode(' OR ', $fields) . " LIKE '%" . $keyword . "%'";
-        }
         $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
         return ceil($total['total'] / $recordsPerPage);
     }

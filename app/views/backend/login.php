@@ -78,5 +78,11 @@
             toastr.success("<?= $_SESSION['logout-success'] ?>");
             <?php unset($_SESSION['logout-success']); ?>
         <?php endif; ?>
+
+        var permission = "<?php echo isset($_SESSION['permission']) ? $_SESSION['permission'] : ''; ?>";
+        if (permission) {
+            toastr.error(permission);
+        }
+        <?php $this->model->removeSession('permission'); ?>
     });
 </script>

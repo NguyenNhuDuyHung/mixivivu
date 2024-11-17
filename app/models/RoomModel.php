@@ -6,6 +6,20 @@ class RoomModel extends Model
         parent::__construct();
     }
 
+    public function search($keyword, $offset, $recordsPerPage)
+    {
+        $sql = "SELECT p.id AS product_id, p.title AS title, COUNT(r.id) AS countRoom 
+        FROM products p JOIN rooms r ON p.id = r.product_id 
+        WHERE p.title LIKE '%" . $keyword . "%' 
+        GROUP BY p.id ORDER BY p.id ASC LIMIT " . $offset . ", " . $recordsPerPage;
+
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        if (empty($data)) {
+            return false;
+        }
+        return $data;
+    }
+
     public function pagination($offset, $recordsPerPage)
     {
         $sql = "SELECT p.id AS product_id, p.title AS title, COUNT(r.id) AS countRoom
