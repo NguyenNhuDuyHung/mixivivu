@@ -113,7 +113,7 @@ class RoomModel extends Model
                 'price' => $filterAll['price'],
                 'sale_prices' => $filterAll['sale_prices'],
                 'images' => $imageUrls,
-                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ];
 
             $dataRoomFeatures = [
