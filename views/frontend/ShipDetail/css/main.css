@@ -4,25 +4,5 @@
 @import "/views/components/_input.css";
 @import "/views/components/Button.css";
 @import "/views/components/Header.css";
-@import "/views/components/BreadCrumbs.css";
-@import "/views/components/Badge.css";
-@import "/views/components/card.css";
-@import "/views/components/BlogCard.css";
-@import "/views/components/RoomCard.css";
-@import "/views/components/Alert.css";
-@import "/views/components/StaticCard.css";
-@import "/views/components/RateCard.css";
-@import "/views/components/Tabs.css";
-@import "/views/components/SectionHeader.css";
-@import "/views/components/Pagination.css";
-@import "/views/components/RatingInput.css";
-@import "/views/components/Footer.css";
 
-@import "./components/ShipDetail.css";
-@import "./components/Navigation.css";
-@import "./components/Carousel.css";
-@import "./components/Breadcrumb.css";
-@import "./components/Sidebar.css";
-@import "./components/Popup.css";
-@import "./components/RoomPicker.css";
-@import "./components/DatePicker.css";
+@import "/views/components/Footer.css";

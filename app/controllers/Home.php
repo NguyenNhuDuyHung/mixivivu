@@ -1,21 +1,35 @@
 <?php
 class Home extends Controller
 {
-    public $model_home;
+    public $model;
+    public $data = [];
     public function __construct()
     {
-        $this->model_home = $this->model('HomeModel');
+        $this->model = new Model();
     }
     public function index()
     {
-        $data = $this->model_home->getList();
-        echo '<pre>';
-        print_r($data);
-        echo '</pre>';
+        $cruiseCategories = $this->model('ShipCatalogueModel')->getCategoryCruise(['id, name', 'image']);
+        $popularCruises = $this->model('ShipModel')->getPopularCruises();
 
-        $detail = $this->model_home->getDetails(1);
-        echo '<pre>';
-        print_r($detail);
-        echo '</pre>';
+        $this->data['cruiseCategories'] = $cruiseCategories;
+        $this->data['popularCruises'] = $popularCruises;
+
+        $this->data['page_title'] = 'Mixivivu';
+        $this->data['header'] = 'components/client/header';
+        $this->data['footer'] = 'components/client/footer';
+        $this->data['contents'] = [
+            'frontend/home/index',
+        ];
+        $this->data['layout'] = 'frontend/layout.css';
+        $this->data['styles'] = [
+            'frontend/home/style.css',
+        ];
+
+        $this->data['scripts'] = [
+            'frontend/home/main.js',
+        ];
+
+        $this->render('layouts/client_layout', data: $this->data);
     }
 }

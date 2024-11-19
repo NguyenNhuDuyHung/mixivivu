@@ -29,18 +29,63 @@ class ShipModel extends Model
         return $ships;
     }
 
-    public function getCategoryCruise()
-    {
-        $sql = "SELECT * FROM cruise_category";
-        $cruise_categories = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-        return $cruise_categories;
-    }
-
     public function getTypeProduct()
     {
         $sql = "SELECT * FROM product_type";
         $product_types = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $product_types;
+    }
+
+    public function getPopularCruises()
+    {
+        $sql = "SELECT p.id AS id, p.title AS title, p.slug AS slug, p.thumbnail AS thumbnail, p.default_price AS price, cr.cabin AS cabin, cr.year AS year, cr.shell AS shell, cc.name AS category_name
+            FROM products p JOIN cruise cr 
+            ON cr.id = p.id 
+            JOIN cruise_category cc 
+            ON cr.category_id = cc.id
+            WHERE p.active = 1
+            ORDER BY p.id ASC 
+            LIMIT 6";
+        $cruise = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $cruise;
+    }
+
+    public function getCruiseBySlug($slug)
+    {
+        $sql = "SELECT p.id AS id, p.title AS title, 
+        p.address AS address, p.map_link AS map_link,
+        p.map_iframe_link AS map_iframe_link, p.num_reviews AS num_reviews,
+        p.score_review AS score_review, p.slug AS slug, p.thumbnail AS thumbnail, 
+        p.images AS images, p.default_price AS price, cr.cabin AS cabin, cr.year AS year, 
+        cr.shell AS shell, cr.admin AS admin, cr.trip AS trip, cc.name AS category_name
+            FROM products p JOIN cruise cr 
+            ON cr.id = p.id 
+            JOIN cruise_category cc 
+            ON cr.category_id = cc.id
+            WHERE p.slug = '$slug'";
+        $cruise = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $cruise;
+    }
+
+    public function getCruiseLongDesc($id)
+    {
+        $sql = "SELECT * FROM long_desc WHERE product_id = $id";
+        $cruise = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $cruise;
+    }
+
+    public function getCruiseShortDesc($id)
+    {
+        $sql = "SELECT description FROM short_desc WHERE product_id = $id";
+        $cruise = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $cruise;
+    }
+
+    public function getCruiseRoom($id)
+    {
+        $sql = "SELECT * FROM rooms WHERE product_id = $id";
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
     }
 
     public function createInfoShip()
@@ -125,13 +170,13 @@ class ShipModel extends Model
             if (empty($_FILES['thumbnail']['name'][0])) {
                 $thumbUrl = $imagesCruise['thumbnail'];
             } else {
-                $thumbUrl = $this->uploadImageToCloudinary($thumbTargetDir, 'thumbnail', 'thumbnail',true);
+                $thumbUrl = $this->uploadImageToCloudinary($thumbTargetDir, 'thumbnail', 'thumbnail', true);
             }
 
             if (empty($_FILES['images']['name'][0])) {
                 $imageUrls = $imagesCruise['images'];
             } else {
-                $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images', $filterAll['slug'] ,true);
+                $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images', $filterAll['slug'], true);
                 if (!empty($imagesCruise['images'])) {
                     $imageUrls = $imageUrls . ',' . $imagesCruise['images'];
                 }

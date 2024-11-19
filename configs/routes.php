@@ -4,6 +4,8 @@
 $routes['default_controller'] = 'Home';
 $routes['login'] = 'auth/login';
 
+$routes['du-thuyen/([a-zA-Z0-9-]+)'] = 'cruise/index/$1';
+
 $routes['user'] = 'user/index';
 $routes['user/search'] = 'user/search';
 $routes['user/create'] = 'user/create';
@@ -77,6 +79,4 @@ $routes['room/delete/(\d+)'] = 'room/delete/$1';
 $routes['room/delete/detail/(\d+)'] = 'room/deleteRoomDetails/$1';
 $routes['room/page/(\d+)'] = 'room/index/$1';
 
-$routes['trang-chu'] = 'home';
-$routes['tin-tuc'] = 'news/index';
-$routes['tin-tuc/.+-(\d+).html'] = 'news/category/$1';
+

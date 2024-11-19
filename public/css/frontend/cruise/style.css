@@ -1,0 +1,22 @@
+@import "../../components/Header.css";
+@import "../../components/BreadCrumbs.css";
+@import "../../components/Badge.css";
+@import "../../components/card.css";
+@import "../../components/BlogCard.css";
+@import "../../components/RoomCard.css";
+@import "../../components/Alert.css";
+@import "../../components/StaticCard.css";
+@import "../../components/RateCard.css";
+@import "../../components/Tabs.css";
+@import "../../components/SectionHeader.css";
+@import "../../components/Pagination.css";
+@import "../../components/RatingInput.css";
+
+@import "./components/ShipDetail.css";
+@import "./components/Navigation.css";
+@import "./components/Carousel.css";
+@import "./components/Breadcrumb.css";
+@import "./components/Sidebar.css";
+@import "./components/Popup.css";
+@import "./components/RoomPicker.css";
+@import "./components/DatePicker.css";

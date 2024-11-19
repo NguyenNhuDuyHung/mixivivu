@@ -31,9 +31,9 @@ class ShipCatalogueModel extends Model
 
     public function create() {}
 
-    public function getCategoryCruise()
+    public function getCategoryCruise($field = ['*'])
     {
-        $sql = "SELECT * FROM cruise_category";
+        $sql = "SELECT " . implode(',', $field) . " FROM cruise_category";
         $cruise_categories = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $cruise_categories;
     }

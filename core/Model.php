@@ -204,7 +204,7 @@ class Model extends Database
         } else {
             $sql .= " WHERE " . $primaryKey . " = " . $id;
         }
-
+        
         if ($option) {
             $result = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
             return $result;

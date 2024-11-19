@@ -132,7 +132,7 @@ class Ship extends Controller
             }
         }
 
-        $this->data['cruise_categories'] = $this->model('ShipModel')->getCategoryCruise();
+        $this->data['cruise_categories'] = $this->model('ShipCatalogueModel')->getCategoryCruise();
         $this->data['type_products'] = $this->model('ShipModel')->getTypeProduct();
 
         $this->data['page_title'] = 'Thêm du thuyền';
@@ -199,7 +199,7 @@ class Ship extends Controller
 
         $this->data['targetDir_thumbnail'] = 'public/img/thumbnail';
         $this->data['targetDir_tour'] = 'public/img/tour';
-        $this->data['cruise_categories'] = $this->model('ShipModel')->getCategoryCruise();
+        $this->data['cruise_categories'] = $this->model('ShipCatalogueModel')->getCategoryCruise();
         $this->data['type_products'] = $this->model('ShipModel')->getTypeProduct();
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

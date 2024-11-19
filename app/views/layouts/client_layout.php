@@ -8,21 +8,41 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
-    <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/css/frontend/layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/css/<?php echo $layout; ?>">
+    <?php
+    if (!empty($styles)) {
+        foreach ($styles as $style) {
+            echo (!empty($style) ? '<link rel="stylesheet" href="' . _WEB_ROOT . '/public/css/' . $style . '">' : '');
+        }
+    }
+    ?>
 </head>
 
 <body>
-    <div class="app">
-        <?php 
-        $this->render('components/client/header');
-
+    <?php
+    !empty($header) ? $this->render($header) : '';
+    ?>
+    
+    <?php
+    foreach ($contents as $content) {
         $this->render($content, $data);
+    }
+    ?>
 
-        $this->render('components/client/footer');
-        ?>
-    </div>
+    <?php
+    !empty($footer) ? $this->render($footer) : '';
+    ?>
 
-    <script type="module" src="<?php echo _WEB_ROOT; ?>/public/assets/client/js/script.js"></script>
+    <?php
+    if (!empty($scripts)) {
+        foreach ($scripts as $script) {
+            echo (!empty($script) ? '<script type="module" src="' . _WEB_ROOT . '/public/js/' . $script . '"></script>' : '');
+        }
+    }
+    ?>
+
 </body>
 
 </html>
