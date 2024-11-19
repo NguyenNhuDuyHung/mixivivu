@@ -51,7 +51,7 @@ class ShipModel extends Model
             $imageTargetDir = 'public/img/tour/' . $filterAll['slug'] . '/';
 
             $thumbUrl = $this->uploadImageToCloudinary($thumbTargetDir, 'thumbnail', 'thumbnail', true);
-            $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images',  'tour', true);
+            $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images',  $filterAll['slug'], true);
 
             $active = $filterAll['type_product'] == "Kích hoạt" ? 1 : 0;
             $typeProduct = $filterAll['type_product'] == "ship" ? 1 : 2;

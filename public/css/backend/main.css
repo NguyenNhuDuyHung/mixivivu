@@ -114,14 +114,6 @@
   justify-content: flex-start;
 }
 
-.group-input-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 24px;
-  gap: 24px;
-  justify-content: flex-start;
-}
-
 .actions {
   display: flex;
   justify-content: flex-end;
@@ -166,4 +158,12 @@
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.preview-upload-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 20px;
 }

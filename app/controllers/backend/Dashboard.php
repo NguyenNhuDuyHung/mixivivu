@@ -6,14 +6,11 @@ class Dashboard extends Controller
     public function __construct()
     {
         $this->model = new Model();
+        $this->checkLogin();
     }
 
     public function index()
     {
-        if (!$this->model->isLogin()) {
-            header('Location: ' . _WEB_ROOT . '/backend/login');
-        }
-
         $loginSuccessMessage = isset($_SESSION['login-success']) ? $_SESSION['login-success'] : '';
         $this->data['login-success'] = $loginSuccessMessage;
         $this->model->removeSession('login-success');

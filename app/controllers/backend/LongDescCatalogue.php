@@ -6,6 +6,7 @@ class LongDescCatalogue extends Controller
     public function __construct()
     {
         $this->model = new Model();
+        $this->checkLogin();
     }
 
     public function search($currentPage = 1)
@@ -19,6 +20,7 @@ class LongDescCatalogue extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css'
         ];
         $this->data['contents'] = [
@@ -64,6 +66,7 @@ class LongDescCatalogue extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css'
         ];
         $this->data['contents'] = [
@@ -104,6 +107,7 @@ class LongDescCatalogue extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css'
         ];
         $this->data['contents'] = [
@@ -137,6 +141,7 @@ class LongDescCatalogue extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css'
         ];
         $this->data['contents'] = [
@@ -169,6 +174,7 @@ class LongDescCatalogue extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css'
         ];
         $this->data['contents'] = [

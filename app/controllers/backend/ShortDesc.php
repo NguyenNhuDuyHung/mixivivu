@@ -6,6 +6,7 @@ class ShortDesc extends Controller
     public function __construct()
     {
         $this->model = new Model;
+        $this->checkLogin();
     }
 
     public function search()
@@ -19,6 +20,7 @@ class ShortDesc extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css'
         ];
 
@@ -30,7 +32,6 @@ class ShortDesc extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/descriptions/main.js'
         ];
 
         if (isset($_GET['keyword'])) {
@@ -64,6 +65,7 @@ class ShortDesc extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css'
         ];
 
@@ -75,10 +77,9 @@ class ShortDesc extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/descriptions/main.js'
         ];
 
-        $numberPage = $this->model->countPagesDistinct($recordsPerPage, 'short_desc', null, ['product_id']);
+        $numberPage = $this->model->countPagesDistinct($recordsPerPage, 'short_desc', ['product_id']);
         $this->data['short_descs'] = $this->model('DescriptionModel')->paginationShortDesc($offset, $recordsPerPage);
         $this->data['countAll'] = $this->model->countAllDistinct('short_desc', null, ['product_id']);
         $this->data['numberPage'] = $numberPage;
@@ -105,6 +106,7 @@ class ShortDesc extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css',
         ];
         $this->data['contents'] = [
@@ -148,6 +150,7 @@ class ShortDesc extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css',
         ];
         $this->data['contents'] = [
@@ -182,6 +185,7 @@ class ShortDesc extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css',
         ];
         $this->data['contents'] = [
@@ -191,7 +195,6 @@ class ShortDesc extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/descriptions/main.js',
         ];
 
         $this->render('layouts/admin_layout', data: $this->data);

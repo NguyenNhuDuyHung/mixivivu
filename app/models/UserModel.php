@@ -18,8 +18,11 @@ class UserModel extends Model
         LIMIT " . $offset . ", " . $recordsPerPage . "
         ";
 
-        $users = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-        return $users;
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        if (empty($data)) {
+            return false;
+        }
+        return $data;
     }
 
     public function create()

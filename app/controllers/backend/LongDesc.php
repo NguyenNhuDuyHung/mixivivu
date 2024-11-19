@@ -6,15 +6,22 @@ class LongDesc extends Controller
     public function __construct()
     {
         $this->model = new Model;
+        $this->checkLogin();
     }
-    public function index($currentPage = 1)
+    public function search($currentPage = 1)
     {
+        $recordsPerPage = 5;
+        $keyword = $_GET['keyword'] ?? '';
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($currentPage - 1) * $recordsPerPage;
+
         $recordsPerPage = 5;
         $offset = ($currentPage - 1) * $recordsPerPage;
         $this->data['page_title'] = 'Danh sách mô tả chi tiết';
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css'
         ];
 
@@ -29,7 +36,54 @@ class LongDesc extends Controller
             'backend/descriptions/main.js'
         ];
 
-        $numberPage = $this->model->countPagesDistinct($recordsPerPage, 'long_desc', null, ['product_id']);
+        if (isset($_GET['keyword'])) {
+            $keyword = $_GET['keyword'];
+            $search = $this->model('LongDescModel')->search($keyword, $offset, $recordsPerPage);
+
+            if ($search === false) {
+                $this->data['page_title'] = 'Not found';
+                $this->data['href-back'] = _WEB_ROOT . '/backend/long-desc';
+                $this->data['contents'] = [
+                    'components/admin/sidebar',
+                    'components/errors/not_found'
+                ];
+            } else {
+                $numberPage = $this->model->countPagesDistinct($recordsPerPage, 'long_desc', ['product_id']);
+                $this->data['long_descs'] = $this->model('LongDescModel')->pagination($offset, $recordsPerPage);
+                $this->data['countAll'] = $this->model->countAllDistinct('long_desc', null, ['product_id']);
+                $this->data['numberPage'] = $numberPage;
+            }
+        }
+
+        $this->data['recordsPerPage'] = $recordsPerPage;
+        $this->data['currentPage'] = $currentPage;
+
+        $this->render('layouts/admin_layout', $this->data);
+    }
+    public function index($currentPage = 1)
+    {
+        $recordsPerPage = 5;
+        $offset = ($currentPage - 1) * $recordsPerPage;
+        $this->data['page_title'] = 'Danh sách mô tả chi tiết';
+        $this->data['layout'] = 'backend/layout.css';
+        $this->data['styles'] = [
+            'components/toast.min.css',
+            'backend/main.css',
+            'backend/descriptions/style.css'
+        ];
+
+        $this->data['contents'] = [
+            'components/admin/sidebar',
+            'backend/descriptions/description/long/index'
+        ];
+
+        $this->data['scripts'] = [
+            'components/toast.min.js',
+            'components/toast.js',
+            'backend/descriptions/main.js'
+        ];
+
+        $numberPage = $this->model->countPagesDistinct($recordsPerPage, 'long_desc', ['product_id']);
         $this->data['long_descs'] = $this->model('LongDescModel')->pagination($offset, $recordsPerPage);
         $this->data['countAll'] = $this->model->countAllDistinct('long_desc', null, ['product_id']);
         $this->data['numberPage'] = $numberPage;
@@ -56,6 +110,7 @@ class LongDesc extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css',
         ];
         $this->data['contents'] = [
@@ -94,6 +149,7 @@ class LongDesc extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css',
         ];
         $this->data['contents'] = [
@@ -127,6 +183,7 @@ class LongDesc extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/descriptions/style.css',
         ];
         $this->data['contents'] = [

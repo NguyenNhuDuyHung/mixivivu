@@ -60,6 +60,10 @@
             <label class="md">Quản lý short-desc</label>
         </a>
 
+        <a href="<?php echo _WEB_ROOT ?>/backend/room" class="Dashboard-sidebar-menu-item">
+            <label class="md">Quản lý phòng</label>
+        </a>
+
         <a class="Dashboard-sidebar-menu-item">
             <label class="md">Quản lý orders</label>
         </a>

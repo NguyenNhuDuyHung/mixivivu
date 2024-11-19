@@ -7,6 +7,7 @@ class Shipcatalogue extends Controller
     public function __construct()
     {
         $this->model = new Model();
+        $this->checkLogin();
     }
 
     public function search($currentPage = 1)
@@ -20,6 +21,7 @@ class Shipcatalogue extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/ship/style.css'
         ];
 
@@ -30,7 +32,6 @@ class Shipcatalogue extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/ship/catalogue/main.js'
         ];
 
         if (isset($_GET['keyword'])) {
@@ -67,6 +68,7 @@ class Shipcatalogue extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/ship/style.css'
         ];
 
@@ -77,7 +79,6 @@ class Shipcatalogue extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/ship/catalogue/main.js'
         ];
 
         $numberPage = $this->model->countPages($recordsPerPage, 'cruise_category');
@@ -107,6 +108,7 @@ class Shipcatalogue extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/ship/style.css'
         ];
         $this->data['contents'] = [
@@ -144,6 +146,7 @@ class Shipcatalogue extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/ship/style.css',
         ];
         $this->data['contents'] = [
@@ -177,6 +180,7 @@ class Shipcatalogue extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/ship/style.css',
         ];
         $this->data['contents'] = [

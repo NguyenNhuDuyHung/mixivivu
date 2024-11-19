@@ -6,6 +6,22 @@ class LongDescModel extends Model
         parent::__construct();
     }
 
+    public function search($keyword, $offset, $recordsPerPage)
+    {
+        $sql = "SELECT p.id, p.title, COUNT(ld.id) AS countDesc
+        FROM products p
+        JOIN long_desc ld ON p.id = ld.product_id
+        WHERE p.title LIKE '%" . $keyword . "%'
+        GROUP BY p.id   
+        LIMIT " . $offset . ", " . $recordsPerPage . " ";
+
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        if (empty($data)) {
+            return false;
+        }
+        return $data;
+    }
+
     public function pagination($offset, $recordsPerPage)
     {
         $sql = "SELECT p.id, p.title, COUNT(ld.id) AS countDesc

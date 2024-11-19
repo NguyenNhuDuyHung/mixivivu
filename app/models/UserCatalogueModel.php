@@ -24,8 +24,11 @@ class UserCatalogueModel extends Model
         ORDER BY 
             uc.id ASC 
         LIMIT " . $offset . ", " . $recordsPerPage . "";
-        $user_catalogues = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-        return $user_catalogues;
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        if (empty($data)) {
+            return false;
+        }
+        return $data;
     }
 
     public function search($keyword, $offset, $recordsPerPage)

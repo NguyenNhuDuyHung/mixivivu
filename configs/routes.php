@@ -68,6 +68,15 @@ $routes['long-desc/catalogue/update/(\d+)'] = 'longdesccatalogue/update/$1';
 $routes['long-desc/catalogue/delete/(\d+)'] = 'longdesccatalogue/delete/$1';
 $routes['long-desc/catalogue/page/(\d+)'] = 'longdesccatalogue/index/$1';
 
+$routes['room'] = 'room/index';
+$routes['room/search'] = 'room/search';
+$routes['room/create'] = 'room/create';
+$routes['room/update/(\d+)'] = 'room/update/$1';
+$routes['room/update/detail/(\d+)'] = 'room/updateRoomDetails/$1';
+$routes['room/delete/(\d+)'] = 'room/delete/$1';
+$routes['room/delete/detail/(\d+)'] = 'room/deleteRoomDetails/$1';
+$routes['room/page/(\d+)'] = 'room/index/$1';
+
 $routes['trang-chu'] = 'home';
 $routes['tin-tuc'] = 'news/index';
 $routes['tin-tuc/.+-(\d+).html'] = 'news/category/$1';

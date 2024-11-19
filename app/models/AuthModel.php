@@ -41,15 +41,15 @@ class AuthModel extends Model
                         ]);
 
                         if ($insertToken) {
-                            $this->setSession('loginToken', $tokenLogin, 60 * 60 * 24 * 7); // 7 ngày
-                            setcookie('loginToken', $tokenLogin, time() + 60 * 60 * 24 * 7);
-                            $this->setSession('login-success', 'Đăng nhập thành công!');
+                            $this->setSession('loginToken', $tokenLogin, 60 * 60 * 24); // 1 ngày
+                            setcookie('loginToken', $tokenLogin, time() + 60 * 60 * 24);
+                            $this->setSession('toast-success', 'Đăng nhập thành công!');
                             header('Location: ' . _WEB_ROOT . '/backend/dashboard');
                             return true;
                         }
                     } catch (Exception $e) {
-                        $this->setFlashData('error-system', value: 'Lỗi hệ thống, vui lòng thử lại sau!');
-                        $errors['login']['system'] = $this->getFlashData('error-system');
+                        $this->setFlashData('toast-error', value: 'Lỗi hệ thống, vui lòng thử lại sau!');
+                        $errors['login']['system'] = $this->getFlashData('toast-error');
                         return $errors;
                     }
                 }

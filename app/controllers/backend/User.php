@@ -7,6 +7,7 @@ class User extends Controller
     public function __construct()
     {
         $this->model = new Model();
+        $this->checkLogin();
     }
 
     public function search($currentPage = 1)
@@ -18,6 +19,7 @@ class User extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/user/style.css'
         ];
         $this->data['contents'] = [
@@ -61,6 +63,7 @@ class User extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/user/style.css'
         ];
         $this->data['contents'] = [
@@ -106,6 +109,7 @@ class User extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/user/style.css',
         ];
         $this->data['contents'] = [
@@ -150,6 +154,7 @@ class User extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/user/style.css',
         ];
         $this->data['contents'] = [
@@ -183,6 +188,7 @@ class User extends Controller
         $this->data['layout'] = 'backend/layout.css';
         $this->data['styles'] = [
             'components/toast.min.css',
+            'backend/main.css',
             'backend/user/style.css',
         ];
         $this->data['contents'] = [
