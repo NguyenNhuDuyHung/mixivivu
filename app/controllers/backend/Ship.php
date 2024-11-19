@@ -83,7 +83,8 @@ class Ship extends Controller
 
         $numberPage = $this->model->countPages($recordsPerPage, 'products');
         $this->data['ships'] = $this->model('ShipModel')->pagination($offset, $recordsPerPage);
-        $this->data['countAll'] = $this->model->countAllOrByKeyword('products');
+        $this->data['countAll'] =$this->model('shipModel')->countAllCruise();
+        // $this->data['countAll'] = $this->model->countAllOrByKeyword('products');
         $this->data['numberPage'] = $numberPage;
 
         $this->data['recordsPerPage'] = $recordsPerPage;
