@@ -40,6 +40,10 @@
             <label class="md">Quản lý du thuyền</label>
         </a>
 
+        <a href="<?php echo _WEB_ROOT ?>/backend/hotel" class="Dashboard-sidebar-menu-item">
+            <label class="md">Quản lý hotel</label>
+        </a>
+
         <a href="<?php echo _WEB_ROOT ?>/backend/feature/catalogue" class="Dashboard-sidebar-menu-item">
             <label class="md">Quản lý nhóm đặc trưng</label>
         </a>

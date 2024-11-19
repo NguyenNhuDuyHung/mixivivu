@@ -79,4 +79,9 @@ $routes['room/delete/(\d+)'] = 'room/delete/$1';
 $routes['room/delete/detail/(\d+)'] = 'room/deleteRoomDetails/$1';
 $routes['room/page/(\d+)'] = 'room/index/$1';
 
-
+$routes['hotel'] = 'hotel/index';
+$routes['hotel/search'] = 'hotel/search';
+$routes['hotel/create'] = 'hotel/create';
+$routes['hotel/update/(\d+)'] = 'hotel/update/$1';
+$routes['hotel/delete/(\d+)'] = 'hotel/delete/$1';
+$routes['hotel/page/(\d+)'] = 'hotel/index/$1';

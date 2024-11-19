@@ -38,6 +38,7 @@ Validator({
         Validator.isRequired("#max_persons"),
         Validator.isRequired("#price"),
         Validator.isNumber("#price"),
+        Validator.isRequired("#sale_prices"),
         Validator.isNumber("#sale_prices"),
   ],
 });
@@ -53,6 +54,7 @@ Validator({
         Validator.isRequired("#max_persons"),
         Validator.isRequired("#price"),
         Validator.isNumber("#price"),
+        Validator.isRequired("#sale_prices"),
         Validator.isNumber("#sale_prices"),
   ],
 });

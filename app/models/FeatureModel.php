@@ -34,7 +34,22 @@ class FeatureModel extends Model
             $iconTargerDir = 'public/img/feature/';
             $iconUrl = $this->uploadImageToCloudinary($iconTargerDir, 'icon', 'icon', true);
 
-            $featureType = $filterAll['type'] == 'room' ? 1 : 2;
+            $featureType = $filterAll['type'];
+            switch ($featureType) {
+                case 'room':
+                    $featureType = 1;
+                    break;
+                case 'ship':
+                    $featureType = 2;
+                    break;
+                case 'hotel':
+                    $featureType = 3;
+                    break;
+                default:
+                    $featureType = 1;
+                    break;
+            }
+
             $data = [
                 'text' => $filterAll['text'],
                 'icon' => $iconUrl,
@@ -75,7 +90,22 @@ class FeatureModel extends Model
     {
         if ($this->isPost()) {
             $filterAll = $this->filter();
-            $featureType = $filterAll['type'] == 'room' ? 1 : 2;
+
+            $featureType = $filterAll['type'];
+            switch ($featureType) {
+                case 'room':
+                    $featureType = 1;
+                    break;
+                case 'ship':
+                    $featureType = 2;
+                    break;
+                case 'hotel':
+                    $featureType = 3;
+                    break;
+                default:
+                    $featureType = 1;
+                    break;
+            }
 
             $iconTargerDir = 'public/img/feature/';
             if (empty($_FILES['icon']['name'][0])) {
