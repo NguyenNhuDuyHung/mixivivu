@@ -117,6 +117,7 @@ class ShipModel extends Model
                 'type_product' => $typeProduct,
                 'thumbnail' => $thumbUrl,
                 'images' => $imageUrls,
+                'default_price' => $filterAll['default_price'],
                 'created_at' => date('Y-m-d H:i:s'),
             ];
 
@@ -201,6 +202,7 @@ class ShipModel extends Model
                 'type_product' => $typeProduct,
                 'thumbnail' =>  $thumbUrl,
                 'images' => $imageUrls,
+                'default_price' => $filterAll['default_price'],
                 'updated_at' => date('Y-m-d H:i:s'),
             ];
 

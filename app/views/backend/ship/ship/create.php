@@ -115,7 +115,7 @@
                 </div>
             </div>
 
-            <div class="group-input">
+            <div class="group-input-3">
                 <div class="form-group">
                     <div class="">
                         <label for="schedule" class="input-group">
@@ -136,6 +136,19 @@
                                 value="<?php echo $this->oldInfo('trip', $data) ?>" autocomplete="off">
                             <label for="trip" class="sm input-required">
                                 Hành trình
+                            </label>
+                        </label>
+                    </div>
+                    <div class="error"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="">
+                        <label for="default_price" class="input-group">
+                            <input id="default_price" class="p-md" placeholder="Nhập giá" name="default_price"
+                                value="<?php echo $this->oldInfo('default_price', $data) ?>" autocomplete="off">
+                            <label for="default_price" class="sm input-required">
+                                Giá
                             </label>
                         </label>
                     </div>

@@ -136,7 +136,7 @@
 }
 
 .SearchPageDetail-apply-mb-btn {
-    display: none;
+    display: none !important;
 }
 
 .SearchPageDetail-filter-item {
@@ -183,7 +183,8 @@
     cursor: pointer;
 }
 
-.Checkbox-checkmark.Checkbox-sm>svg {
+.Checkbox-checkmark 
+.Checkbox-sm>svg {
     width: 12px;
     height: 12px;
     stroke-width: 1.6;
@@ -206,6 +207,11 @@
     color: var(--gray-700, #344054);
 }
 
+.Checkbox-container input:checked~.Checkbox-checkmark>svg {
+    display: block;
+    stroke: solid var(--primary-dark);
+}
+
 .SearchPageDetail-ship-list {
     display: flex;
     flex-grow: 1;
@@ -215,8 +221,7 @@
     
 }
 
-.ProductCard-description 
-p, 
+.ProductCard-description p, 
 .ProductCard-title {
     text-overflow: ellipsis;
     overflow: hidden;
@@ -232,16 +237,136 @@ p,
     padding: 0;
 }
 
+.ProductCard-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+
+.ProductCard-imageWrapper {
+    padding: 16px;
+    position: relative;
+}
+
+.ProductCard-imageWrapper-image {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -2px rgba(16, 24, 40, .06), 0 12px 16px -4px rgba(16, 24, 40, .1);
+    max-width: 100% !important;
+}
+
+.ProductCard-imageWrapper-badge {
+    display: flex;
+    padding: 2px 8px 2px 6px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    position: absolute;
+    left: 28px;
+    top: 28px;
+    color: var(--warning-dark, #7a2e0e);
+}
+
+.ProductCard-location {
+    color: var(--gray-700, #344054);
+    max-width: 100%;
+}
+
+.ProductCard-description {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    color: var(--gray-600);
+}
+
+.ProductCard-list
+.ProductCard-tags {
+    margin: 24px 0;
+    padding: 0;
+}
+
+.ProductCard-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 0 24px;
+}
+
 .ProductCard-list
 .ProductCard-footer {
     padding: 20px 0 0;
     border-top: 1px solid var(--gray-200, #eaecf0);
 }
 
-.ProductCard-list .ProductCard-cardContent {
+.ProductCard-list 
+.ProductCard-cardContent {
     padding-right: 20px;
 }
 
+.ProductCard-list 
+.ProductCard-body {
+    padding: 0;
+}
+
+.ProductCard-body {
+    display: flex;
+    padding: 0 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.ProductCard-footer {
+    padding: 20px 24px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.btn-color {
+    background-color: var(--primary-base);
+    border: 1px solid var(--primary-base);
+    color: var(--primary-dark);
+    fill: var(--primary-dark);
+}
+
+.btn-sm {
+    padding: 10px 16px;
+    white-space: nowrap;
+}
+.btn {
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary {
+    background-color: #77dada;
+    border: 1px solid #77dada;
+    color: #0e4f4f;
+    fill: #0e4f4f;
+}
+
+.btn-link-color {
+    color: var(--primary-dark);
+    fill: var(--primary-dark);
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+}
 
 .Pagination-pagination {
     padding: 12px 24px 16px;
@@ -374,12 +499,6 @@ p,
 }
 
 /* mobile */
-@media only screen and (max-width: 1280px) {
-    .container {
-        padding: 0 8px;
-    }
-}
-
 @media (max-width: 1024px) {
     .header-logo {
         width: 120px;
