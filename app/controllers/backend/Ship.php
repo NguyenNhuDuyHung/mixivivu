@@ -168,6 +168,7 @@ class Ship extends Controller
             'p.slug AS slug',
             'p.thumbnail AS thumbnail',
             'p.images AS images',
+            'p.default_price AS default_price',
             'pt.name AS name',
             'cr.year AS year',
             'cr.cabin AS cabin',
@@ -215,6 +216,7 @@ class Ship extends Controller
             $typeProduct = $_POST['type_product'];
             $active = $_POST['active'];
             $categoryId =  $_POST['category_id'];
+            $default_price =  $_POST['default_price'];
 
             $update = $this->model('ShipModel')->updateInfoCruise($id);
             if ($update) {
@@ -235,6 +237,7 @@ class Ship extends Controller
             $this->data['type_product'] = $typeProduct;
             $this->data['active'] = $active;
             $this->data['category_id'] = $categoryId;
+            $this->data['default_price'] = $default_price;
         }
 
         $this->data['page_title'] = 'Cập nhật thông tin du thuyền';

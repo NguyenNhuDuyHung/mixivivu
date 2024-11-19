@@ -180,18 +180,7 @@
     padding: 10px 16px;
     gap: 8px;
     width: -moz-fit-content;
-    width: fit-content;
-}
-.Pagination-pagination-container 
-.Pagination-pagination-item {
-    display: flex;
-    width: 40px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid var(--gray-300, #d0d5dd);
-    background: var(--base-white, #fff);
-    color: var(--gray-800, #1d2939);
+    width: fit-content !important;
 }
 
 .Pagination-pagination-container 
