@@ -40,15 +40,17 @@ function initButtonDropdown() {
 
 initButtonDropdown();
 
-
-const checkbox = document.querySelector('.Checkbox-container input[type="checkbox"]');
-const productLabel = document.querySelector('.xs');
-
-checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
-        productLabel.style.display = 'block'; 
-    } else {
-        productLabel.style.display = 'none'; 
-    }
-});
-
+function initcheckbox () {
+    const checkbox = $('.Checkbox-container input[type="checkbox"]');
+    const productLabel = $$(' fresnel-container-div .xs');
+    
+    checkboxes.forEach((checkbox, index) => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                productLabels[index].style.display = 'block';
+            } else {
+                productLabels[index].style.display = 'none';
+            }
+        });
+    });
+}
