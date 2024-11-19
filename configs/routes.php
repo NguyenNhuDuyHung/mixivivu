@@ -5,6 +5,7 @@ $routes['default_controller'] = 'Home';
 $routes['login'] = 'auth/login';
 
 $routes['du-thuyen/([a-zA-Z0-9-]+)'] = 'cruise/index/$1';
+$routes['booking'] = 'booking/index';
 
 $routes['user'] = 'user/index';
 $routes['user/search'] = 'user/search';

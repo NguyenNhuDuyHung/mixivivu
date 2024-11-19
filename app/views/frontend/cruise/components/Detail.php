@@ -122,13 +122,19 @@
                 <div class="flex flex-col gap-40 ShipDetail-room-types section-bg">
                     <div class="flex justify-end">
                         <button type="button" class="btn btn-sm btn-outline">
-                            <img src="/views/assest/svg/close_icon.svg" alt="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 6L18 18M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
                             <div class="label sm">Xoá lựa chọn</div>
                         </button>
                     </div>
 
                     <div class="flex flex-col gap-16">
-                        <?php foreach ($cruiseRooms as $cruiseRoom) : ?>
+                        <?php
+                        $cruiseRoomId = [];
+                        ?>
+                        <?php foreach ($cruiseRooms as $key => $cruiseRoom) : ?>
+                            <?php $cruiseRoomId[] = $cruiseRoom['id'] ?>
                             <?php $cruiseRoomImages = explode(',', $cruiseRoom['images']); ?>
                             <div>
                                 <div class="card RoomCard-roomCard">
@@ -181,6 +187,7 @@
                                             </div>
 
                                             <div class="label md">0</div>
+                                            <input type="hidden" class="quantity-input" name="cruiseRoomQuantityOutSide[<?= $key ?>]" value="">
 
                                             <div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -194,6 +201,12 @@
                             </div>
 
                         <?php endforeach ?>
+
+                        <?php
+                        $cruiseRoomId =  implode(',', $cruiseRoomId);
+                        ?>
+                        <input type="hidden" name="cruiseRoomIdOutside[]" value="<?php echo $cruiseRoomId ?>">
+
                     </div>
 
                     <div class="flex align-center gap-40 justify-between ShipDetail-rooms-footer">

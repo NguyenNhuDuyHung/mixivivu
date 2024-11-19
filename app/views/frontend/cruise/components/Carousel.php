@@ -57,17 +57,13 @@ $imagesJson = json_encode($cruiseImages);
 
         // Cập nhật vị trí hiện tại
         currentIndex = endIndex;
-
-        // Ẩn nút nếu đã hiển thị hết ảnh
-        if (currentIndex >= cruiseImages.length) {
-            document.querySelector('.Carousel-right-btn').style.display = 'none';
-        }
     }
 
     // Gắn sự kiện click vào nút
     document.querySelector('.Carousel-right-btn').addEventListener('click', loadImages);
     document.querySelector('.Carousel-left-btn').addEventListener('click', () => {
-        
+        currentIndex = Math.max(currentIndex - itemsPerPage * 2, 0);
+        loadImages();
     })
     // Hiển thị 3 ảnh đầu tiên khi tải trang
     loadImages();

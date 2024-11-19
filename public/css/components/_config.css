@@ -324,3 +324,10 @@ input[type="number"] {
   font-weight: 400;
   line-height: 20px;
 }
+
+.select-input {
+  position: relative;
+}
+.select-input:focus-within .dropdown {
+  display: flex;
+}

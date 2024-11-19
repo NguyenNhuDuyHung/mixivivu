@@ -39,6 +39,8 @@ class Cruise extends Controller
         ];
 
         $this->data['scripts'] = [
+            'components/toast.min.js',
+            'components/toast.js',
             'frontend/cruise/main.js',
         ];
 

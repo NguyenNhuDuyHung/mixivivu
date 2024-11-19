@@ -21,6 +21,12 @@ class ShipModel extends Model
         return $data;
     }
 
+    public function countAllCruise() {
+        $sql = "SELECT COUNT(*) AS total FROM products WHERE type_product = 1 AND deleted_at IS NULL";
+        $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $total['total'];
+    }
+
     public function pagination($offset, $recordsPerPage)
     {
         $sql = "SELECT p.id AS id, p.title AS title, p.address AS address, cr.admin AS admin FROM products p JOIN cruise cr ON cr.id = p.id WHERE p.deleted_at IS NULL ORDER BY p.id ASC LIMIT " . $offset . ", " . $recordsPerPage;

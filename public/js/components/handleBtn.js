@@ -5,7 +5,8 @@ function handleInreaseAndDecreaseBtn(
   listElementSelector,
   listBtnSelector,
   totalOutputSelector = null,
-  listOutputSelector = null
+  listOutputSelector = null,
+  inputHiddenSelector = null
 ) {
   let sumPrice = 0;
 
@@ -13,6 +14,17 @@ function handleInreaseAndDecreaseBtn(
   const listBtnList = $$(listBtnSelector);
   const listOutputList = $$(listOutputSelector);
   const totalOutput = $(totalOutputSelector);
+  const inputHidden = $$(inputHiddenSelector);
+
+  const deleteSelectionBtn = $(".ShipDetail-room-types button");
+
+  deleteSelectionBtn.addEventListener("click", () => {
+    totalOutput.innerHTML = "0";
+    listElementList.forEach((listElement, index) => {
+      listBtnList[index].querySelector("div[class='label md']").innerText = 0;
+    });
+    sumPrice = 0;
+  });
 
   listElementList.forEach((listElement, index) => {
     const minusBtn = listBtnList[index].querySelector("div:first-child");
@@ -34,6 +46,11 @@ function handleInreaseAndDecreaseBtn(
           totalOutput.innerText = sumPrice.toLocaleString() + " đ";
         }
       }
+      if (inputHidden) {
+        inputHidden[index].value = listBtnList[index].querySelector(
+          "div[class='label md']"
+        ).innerText;
+      }
     });
 
     plusBtn.addEventListener("click", () => {
@@ -45,6 +62,11 @@ function handleInreaseAndDecreaseBtn(
           listOutputList[index].innerText.slice(0, -2).replace(/,/g, "")
         );
         totalOutput.innerText = sumPrice.toLocaleString() + " đ";
+      }
+      if (inputHidden) {
+        inputHidden[index].value = listBtnList[index].querySelector(
+          "div[class='label md']"
+        ).innerText;
       }
     });
   });

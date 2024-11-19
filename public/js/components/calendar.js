@@ -56,7 +56,7 @@ datePickerWrapper.addEventListener("click", () => {
         </div>
     </div>`;
 
-  $('.DatePicker-mixi-date-picker').appendChild(mainCalendarElement);
+  $(".DatePicker-mixi-date-picker").appendChild(mainCalendarElement);
 
   datePickerTabLoop = $(".DatePicker-tab-loop");
   datePickerDates = $(".DatePicker-dates");
@@ -111,9 +111,12 @@ const handleDateClick = (e) => {
 };
 
 const displayDate = () => {
-  if (!datePickerDates) return; // Kiểm tra nếu datePickerDates đã tồn tại
+  if (!datePickerDates) return;
 
   datePickerDates.innerHTML = "";
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Reset giờ để so sánh chính xác
 
   const lastOfPreviousMonth = new Date(year, month, 0);
 
@@ -128,13 +131,14 @@ const displayDate = () => {
   const lastOfMonth = new Date(year, month + 1, 0);
 
   for (let i = 1; i <= lastOfMonth.getDate(); i++) {
-    const isToday =
-      selectedDate.getDate() === i &&
-      selectedDate.getMonth() === month &&
-      selectedDate.getFullYear() === year;
+    const currentDate = new Date(year, month, i); // Ngày trong tháng hiện tại
+    const isToday = today.getTime() === currentDate.getTime();
+    const isDisabled = currentDate < today; // Disable nếu ngày nhỏ hơn hôm nay
 
-    const button = createButton(i, false, isToday);
-    button.addEventListener("click", handleDateClick);
+    const button = createButton(i, isDisabled, isToday);
+    if (!isDisabled) {
+      button.addEventListener("click", handleDateClick);
+    }
     datePickerDates.appendChild(button);
   }
 
