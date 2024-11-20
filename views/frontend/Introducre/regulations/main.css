@@ -1,0 +1,57 @@
+@import "/views/components/_reset.css";
+@import "/views/components/_config.css";
+@import "/views/components/_variable.css";
+@import "/views/components/_input.css";
+@import "/views/components/Button.css";
+@import '/views/components/Header.css';
+@import '/views/components/Card.css';
+@import '/views/components/Searchbox.css';
+@import '/views/components/SectionHeader.css';
+@import '/views/components/Footer.css';
+
+.Layout-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.Collapse-open-header {
+    border-bottom: 1px solid var(--gray-200, #eaecf0);
+}
+
+.Card-card {
+    border-radius: 32px;
+    border: 1px solid var(--gray-200, #eaecf0);
+    background: var(--base-white, #fff);
+    box-shadow: var(--shadow-sm);
+}
+
+.Collapse-collapse {
+    transition: height .25s cubic-bezier(.4,0,.2,1);
+}
+
+.TermAndConditions-wrapper {
+    padding: 80px 32px;
+}
+
+.TermAndConditions-wrapper .TermAndConditions-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 24px 20px;
+}
+
+.TermAndConditions-wrapper .TermAndConditions-custom-header {
+    border-bottom: none;
+}
+
+.TermAndConditions-wrapper .TermAndConditions-content {
+    padding: 0 24px 24px;
+    color: var(--gray-600, #475467);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.TermAndConditions-wrapper .TermAndConditions-content ul {
+    padding-left: 20px;
+}

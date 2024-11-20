@@ -6,6 +6,29 @@ button {
   gap: 8px;
 }
 
+.Button-button-link-color {
+  color: var(--primary-dark);
+  fill: var(--primary-dark);
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.Button-button-normal {
+  padding: 16px 20px;
+  white-space: nowrap;
+}
+
+.Button-button {
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* btn */
 
 .btn {
