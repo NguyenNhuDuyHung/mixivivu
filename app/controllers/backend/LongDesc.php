@@ -48,9 +48,9 @@ class LongDesc extends Controller
                     'components/errors/not_found'
                 ];
             } else {
-                $numberPage = $this->model->countPagesDistinct($recordsPerPage, 'long_desc', ['product_id']);
-                $this->data['long_descs'] = $this->model('LongDescModel')->pagination($offset, $recordsPerPage);
-                $this->data['countAll'] = $this->model->countAllDistinct('long_desc', null, ['product_id']);
+                $numberPage = $this->model("LongDescModel")->countPageLongDescSearch($keyword, $recordsPerPage);
+                $this->data['long_descs'] = $search;
+                $this->data['countAll'] = $this->model("LongDescModel")->countAllLongDescSearch($keyword);
                 $this->data['numberPage'] = $numberPage;
             }
         }

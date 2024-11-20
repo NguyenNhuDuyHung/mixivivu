@@ -58,6 +58,7 @@ class DescriptionModel extends Model
         FROM products p
         JOIN short_desc sd ON p.id = sd.product_id
         GROUP BY p.id   
+        ORDER BY p.id DESC
         LIMIT " . $offset . ", " . $recordsPerPage . " ";
 
         $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);

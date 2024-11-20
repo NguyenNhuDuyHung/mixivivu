@@ -7,6 +7,55 @@ class Hotel extends Controller
     {
         $this->model = new Model();
     }
+
+    public function search($currentPage = 1)
+    {
+        $recordsPerPage = 5;
+        $keyword = $_GET['keyword'] ?? '';
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($currentPage - 1) * $recordsPerPage;
+
+        $this->data['page_title'] = 'Quản lý hotel';
+        $this->data['layout'] = 'backend/layout.css';
+        $this->data['styles'] = [
+            'components/toast.min.css',
+            'backend/main.css',
+            'backend/ship/style.css'
+        ];
+
+        $this->data['contents'] = [
+            'components/admin/sidebar',
+            'backend/hotel/index'
+        ];
+        $this->data['scripts'] = [
+            'components/toast.min.js',
+            'components/toast.js',
+        ];
+
+        if (isset($_GET['keyword'])) {
+            $keyword = $_GET['keyword'];
+            $search = $this->model('HotelModel')->search($keyword, $offset, $recordsPerPage);
+
+            if ($search === false) {
+                $this->data['page_title'] = 'Not found';
+                $this->data['href-back'] = _WEB_ROOT . '/backend/hotel';
+                $this->data['contents'] = [
+                    'components/admin/sidebar',
+                    'components/errors/not_found'
+                ];
+            } else {
+                $numberPage = $this->model->countPages($recordsPerPage, 'hotel', $keyword);
+                $this->data['hotels'] = $search;
+                $this->data['countAll'] = $this->model->countAllOrByKeyword('hotel', $keyword);
+                $this->data['numberPage'] = $numberPage;
+            }
+        }
+
+        $this->data['recordsPerPage'] = $recordsPerPage;
+        $this->data['currentPage'] = $currentPage;
+
+        $this->render('layouts/admin_layout', $this->data);
+    }
     public function index($currentPage = 1)
     {
         $recordsPerPage = 5;
