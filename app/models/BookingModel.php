@@ -23,6 +23,7 @@ class BookingModel extends Model
                 'booking_date' => date('Y-m-d', strtotime($filterAll['calendar'])),
                 'additional_info' => $filterAll['additional_info'],
                 'guests_number' => $filterAll['quantity'],
+                'status' => 'Đã gửi mail',
                 'created_at' => date('Y-m-d H:i:s'),
             ];
 
@@ -72,6 +73,19 @@ class BookingModel extends Model
                     return false;
                 }
 
+                $subject = 'Xác nhận đặt tour thành công!';
+                $content = '
+                    <p>Kính gửi quý khách <strong>' . $filterAll['full_name'] . '</strong>,</p>
+                    <p>Cảm ơn quý khách đã đặt tour. Chúng tôi sẽ liên hệ với quý khách trong thời gian sớm nhất để xác nhận lại thông tin và thanh toán.</p>
+                    <br>
+                    <p>Trân trọng,</p>
+                    <p><strong>Công ty TNHH Du lịch và Dịch vụ Mixivivu</strong></p>
+                    <p>Số nhà 25, Ngõ 38 Phố Yên Lãng, Phường Láng Hạ, Quận Đống Đa, Hà Nội</p>
+                    <p>Hotline 1: 0922222016</p>
+                    <p>Hotline 2: 0812 505 505</p>
+                    <p>Email: <a href="mailto:info@mixivivu.com">info@mixivivu.com</a></p>
+                ';
+                $sendMail = $this->sendMail($filterAll['email'], $subject, $content);
                 $this->setSession('toast-success', 'Đặt phòng thành công! Vui lòng kiểm tra email của bạn!');
                 return true;
             } catch (Exception $e) {
