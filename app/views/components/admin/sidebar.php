@@ -68,6 +68,10 @@
             <label class="md">Quản lý phòng</label>
         </a>
 
+        <a href="<?php echo _WEB_ROOT ?>/backend/blog" class="Dashboard-sidebar-menu-item">
+            <label class="md">Quản lý blog</label>
+        </a>
+
         <a class="Dashboard-sidebar-menu-item">
             <label class="md">Quản lý orders</label>
         </a>

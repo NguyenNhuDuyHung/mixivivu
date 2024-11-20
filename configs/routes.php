@@ -86,3 +86,11 @@ $routes['hotel/create'] = 'hotel/create';
 $routes['hotel/update/(\d+)'] = 'hotel/update/$1';
 $routes['hotel/delete/(\d+)'] = 'hotel/delete/$1';
 $routes['hotel/page/(\d+)'] = 'hotel/index/$1';
+
+$routes ['blog'] = 'blog/index';
+$routes ['blog/search'] = 'blog/search';
+$routes ['blog/create'] = 'blog/create';
+$routes ['blog/update/(\d+)'] = 'blog/update/$1';
+$routes ['blog/update/long-desc/(\d+)'] = 'blog/updateLongDesc/$1';
+$routes ['blog/delete/(\d+)'] = 'blog/delete/$1';
+$routes ['blog/page/(\d+)'] = 'blog/index/$1';

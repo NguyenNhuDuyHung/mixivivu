@@ -80,7 +80,6 @@ class LongDesc extends Controller
         $this->data['scripts'] = [
             'components/toast.min.js',
             'components/toast.js',
-            'backend/descriptions/main.js'
         ];
 
         $numberPage = $this->model->countPagesDistinct($recordsPerPage, 'long_desc', ['product_id']);
