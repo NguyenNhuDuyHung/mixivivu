@@ -88,8 +88,36 @@
                         <label for="sale_prices" class="input-group">
                             <input id="sale_prices" class="p-md" placeholder="SalePrices" name="sale_prices"
                                 value="<?php echo $this->oldInfo('sale_prices', $data) ?>" autocomplete="off">
-                            <label for="sale_prices" class="sm">
+                            <label for="sale_prices" class="sm input-required">
                                 SalePrices
+                            </label>
+                        </label>
+                    </div>
+                    <div class="error"></div>
+                </div>
+            </div>
+
+            <div class="group-input">
+                <div class="form-group">
+                    <div class="">
+                        <label for="bed_type" class="input-group">
+                            <input id="bed_type" class="p-md" placeholder="Loại giường" name="bed_type"
+                                value="<?php echo $this->oldInfo('bed_type', $data) ?>" autocomplete="off">
+                            <label for="bed_type" class="sm">
+                                Loại giường
+                            </label>
+                        </label>
+                    </div>
+                    <div class="error"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="">
+                        <label for="view" class="input-group">
+                            <input id="view" class="p-md" placeholder="View" name="view"
+                                value="<?php echo $this->oldInfo('view', $data) ?>" autocomplete="off">
+                            <label for="view" class="sm">
+                                View
                             </label>
                         </label>
                     </div>

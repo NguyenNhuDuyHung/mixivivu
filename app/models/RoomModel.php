@@ -37,9 +37,8 @@ class RoomModel extends Model
         if ($this->isPost()) {
             $filterAll = $this->filter();
             $productSlug = $this->findById('products', $filterAll['product_id'], ['slug'], [], 'id');
-            $imageTargetDir = 'public/img/tour/' . $productSlug['slug'] . '/' . $filterAll['title'] . '/';
-            $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images',  $filterAll['title'], true);
-
+            $imageTargetDir = 'public/img/tour/' . $productSlug['slug'] . '/' . strtolower(str_replace(' ', '-', trim($filterAll['title']))) . '/';
+            $imageUrls = $this->uploadImageToCloudinary($imageTargetDir, 'images',  $productSlug['slug'], true);
             $data = [
                 'product_id' => $filterAll['product_id'],
                 'title' => $filterAll['title'],
@@ -47,6 +46,8 @@ class RoomModel extends Model
                 'max_persons' => $filterAll['max_persons'],
                 'price' => $filterAll['price'],
                 'sale_prices' => $filterAll['sale_prices'],
+                'bed_type' => $filterAll['bed_type'],
+                'view' => $filterAll['view'],
                 'images' => $imageUrls,
                 'created_at' => date('Y-m-d H:i:s'),
             ];
