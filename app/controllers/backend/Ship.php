@@ -36,9 +36,9 @@ class Ship extends Controller
 
         if (isset($_GET['keyword'])) {
             $keyword = $_GET['keyword'];
-            $searchUser = $this->model('ShipModel')->search($keyword, $offset, $recordsPerPage);
+            $search = $this->model('ShipModel')->search($keyword, $offset, $recordsPerPage);
 
-            if ($searchUser === false) {
+            if ($search === false) {
                 $this->data['page_title'] = 'Not found';
                 $this->data['href-back'] = _WEB_ROOT . '/backend/ship';
                 $this->data['contents'] = [
@@ -47,7 +47,7 @@ class Ship extends Controller
                 ];
             } else {
                 $numberPage = $this->model->countPages($recordsPerPage, 'products', $keyword, ['title']);
-                $this->data['ships'] = $searchUser;
+                $this->data['ships'] = $search;
                 $this->data['countAll'] = $this->model->countAllOrByKeyword('products', $keyword, ['title']);
                 $this->data['numberPage'] = $numberPage;
             }

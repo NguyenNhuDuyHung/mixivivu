@@ -1,7 +1,11 @@
 @import "../../components/Header.css";
+@import "../../components/card.css";
+@import "../../components/Dropdown.css";
+@import "../../components/Checkbox.css";
+@import "../../components/ProductCard.css";
+@import "../../components/Searchbox.css";
 @import "../../components/BreadCrumbs.css";
 @import "../../components/Badge.css";
-@import "../../components/card.css";
 @import "../../components/BlogCard.css";
 @import "../../components/RoomCard.css";
 @import "../../components/Alert.css";
@@ -20,3 +24,113 @@
 @import "./components/Popup.css";
 @import "./components/RoomPicker.css";
 @import "./components/DatePicker.css";
+
+.SearchPageDetail-search-page {
+  padding: 80px 32px !important;
+}
+
+.SearchPageDetail-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  margin-bottom: 80px;
+}
+
+.flex.justify-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.SearchPageDetail-search-box {
+  width: 100% !important;
+}
+
+.SearchPageDetail-filter-btn {
+  display: none;
+}
+
+.SearchPageDetail-header .SearchPageDetail-sort-btn {
+  position: relative;
+}
+
+.SearchPageDetail-collapse {
+  border-radius: 16px;
+}
+
+.SearchPageDetail-header .SearchPageDetail-dropdown-item {
+  width: 100%;
+  padding: 15px 30px;
+  cursor: pointer;
+}
+
+.SearchPageDetail-side-bar-2 {
+  top: 120px;
+  width: 280px;
+  min-width: 280px;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 24px;
+  border: 1px solid var(--gray-200, #eaecf0);
+  background: var(--base-white, #fff);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.SearchPageDetail-side-bar-header {
+  display: flex;
+  padding: 20px 24px;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid var(--gray-200, #eaecf0);
+}
+
+.SearchPageDetail-apply-mb-btn {
+  display: none !important;
+}
+
+.SearchPageDetail-filter-item {
+  display: flex;
+  padding: 20px 24px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.SearchPageDetail-ship-list {
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.SearchPageDetail-ship-list {
+  display: flex;
+  flex-grow: 1;
+  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (max-width: 1024px) {
+  .SearchPageDetail-search-page {
+    padding: 24px !important;
+    gap: 24px;
+  }
+
+  .SearchPageDetail-header {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .SearchPageDetail-header .SearchPageDetail-title {
+    font-size: 30px;
+  }
+
+  .SearchPageDetail-header .SearchPageDetail-filter-btn {
+    display: block;
+  }
+
+  .SearchPageDetail-ship-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

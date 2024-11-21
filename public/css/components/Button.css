@@ -101,3 +101,22 @@ button {
 .btn-link-color:hover > svg > path {
   stroke: var(--primary-base);
 }
+
+.btn-link-color > svg > path {
+  stroke: var(--primary-dark);
+}
+
+.btn-w-full {
+  width: 100%;
+}
+
+.btn-color {
+  background-color: var(--primary-base);
+  border: 1px solid var(--primary-base);
+  color: var(--primary-dark);
+  fill: var(--primary-dark);
+}
+
+.btn-color > svg > path {
+  stroke: var(--primary-dark);
+}

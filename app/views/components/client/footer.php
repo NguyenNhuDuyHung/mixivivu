@@ -29,64 +29,31 @@
             <div class="flex flex-col gap-16">
                 <span class="detail-sm">GIỚI THIỆU</span>
                 <div class="flex flex-col gap-12">
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
+                    <a href="<?= _WEB_ROOT ?>/ve-chung-toi" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
                         tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
+                    <a href="<?= _WEB_ROOT ?>/dieu-khoan-va-dieu-kien" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Điều khoản và điều kiện</a>
+                    <a href="<?= _WEB_ROOT ?>/chinh-sach-rieng-tu" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Chính sách riêng tư</a>
+                    <a href="<?= _WEB_ROOT ?>/huong-dan-su-dung" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Hướng dẫn sử dụng</a>
+                    <a href="<?= _WEB_ROOT ?>/hinh-thuc-thanh-toan" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Hình thức thanh toán</a>
+                    <a href="<?= _WEB_ROOT ?>/lien-he" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Liên hệ</a>
+                    <a href="tel:0922222016" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Hotline: 0922222016</a>
+                    <a href="mailto:info@mixivivu.com" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Email: info@mixivivu.com</a>
                 </div>
             </div>
             <div class="flex flex-col gap-16">
-                <span class="detail-sm">GIỚI THIỆU</span>
+                <span class="detail-sm">ĐIỂM ĐẾN</span>
                 <div class="flex flex-col gap-12">
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
+                    <a href="<?= _WEB_ROOT ?>/tim-du-thuyen" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Vịnh Hạ Long</a>
+                    <a href="<?= _WEB_ROOT ?>/tim-du-thuyen" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Vịnh Lan Hạ</a>
+                    <a href="<?= _WEB_ROOT ?>/tim-du-thuyen" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Đảo Cát Bà</a>
                 </div>
             </div>
             <div class="flex flex-col gap-16">
-                <span class="detail-sm">GIỚI THIỆU</span>
+                <span class="detail-sm">DU THUYỀN</span>
                 <div class="flex flex-col gap-12">
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
-                    <a href="#" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Về chúng
-                        tôi</a>
+                    <a href="<?= _WEB_ROOT ?>/blog" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Blog</a>
+                    <a href="<?= _WEB_ROOT ?>/quy-dinh-chung-va-luu-y" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Quy định chung và lưu ý</a>
+                    <a href="<?= _WEB_ROOT ?>/cau-hoi-thuong-gap" class="subheading sm Footer-anchor" target="_blank" rel="noreferrer">Câu hỏi thường gặp</a>
                 </div>
             </div>
         </div>

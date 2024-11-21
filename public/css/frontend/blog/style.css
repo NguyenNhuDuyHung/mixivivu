@@ -1,0 +1,15 @@
+@import "../../components/Tabs.css";
+@import "../../components/Badge.css";
+@import "../../components/card.css";
+@import "../../components/BlogCard.css";
+@import "../../components/SectionHeader.css";
+@import "../../components/PartnerSection.css";
+@import "../../components/ReviewQuote.css";
+@import "../../components/ReviewSection.css";
+@import "../../components/Searchbox.css";
+@import "../../components/BlogSection.css";
+@import "../../components/CategoryCard.css";
+@import "../../components/Pagination.css";
+@import "../../components/Dropdown.css";
+
+@import "./components/BlogPage.css";

@@ -4,8 +4,16 @@
 $routes['default_controller'] = 'Home';
 $routes['login'] = 'auth/login';
 
-$routes['du-thuyen/([a-zA-Z0-9-]+)'] = 'cruise/index/$1';
 $routes['booking'] = 'booking/index';
+$routes['doanh-nghiep'] = 'business/index';
+
+$routes['blog'] = 'blog/index';
+$routes['blog-detail/([a-zA-Z0-9-]+)'] = 'blog/detail/$1';
+
+$routes['du-thuyen/([a-zA-Z0-9-]+)'] = 'cruise/index/$1';
+$routes['tim-du-thuyen'] = 'cruise/searchpage';
+$routes['tim-du-thuyen/search'] = 'cruise/search';
+$routes['tim-du-thuyen/page/(\d+)'] = 'cruise/searchpage/$1';
 
 $routes['user'] = 'user/index';
 $routes['user/search'] = 'user/search';
@@ -94,3 +102,16 @@ $routes ['blog/update/(\d+)'] = 'blog/update/$1';
 $routes ['blog/update/long-desc/(\d+)'] = 'blog/updateLongDesc/$1';
 $routes ['blog/delete/(\d+)'] = 'blog/delete/$1';
 $routes ['blog/page/(\d+)'] = 'blog/index/$1';
+
+$routes ['ve-chung-toi'] = 'footer/aboutus';
+$routes ['dieu-khoan-va-dieu-kien'] = 'footer/term';
+$routes ['chinh-sach-rieng-tu'] = 'footer/privacy';
+$routes ['huong-dan-su-dung'] = 'footer/howtouse';
+$routes ['hinh-thuc-thanh-toan'] = 'footer/payment';
+$routes ['lien-he'] = 'footer/contact';
+$routes ['quy-dinh-chung-va-luu-y'] = 'footer/rules';
+$routes ['cau-hoi-thuong-gap'] = 'footer/questions';
+$routes ['lien-he'] = 'footer/contact';
+
+$routes['api/cruise/sortWithPrice/([a-zA-Z0-9-]+)'] = 'cruise/sortwithprice/$1';
+$routes['api/cruise/sortWithCheckbox/([a-zA-Z0-9-]+)'] = 'cruise/sortwithcheckbox/$1';

@@ -1,0 +1,22 @@
+@import "../../components/BreadCrumbs.css";
+@import "../../components/Dropdown.css";
+@import "../../components/Badge.css";
+@import "../../components/ProductCard.css";
+@import "../../components/card.css";
+@import "../../components/BlogCard.css";
+@import "../../components/SectionHeader.css";
+@import "../../components/PartnerSection.css";
+@import "../../components/ReviewQuote.css";
+@import "../../components/ReviewSection.css";
+@import "../../components/Searchbox.css";
+@import "../../components/BlogSection.css";
+@import "../../components/CategoryCard.css";
+
+@import "./components/AboutUsPage.css";
+@import "./components/TermPage.css";
+@import "./components/HowToUsePage.css";
+@import "./components/PrivacyPage.css";
+@import "./components/PaymentPage.css";
+@import "./components/QuestionPage.css";
+@import "./components/RulesPage.css";
+@import "./components/ContactPage.css";
