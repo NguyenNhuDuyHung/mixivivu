@@ -26,6 +26,7 @@ class RoomModel extends Model
         FROM products p
         JOIN rooms r ON p.id = r.product_id
         GROUP BY p.id   
+        ORDER BY p.id DESC
         LIMIT " . $offset . ", " . $recordsPerPage . " ";
 
         $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);

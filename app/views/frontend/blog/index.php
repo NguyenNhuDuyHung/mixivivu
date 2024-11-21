@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-
+<!-- 
     <div>
         <div class="Tabs-tabs-header">
             <div>
@@ -46,93 +46,31 @@
                 </button>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="BlogPage-blog-list">
-        <a href="#">
-            <div class="Card-card BlogCard-blogCard">
-                <div class="BlogCard-imageWrapper">
-                    <div class="BlogCard-imageWrapper-image" style="width: 352px; height: 216px; position: relative; overflow: hidden;">
-                        <img alt="mixivivu" src="https://minio.fares.vn/mixivivu-dev/tour/blog/images/mby6ew6gc7wtiwsp.webp" width="100%" height="100%" loading="lazy" style="object-fit: cover;">
+        <?php
+        $count = 0;
+        $startNumber = ($currentPage - 1) * $data['recordsPerPage'] + 1;
+        ?>
+        <?php foreach ($blogs as $blog) :
+            $count++; ?>
+
+            <a href="<?= _WEB_ROOT ?>/blog-detail/<?= $blog['slug'] ?>">
+                <div class="Card-card BlogCard-blogCard">
+                    <div class="BlogCard-imageWrapper">
+                        <div class="BlogCard-imageWrapper-image" style="width: 352px; height: 216px; position: relative; overflow: hidden;">
+                            <img alt="mixivivu" src="<?= $blog['thumbnail'] ?>" width="100%" height="100%" loading="lazy" style="object-fit: cover;">
+                        </div>
                     </div>
-                </div>
-                <div class="BlogCard-body">
-                    <p class="subheading md BlogCard-title">Trải nghiệm câu mực đêm trên Du thuyền vịnh Hạ Long</p>
-                    <p class="BlogCard-description sm">Du lịch Vịnh Hạ Long là điều mà ai cũng một lần mong được thực hiện. Và có một điều hết sức tuyệt vời khác mà có lẽ rất nhiều người khi đến đây không muốn bỏ lỡ, đó là hành trình câu mực đêm trên Vịnh Hạ Long. Câu mực đêm cũng xuất hiện trong rất nhiều bài review vịnh Hạ Long, là hoạt động ưa thích của nhiều du khách thích khám phá. </p>
-                </div>
-                <p class="BlogCard-footer detail sm">07/11/2024</p>
-            </div>
-        </a>
-        <a href="#">
-            <div class="Card-card BlogCard-blogCard">
-                <div class="BlogCard-imageWrapper">
-                    <div class="BlogCard-imageWrapper-image" style="width: 352px; height: 216px; position: relative; overflow: hidden;">
-                        <img alt="mixivivu" src="https://minio.fares.vn/mixivivu-dev/tour/blog/images/gtd0pdgu7kpjkxge.webp" width="100%" height="100%" loading="lazy" style="object-fit: cover;">
+                    <div class="BlogCard-body">
+                        <p class="subheading md BlogCard-title"><?= $blog['title'] ?></p>
+                        <p class="BlogCard-description sm"><?= $blog['short_desc'] ?></p>
                     </div>
+                    <p class="BlogCard-footer detail sm"><?= $blog['created_at'] ?></p>
                 </div>
-                <div class="BlogCard-body">
-                    <p class="subheading md BlogCard-title">Du thuyền ăn tối Vịnh Hạ Long, Buffet & Trình diễn pháo hoa</p>
-                    <p class="BlogCard-description sm">Tour ăn tối trên du thuyền mang đến cho du khách một trải nghiệm mới, khám phá vẻ đẹp của thành phố biển Hạ Long về đêm vô cùng tuyệt vời, ngoài các tour thăm vịnh trong ngày truyền thống. Từ ngoài vịnh du khách sẽ thưởng ngoạn cảnh đẹp của thành phố này với Ngọn Hải Đăng, Cảng tàu, Cầu Bãi Cháy, Vòng quay Mặt trời dưới ánh sáng lung linh. </p>
-                </div>
-                <p class="BlogCard-footer detail sm">07/11/2024</p>
-            </div>
-        </a>
-        <a href="#">
-            <div class="Card-card BlogCard-blogCard">
-                <div class="BlogCard-imageWrapper">
-                    <div class="BlogCard-imageWrapper-image" style="width: 352px; height: 216px; position: relative; overflow: hidden;">
-                        <img alt="mixivivu" src="https://minio.fares.vn/mixivivu-dev/tour/blog/images/qxnbksw89ddmxwth.webp" width="100%" height="100%" loading="lazy" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="BlogCard-body">
-                    <p class="subheading md BlogCard-title">Cá Nục Hấp Cuốn Bánh Tráng: Món ăn độc lạ nhất định phải thử khi tới Đà Nẵng</p>
-                    <p class="BlogCard-description sm">Khi nhắc đến bánh tráng cuốn cá, không thể không nhắc đến món cá nục cuốn rau muống - một đặc sản dân dã mang đậm hương vị biển cả của miền Trung. </p>
-                </div>
-                <p class="BlogCard-footer detail sm">06/11/2024</p>
-            </div>
-        </a>
-        <a href="#">
-            <div class="Card-card BlogCard-blogCard">
-                <div class="BlogCard-imageWrapper">
-                    <div class="BlogCard-imageWrapper-image" style="width: 352px; height: 216px; position: relative; overflow: hidden;">
-                        <img alt="mixivivu" src="https://minio.fares.vn/mixivivu-dev/tour/blog/images/yyvjq0bkks3k0jup.webp" width="100%" height="100%" loading="lazy" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="BlogCard-body">
-                    <p class="subheading md BlogCard-title">Top các du thuyền trong ngày vịnh Hạ Long</p>
-                    <p class="BlogCard-description sm">Khám phá vẻ đẹp hùng vĩ của Vịnh Hạ Long – di sản thiên nhiên thế giới, trên những chiếc du thuyền Hạ Long sang trọng. Với hệ thống du thuyền cao cấp, MIXIVIVU tự hào mang đến cho quý khách những trải nghiệm đẳng cấp, đắm chìm trong không gian tiện nghi và lịch sự, nơi mỗi khoảnh khắc trở nên thật sự đặc biệt. </p>
-                </div>
-                <p class="BlogCard-footer detail sm">04/11/2024</p>
-            </div>
-        </a>
-        <a href="#">
-            <div class="Card-card BlogCard-blogCard">
-                <div class="BlogCard-imageWrapper">
-                    <div class="BlogCard-imageWrapper-image" style="width: 352px; height: 216px; position: relative; overflow: hidden;">
-                        <img alt="mixivivu" src="https://minio.fares.vn/mixivivu-dev/tour/blog/images/fefml4z2iby86z76.webp" width="100%" height="100%" loading="lazy" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="BlogCard-body">
-                    <p class="subheading md BlogCard-title">Top 3 thương hiệu cơm cháy Ninh Bình ngon "bá cháy" nhất định bạn phải thử</p>
-                    <p class="BlogCard-description sm">Ninh Bình, vùng đất cố đô không chỉ nổi tiếng với những danh lam thắng cảnh tuyệt đẹp mà còn hấp dẫn du khách bởi nền ẩm thực độc đáo, trong đó cơm cháy Ninh Bình là một đặc sản không thể bỏ qua. </p>
-                </div>
-                <p class="BlogCard-footer detail sm">04/11/2024</p>
-            </div>
-        </a>
-        <a href="#">
-            <div class="Card-card BlogCard-blogCard">
-                <div class="BlogCard-imageWrapper">
-                    <div class="BlogCard-imageWrapper-image" style="width: 352px; height: 216px; position: relative; overflow: hidden;">
-                        <img alt="mixivivu" src="https://minio.fares.vn/mixivivu-dev/tour/blog/images/jugn6jb59vv45b7q.webp" width="100%" height="100%" loading="lazy" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="BlogCard-body">
-                    <p class="subheading md BlogCard-title">Phở chua Hà Giang - Món ăn đặc sản nổi tiếng nơi cao nguyên đá</p>
-                    <p class="BlogCard-description sm">Ẩm thực Hà Giang vốn nổi tiếng với những món ăn mang đậm hương vị núi rừng hoang sơ như thắng cố, cơm lam, mèn mén, thịt trâu gác bếp, xôi ngũ sắc, rượu ngô... Bên cạnh đó, còn có một món ăn đặc sản khác ít được du khách biết đến chính là phở chua. Phở chua Hà Giang sở hữu sức hấp dẫn riêng biệt bởi hương vị độc đáo và giá cả bình dân, ẩn chứa nét văn hóa ẩm thực tinh tế của người dân nơi đây. </p>
-                </div>
-                <p class="BlogCard-footer detail sm">07/11/2024</p>
-            </div>
-        </a>
+            </a>
+        <?php endforeach; ?>
     </div>
 
     <div class="flex justify-between align-center Pagination-pagination">
@@ -140,31 +78,41 @@
             <p class="sm">Đang xem:</p>
             <div>
                 <label class="md Pagination-page-size">
-                    <input max="20" min="1" type="number" value="6">
+                    <input max="20" min="1" value="<?php echo $count ?>" type="number">
                 </label>
             </div>
-            <p class="sm">của 54</p>
+
+            <p class="sm">của <?= $data['countAll'] ?></p>
         </div>
+
         <ul class="Pagination-pagination-container">
-            <li class="Pagination-pagination-left-item Pagination-pagination-item Pagination-disabled">
+            <a href="<?= _WEB_ROOT ?>/blog<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] - 1 : '/page/' . $data['currentPage'] - 1;
+                                            ?>"
+                class="Pagination-pagination-left-item Pagination-pagination-item <?= $data['currentPage'] == 1 ? 'Pagination-disabled' : '' ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M4.16602 10H15.8327M4.16602 10L9.16602 5M4.16602 10L9.16602 15" stroke="var(--gray-700)" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M4.16602 10H15.8327M4.16602 10L9.16602 5M4.16602 10L9.16602 15"
+                        stroke="var(--gray-800, #1d2939)" stroke-width="1.67" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
                 </svg>
-                <label class="sm">Trước</label>
-            </li>
-            <li class="Pagination-pagination-item Pagination-selected">1</li>
-            <li class="Pagination-pagination-item ">2</li>
-            <li class="Pagination-pagination-item ">3</li>
-            <li class="Pagination-pagination-item Pagination-dots">…</li>
-            <li class="Pagination-pagination-item ">7</li>
-            <li class="Pagination-pagination-item ">8</li>
-            <li class="Pagination-pagination-item ">9</li>
-            <li class="Pagination-pagination-right-item Pagination-pagination-item ">
-                <label class="sm">Tiếp</label>
+                <div class="sm">Trước</div>
+            </a>
+
+            <?php for ($i = 1; $i <= $data['numberPage']; $i++): ?>
+                <a href="<?= _WEB_ROOT ?>/blog<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $i : '/page/' . $i ?>"
+                    class="Pagination-pagination-item <?= $data['currentPage'] == $i ? 'Pagination-selected' : '' ?>">
+                    <?= $i ?>
+                </a>
+            <?php endfor; ?>
+
+            <a href="<?= _WEB_ROOT ?>/blog<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] + 1 : '/page/' . $data['currentPage'] + 1 ?>"
+                class="Pagination-pagination-right-item
+                                        Pagination-pagination-item <?= $data['currentPage'] == $data['numberPage'] ? 'Pagination-disabled' : '' ?>">
+                <div class="sm">Tiếp</div>
                 <svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="var(--gray-700)" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="var(--gray-800, #1d2939)"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
-            </li>
+            </a>
         </ul>
     </div>
 </div>

@@ -2,7 +2,7 @@
     <div class="container PartnerSection-section">
         <div class="SectionHeader-sectionHeader">
             <div class="SectionHeader-title">
-                <h4>Đối tác Cùng các <br>Hãng Du thuyền Lớn</h4>
+                <h4>Đối tác Cùng các <br>Khách Sạn Lớn</h4>
                 <div>
                     <span
                         style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;">

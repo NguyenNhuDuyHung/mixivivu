@@ -25,6 +25,12 @@ listCheckbox.forEach((checkbox) => {
   checkbox.addEventListener("change", () => {
     if (checkbox.checked) {
       sortOrder.push(checkbox.id);
+    } else {
+      // Nếu checkbox bị uncheck, xóa ID khỏi mảng
+      sortOrder = sortOrder.filter((id) => id !== checkbox.id);
+    }
+    if(sortOrder.length === 0){
+      return;
     }
     const sortOrderString = sortOrder.join(",");
 
@@ -34,7 +40,7 @@ listCheckbox.forEach((checkbox) => {
       .then((res) => res.text())
       .then((data) => {
         console.log(data);
-
+        
         cruiseList.innerHTML = data; // Cập nhật danh sách sản phẩm
       })
       .catch((err) => console.log(err));

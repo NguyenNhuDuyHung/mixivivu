@@ -67,7 +67,7 @@ function removeHiddenInputs() {
 
   // Tìm và xóa tất cả các input hidden
   const hiddenInputs = bookingForm.querySelectorAll(
-    'input[name="cruiseRoomId[]"], input[name="cruiseRoomQuantity[]"]'
+    'input[name="hotelRoomId[]"], input[name="hotelRoomQuantity[]"]'
   );
   hiddenInputs.forEach((input) => {
     bookingForm.removeChild(input);
@@ -87,12 +87,12 @@ listBtnActiveModal.forEach((btn) => {
 
       const inputRoomIdHidden = document.createElement("input");
       inputRoomIdHidden.type = "hidden";
-      inputRoomIdHidden.name = "cruiseRoomId[]";
-      inputRoomIdHidden.value = $('input[name="cruiseRoomIdOutside[]"').value;
+      inputRoomIdHidden.name = "hotelRoomId[]";
+      inputRoomIdHidden.value = $('input[name="hotelRoomIdOutside[]"').value;
 
       const inputRoomQuantityHidden = document.createElement("input");
       inputRoomQuantityHidden.type = "hidden";
-      inputRoomQuantityHidden.name = "cruiseRoomQuantity[]";
+      inputRoomQuantityHidden.name = "hotelRoomQuantity[]";
 
       const allQuantities = [];
       $$(".quantity-input").forEach((input) => {

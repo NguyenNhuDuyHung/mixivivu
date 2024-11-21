@@ -1,17 +1,17 @@
 <div class="home-banner">
-    <video class="home-bg-video" src="https://res.cloudinary.com/dhnp8ymxv/video/upload/v1731849290/Mixivivuduthuyen_cnlkmw.mp4" autoplay muted playinside
+    <video class="home-bg-video" src="https://res.cloudinary.com/dhnp8ymxv/video/upload/v1732194247/MixivivuHotel_uckfu2.mp4" autoplay muted playinside
         loop></video>
 
     <div class="card flex flex-col justify-center gap-40 search-box home-search-box">
         <div class="flex flex-col gap-16 gray-900">
             <h4 class="text-center search-box-title home-search-box-title">
-                Bạn lựa chọn du thuyền Hạ Long nào?
+                Bạn lựa chọn khách sạn nào?
             </h4>
             <p class="lg text-center search-box-description home-search-box-description">
-                Hơn 100 tour du thuyền hạng sang giá tốt đang chờ bạn
+                Hàng nghìn khách sạn với mức giá tốt nhất đang chờ bạn
             </p>
         </div>
-        <form action="<?= _WEB_ROOT ?>/tim-du-thuyen/search" method="get">
+        <!-- <form action="<?= _WEB_ROOT ?>/tim-du-thuyen/search" method="get">
             <div class="flex gap-20 search-box-input-group">
                 <div class="search-box-search-input">
                     <label for="" class="input-group">
@@ -22,7 +22,7 @@
                                 stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             </path>
                         </svg>
-                        <input class="p-md" type="text" name="keyword" placeholder="Nhập tên du thuyền" value="">
+                        <input class="p-md" type="text" name="keyword" placeholder="Nhập tên khách sạn" value="">
                     </label>
                 </div>
                 <div class="search-box-select-input select-input">
@@ -48,15 +48,11 @@
                             <div class="search-box-dropdown-item dropdown-item" value="Tất cả địa điểm">
                                 Tất cả địa điểm
                             </div>
-                            <div class="search-box-dropdown-item dropdown-item" value="Vịnh Hạ Long">
-                                Vịnh Hạ Long
-                            </div>
-                            <div class="search-box-dropdown-item dropdown-item" value="Vịnh Lan Hạ">
-                                Vịnh Lan Hạ
-                            </div>
-                            <div class="search-box-dropdown-item dropdown-item" value="Đảo Cát Bà">
-                                Đảo Cát Bà
-                            </div>
+                            <?php foreach ($cities as $city) : ?>
+                                <div class="search-box-dropdown-item dropdown-item" value="<?= $city['name'] ?>">
+                                    <?= $city['name'] ?>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -100,6 +96,6 @@
                     <div class="label md">Tìm kiếm</div>
                 </button>
             </div>
-        </form>
+        </form> -->
     </div>
 </div>

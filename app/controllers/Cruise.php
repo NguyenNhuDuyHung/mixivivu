@@ -139,8 +139,6 @@ class Cruise extends Controller
         $offset = ($currentPage - 1) * $recordsPerPage;
         $ships = $this->model("ShipModel")->sortWithPrice($order, $offset, $recordsPerPage);
 
-        echo '<div class="SearchPageDetail-ship-list flex flex-col gap-32">';
-
         foreach ($ships as $ship) {
             echo '
             <a href="' . _WEB_ROOT . '/du-thuyen/' . $ship['slug'] . '">
@@ -180,8 +178,6 @@ class Cruise extends Controller
                 </div>
             </a>';
         }
-
-        echo '</div>';
     }
 
     public function sortWithCheckbox($features)
@@ -191,7 +187,7 @@ class Cruise extends Controller
         $currentPage = 1;
         $offset = ($currentPage - 1) * $recordsPerPage;
         $ships = $this->model("ShipModel")->sortWithCheckbox($features, $offset, $recordsPerPage);
-        if ($ships === false) {
+        if ($ships == false) {
             echo '
                 <div class="admin-notFound">
                     <div class="card NotFound_not-found">
@@ -221,8 +217,6 @@ class Cruise extends Controller
             return;
         }
 
-        echo '<div class="SearchPageDetail-ship-list flex flex-col gap-32">';
-
         foreach ($ships as $ship) {
             echo '
             <a href="' . _WEB_ROOT . '/du-thuyen/' . $ship['slug'] . '">
@@ -262,7 +256,5 @@ class Cruise extends Controller
                 </div>
             </a>';
         }
-
-        echo '</div>';
     }
 }
