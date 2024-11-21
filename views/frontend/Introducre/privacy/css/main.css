@@ -1,0 +1,20 @@
+@import "/views/components/_reset.css";
+@import "/views/components/_config.css";
+@import "/views/components/_variable.css";
+@import "/views/components/_input.css";
+@import "/views/components/Button.css";
+@import '/views/components/Header.css';
+@import '/views/components/Card.css';
+@import '/views/components/Searchbox.css';
+@import '/views/components/SectionHeader.css';
+@import '/views/components/Footer.css';
+
+.Layout-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.Privacy-wrapper {
+    padding: 80px 32px;
+}

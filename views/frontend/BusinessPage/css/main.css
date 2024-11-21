@@ -1,0 +1,61 @@
+@import "/views/components/_reset.css";
+@import "/views/components/_config.css";
+@import "/views/components/_variable.css";
+@import "/views/components/_input.css";
+@import "/views/components/Button.css";
+@import '/views/components/Header.css';
+@import '/views/components/Card.css';
+@import '/views/components/Searchbox.css';
+@import '/views/components/SectionHeader.css';
+@import '/views/components/Footer.css';
+
+@import './components/SectionBg.css';
+@import './components/BussinessPage.css';
+
+@media (max-width: 1024px) {
+    .header-logo {
+      width: 120px;
+      height: 30px;
+    }
+    .header-nav-container {
+      display: none;
+    }
+    .header-menu-mb {
+      display: none;
+    }
+  }
+
+@media (max-width: 1024px) {
+    .BusinessPage_wrapper {
+      padding: 24px;
+    }
+    .BusinessPage-business-info {
+      flex-direction: column;
+      gap: 24px;
+    }
+    .BusinessPage-contact-btn {
+      display: none;
+    }
+    .BusinessPage-feature-card {
+      flex-direction: column;
+      width: 100%;
+      gap: 16px;
+    }
+    .BusinessPage-feature-card .BusinessPage-img-wrapper{
+      width: 80px;
+      height: 80px;
+      min-width: 80px;
+    }
+    .BusinessPage-feature-card h6 {
+      font-size: 16px;
+    }
+    .BusinessPage-feature-card p {
+      font-size: 12px;
+    }
+    .BusinessPage-customer-list .BusinessPage-customer-img {
+      width: 176px;
+      min-width: 176px;
+      height: 64px;
+    }
+
+}
