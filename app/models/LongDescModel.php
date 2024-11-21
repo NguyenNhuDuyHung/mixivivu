@@ -13,6 +13,7 @@ class LongDescModel extends Model
         JOIN long_desc ld ON p.id = ld.product_id
         WHERE p.title LIKE '%" . $keyword . "%'
         GROUP BY p.id   
+        ORDER BY p.id DESC
         LIMIT " . $offset . ", " . $recordsPerPage . " ";
 
         $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -22,12 +23,43 @@ class LongDescModel extends Model
         return $data;
     }
 
+    public function countPageLongDescSearch($keyword, $recordsPerPage)
+    {
+        $sql = "SELECT COUNT(*) AS total
+            FROM (
+                SELECT p.id
+                FROM products p
+                JOIN long_desc sd ON p.id = sd.product_id
+                WHERE p.title LIKE '%" . $keyword . "%'
+                GROUP BY p.id
+            ) AS subquery";
+
+        $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return ceil($total['total'] / $recordsPerPage);
+    }
+
+    public function countAllLongDescSearch($keyword)
+    {
+        $sql = "SELECT COUNT(*) AS total
+            FROM (
+                SELECT p.id
+                FROM products p
+                JOIN long_desc sd ON p.id = sd.product_id
+                WHERE p.title LIKE '%" . $keyword . "%'
+                GROUP BY p.id
+            ) AS subquery";
+
+        $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $total['total'];
+    }
+
     public function pagination($offset, $recordsPerPage)
     {
         $sql = "SELECT p.id, p.title, COUNT(ld.id) AS countDesc
         FROM products p
         JOIN long_desc ld ON p.id = ld.product_id
         GROUP BY p.id   
+        ORDER BY p.id DESC
         LIMIT " . $offset . ", " . $recordsPerPage . " ";
 
         $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);

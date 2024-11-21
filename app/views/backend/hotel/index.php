@@ -8,7 +8,7 @@
             </a>
 
             <form class="page-action-search search-box-input-group" method="get"
-                action="<?= _WEB_ROOT ?>/backend/ship/search" id="HotelSearchForm">
+                action="<?= _WEB_ROOT ?>/backend/hotel/search" id="HotelSearchForm">
                 <div class="search-box-search-input search-box-search-input">
                     <label for="" class="input-group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

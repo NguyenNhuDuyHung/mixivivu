@@ -26,7 +26,6 @@ class FeatureModel extends Model
         $feature_types = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $feature_types;
     }
-
     public function create()
     {
         if ($this->isPost()) {

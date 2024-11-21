@@ -67,6 +67,10 @@
   width: fit-content;
 }
 
+.Pagination-pagination-container .Pagination-pagination-item:last-child {
+  border-right: none;
+}
+
 .Pagination-pagination-container
   .Pagination-pagination-item.Pagination-selected {
   background: var(--gray-50, #f9fafb);

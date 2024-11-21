@@ -96,6 +96,10 @@ h6 {
   gap: 80px;
 }
 
+.gap-136 {
+  gap: 136px;
+}
+
 /*  */
 
 .h-full {
@@ -103,6 +107,13 @@ h6 {
 }
 
 /*  */
+.grid {
+  display: grid;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
 
 .flex {
   display: flex;
@@ -278,7 +289,7 @@ label.sm {
 }
 
 .section-bg {
-  background-image: url(https://mixivivu.com/section-background.png);
+  background-image: url(https://res.cloudinary.com/dhnp8ymxv/image/upload/v1732124410/section-background_ehixei.png);
   background-repeat: repeat;
 }
 
@@ -312,10 +323,6 @@ input[type="number"] {
   flex-grow: 1;
 }
 
-.flex.align-center div {
-  flex-shrink: 0;
-}
-
 .error {
   margin-top: 6px;
   margin-left: 6px;
@@ -330,4 +337,8 @@ input[type="number"] {
 }
 .select-input:focus-within .dropdown {
   display: flex;
+}
+
+.w-full {
+  width: 100%;
 }

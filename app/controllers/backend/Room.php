@@ -110,6 +110,8 @@ class Room extends Controller
             $max_persons = $_POST['max_persons'];
             $price = $_POST['price'];
             $sale_prices = $_POST['sale_prices'];
+            $bed_type = $_POST['bed_type'];
+            $view = $_POST['view'];
 
             $create = $this->model('RoomModel')->create();
             if ($create) {
@@ -122,6 +124,8 @@ class Room extends Controller
             $this->data['max_persons'] = $max_persons;
             $this->data['price'] = $price;
             $this->data['sale_prices'] = $sale_prices;
+            $this->data['bed_type'] = $bed_type;
+            $this->data['view'] = $view;
         }
 
         $this->data['page_title'] = 'Tạo phòng';

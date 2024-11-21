@@ -1,4 +1,10 @@
 /*  */
+.SearchBox-searchBox {
+  padding: 40px 24px 24px;
+  width: 1008px;
+  margin: auto;
+}
+
 .search-box {
   padding: 40px 24px 24px;
   width: 1008px;

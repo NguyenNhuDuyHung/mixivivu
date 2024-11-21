@@ -23,24 +23,19 @@ Validator({
   },
 });
 
-// Validator({
-//   form: "#booking-form",
-//   formGroupSelector: ".form-group",
-//   errorMessageSelector: ".error",
-//   errorDestructiveElement: "div",
-//   rules: [
-//     Validator.isRequired("#full_name", "Bạn phải nhập họ và tên"),
-//     Validator.isRequired("#email"),
-//     Validator.isEmail("#email", "Email không hợp lệ"),
-//     Validator.isRequired("#phone_number", "Bạn phải nhập số điện thoại"),
-//     Validator.isPhone("#phone_number"),
-//   ],
-//   onSubmit: function (data) {
-//     // call API
-//     data.rating = currentRating;
-//     console.log(data);
-//   },
-// });
+Validator({
+  form: "#booking-form",
+  formGroupSelector: ".form-group",
+  errorMessageSelector: ".error",
+  errorDestructiveElement: "div",
+  rules: [
+    Validator.isRequired("#full_name", "Bạn phải nhập họ và tên"),
+    Validator.isRequired("#email"),
+    Validator.isEmail("#email", "Email không hợp lệ"),
+    Validator.isRequired("#phone_number", "Bạn phải nhập số điện thoại"),
+    Validator.isPhone("#phone_number"),
+  ],
+});
 
 handleInreaseAndDecreaseBtn(
   ".RoomPicker-item",

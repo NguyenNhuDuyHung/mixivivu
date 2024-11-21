@@ -6,10 +6,18 @@ class HotelModel extends Model
         parent::__construct();
     }
 
+    public function search($keyword, $offset, $recordsPerPage)
+    {
+        $sql = "SELECT p.id AS id, p.title AS title, p.address AS address, h.admin AS admin FROM products p 
+        JOIN hotel h ON h.id = p.id WHERE p.title LIKE '%" . $keyword . "%' ORDER BY p.id DESC LIMIT " . $offset . ", " . $recordsPerPage;
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
     public function pagination($offset, $recordsPerPage)
     {
         $sql = "SELECT p.id AS id, p.title AS title, p.address AS address, h.admin AS admin FROM products p 
-        JOIN hotel h ON h.id = p.id WHERE p.deleted_at IS NULL ORDER BY p.id ASC LIMIT " . $offset . ", " . $recordsPerPage;
+        JOIN hotel h ON h.id = p.id ORDER BY p.id DESC LIMIT " . $offset . ", " . $recordsPerPage;
         $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }

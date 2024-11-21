@@ -34,3 +34,16 @@
   background: var(--gray-100, #f2f4f7);
   color: var(--gray-700);
 }
+
+.Tabs-active,
+.Tabs-tabItem:focus,
+.Tabs-tabItem:hover {
+  color: var(--gray-700);
+  background: var(--base-white);
+}
+
+.Tabs-active,
+.Tabs-tabItem:hover {
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}

@@ -21,7 +21,8 @@ class ShipModel extends Model
         return $data;
     }
 
-    public function countAllCruise() {
+    public function countAllCruise()
+    {
         $sql = "SELECT COUNT(*) AS total FROM products WHERE type_product = 1 AND deleted_at IS NULL";
         $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
         return $total['total'];
@@ -300,5 +301,198 @@ class ShipModel extends Model
                 return false;
             }
         }
+    }
+
+    public function searchPage($keyword, $offset, $recordsPerPage)
+    {
+        $sql = "SELECT 
+        p.id AS id, 
+        p.title AS title,
+        p.default_price AS default_price,
+        p.slug AS slug, 
+        p.thumbnail AS thumbnail, 
+        p.num_reviews AS num_reviews, 
+        p.score_review AS score_review,
+        cr.year AS year, 
+        cr.cabin AS cabin, 
+        cr.shell AS shell, 
+        cc.name AS category_name,
+        GROUP_CONCAT(f.id) AS feature_ids,
+        GROUP_CONCAT(f.text) AS feature_texts,
+            GROUP_CONCAT(f.icon) AS feature_icons
+        FROM 
+            products p 
+        JOIN 
+            cruise cr ON cr.id = p.id 
+        JOIN 
+            cruise_category cc ON cr.category_id = cc.id
+        JOIN 
+            product_feature pf ON p.id = pf.product_id
+        JOIN 
+            features f ON f.id = pf.feature_id
+        WHERE 
+            p.type_product = 1
+        AND 
+            p.title LIKE '%$keyword%'
+        GROUP BY 
+            p.id
+        LIMIT $offset, $recordsPerPage";
+
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+        if (empty($data)) return false;
+        foreach ($data as $key => $value) {
+            $data[$key]['feature_ids'] = explode(',', $value['feature_ids']);
+            $data[$key]['feature_texts'] = explode(',', $value['feature_texts']);
+            $data[$key]['feature_icons'] = explode(',', $value['feature_icons']);
+        }
+        return $data;
+    }
+
+    public function getFullInfoShip($offset, $recordsPerPage)
+    {
+        $sql = "SELECT 
+            p.id AS id, 
+            p.title AS title,
+            p.default_price AS default_price,
+            p.slug AS slug, 
+            p.thumbnail AS thumbnail, 
+            p.num_reviews AS num_reviews, 
+            p.score_review AS score_review,
+            cr.year AS year, 
+            cr.cabin AS cabin, 
+            cr.shell AS shell, 
+            cc.name AS category_name,
+            GROUP_CONCAT(f.id) AS feature_ids,
+            GROUP_CONCAT(f.text) AS feature_texts,
+            GROUP_CONCAT(f.icon) AS feature_icons
+        FROM 
+            products p 
+        JOIN 
+            cruise cr ON cr.id = p.id 
+        JOIN 
+            cruise_category cc ON cr.category_id = cc.id
+        JOIN 
+            product_feature pf ON p.id = pf.product_id
+        JOIN 
+            features f ON f.id = pf.feature_id
+        WHERE 
+            p.type_product = 1
+        GROUP BY 
+            p.id
+        LIMIT $offset, $recordsPerPage";
+
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($data as $key => $value) {
+            $data[$key]['feature_ids'] = explode(',', $value['feature_ids']);
+            $data[$key]['feature_texts'] = explode(',', $value['feature_texts']);
+            $data[$key]['feature_icons'] = explode(',', $value['feature_icons']);
+        }
+        return $data;
+    }
+
+    public function sortWithPrice($order, $offset, $recordsPerPage)
+    {
+        switch ($order) {
+            case 'Không sắp xếp':
+                $order = '';
+                break;
+            case 'Giá thấp đến cao':
+                $order = 'ASC';
+                break;
+            case 'Giá cao đến thấp':
+                $order = 'DESC';
+                break;
+        }
+        $sql = "SELECT 
+        p.id AS id, 
+        p.title AS title,
+        p.default_price AS default_price,
+        p.slug AS slug, 
+        p.thumbnail AS thumbnail, 
+        p.num_reviews AS num_reviews, 
+        p.score_review AS score_review,
+        cr.year AS year, 
+        cr.cabin AS cabin, 
+        cr.shell AS shell, 
+        cc.name AS category_name,
+        GROUP_CONCAT(f.id) AS feature_ids,
+        GROUP_CONCAT(f.text) AS feature_texts,
+        GROUP_CONCAT(f.icon) AS feature_icons
+        FROM 
+            products p 
+        JOIN 
+            cruise cr ON cr.id = p.id 
+        JOIN 
+            cruise_category cc ON cr.category_id = cc.id
+        JOIN 
+            product_feature pf ON p.id = pf.product_id
+        JOIN 
+            features f ON f.id = pf.feature_id
+        WHERE 
+            p.type_product = 1 
+        GROUP BY 
+            p.id
+        ORDER BY 
+            p.default_price $order
+        LIMIT $offset, $recordsPerPage";
+
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($data as $key => $value) {
+            $data[$key]['feature_ids'] = explode(',', $value['feature_ids']);
+            $data[$key]['feature_texts'] = explode(',', $value['feature_texts']);
+            $data[$key]['feature_icons'] = explode(',', $value['feature_icons']);
+        }
+        return $data;
+    }
+
+    public function sortWithCheckbox($features, $offset, $recordsPerPage)
+    {
+        $features = explode(',', $features);
+        if (empty($features)) {
+            return false;
+        }
+
+        $sql = "SELECT 
+        p.id AS id, 
+        p.title AS title,
+        p.default_price AS default_price,
+        p.slug AS slug, 
+        p.thumbnail AS thumbnail, 
+        p.num_reviews AS num_reviews, 
+        p.score_review AS score_review,
+        cr.year AS year, 
+        cr.cabin AS cabin, 
+        cr.shell AS shell, 
+        cc.name AS category_name,
+        GROUP_CONCAT(f.id) AS feature_ids,
+        GROUP_CONCAT(f.text) AS feature_texts,
+        GROUP_CONCAT(f.icon) AS feature_icons
+        FROM 
+            products p 
+        JOIN 
+            cruise cr ON cr.id = p.id 
+        JOIN 
+            cruise_category cc ON cr.category_id = cc.id
+        JOIN 
+            product_feature pf ON p.id = pf.product_id
+        JOIN 
+            features f ON f.id = pf.feature_id
+        WHERE 
+            p.type_product = 1 
+        GROUP BY 
+            p.id
+        HAVING 
+            SUM(f.id IN (" . implode(',', $features) . ")) > 0" . "
+            LIMIT $offset, $recordsPerPage";
+
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($data as $key => $value) {
+            $data[$key]['feature_ids'] = explode(',', $value['feature_ids']);
+            $data[$key]['feature_texts'] = explode(',', $value['feature_texts']);
+            $data[$key]['feature_icons'] = explode(',', $value['feature_icons']);
+        }
+        return $data;
     }
 }

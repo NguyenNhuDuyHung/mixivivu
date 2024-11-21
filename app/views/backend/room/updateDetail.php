@@ -97,6 +97,35 @@
                 </div>
             </div>
 
+
+            <div class="group-input">
+                <div class="form-group">
+                    <div class="">
+                        <label for="bed_type" class="input-group">
+                            <input id="bed_type" class="p-md" placeholder="Loại giường" name="bed_type"
+                                value="<?php echo $this->oldInfo('bed_type', $data) ?? $data['room']['bed_type'] ?>" autocomplete="off">
+                            <label for="bed_type" class="sm">
+                                Loại giường
+                            </label>
+                        </label>
+                    </div>
+                    <div class="error"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="">
+                        <label for="view" class="input-group">
+                            <input id="view" class="p-md" placeholder="View" name="view"
+                                value="<?php echo $this->oldInfo('view', $data) ?? $data['room']['view'] ?>" autocomplete="off">
+                            <label for="view" class="sm">
+                                View
+                            </label>
+                        </label>
+                    </div>
+                    <div class="error"></div>
+                </div>
+            </div>
+
             <div class="">
                 <div class="form-group">
                     <label for="upload-image" class="sm input-required">Chọn album ảnh</label>
