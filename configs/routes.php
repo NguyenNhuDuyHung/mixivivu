@@ -17,12 +17,12 @@ $routes['user/update/(\d+)'] = 'user/update/$1';
 $routes['user/delete/(\d+)'] = 'user/delete/$1';
 $routes['user/page/(\d+)'] = 'user/index/$1';
 
-$routes['user/catalogue'] = 'usercatalogue/index';
-$routes['user/catalogue/search'] = 'usercatalogue/search';
-$routes['user/catalogue/create'] = 'usercatalogue/create';
-$routes['user/catalogue/update/(\d+)'] = 'usercatalogue/update/$1';
-$routes['user/catalogue/delete/(\d+)'] = 'usercatalogue/delete/$1';
-$routes['user/catalogue/page/(\d+)'] = 'usercatalogue/index/$1';
+$routes['user/catalogue'] = 'UserCatalogue/index';
+$routes['user/catalogue/search'] = 'UserCatalogue/search';
+$routes['user/catalogue/create'] = 'UserCatalogue/create';
+$routes['user/catalogue/update/(\d+)'] = 'UserCatalogue/update/$1';
+$routes['user/catalogue/delete/(\d+)'] = 'UserCatalogue/delete/$1';
+$routes['user/catalogue/page/(\d+)'] = 'UserCatalogue/index/$1';
 
 $routes['ship'] = 'ship/index';
 $routes['ship/search'] = 'ship/search';
@@ -31,48 +31,48 @@ $routes['ship/update/(\d+)'] = 'ship/update/$1';
 $routes['ship/delete/(\d+)'] = 'ship/delete/$1';
 $routes['ship/page/(\d+)'] = 'ship/index/$1';
 
-$routes['ship/catalogue'] = 'shipcatalogue/index';
-$routes['ship/catalogue/search'] = 'shipcatalogue/search';
-$routes['ship/catalogue/create'] = 'shipcatalogue/create';
-$routes['ship/catalogue/update/(\d+)'] = 'shipcatalogue/update/$1';
-$routes['ship/catalogue/delete/(\d+)'] = 'shipcatalogue/delete/$1';
-$routes['ship/catalogue/page/(\d+)'] = 'shipcatalogue/index/$1';
+$routes['ship/catalogue'] = 'ShipCatalogue/index';
+$routes['ship/catalogue/search'] = 'ShipCatalogue/search';
+$routes['ship/catalogue/create'] = 'ShipCatalogue/create';
+$routes['ship/catalogue/update/(\d+)'] = 'ShipCatalogue/update/$1';
+$routes['ship/catalogue/delete/(\d+)'] = 'ShipCatalogue/delete/$1';
+$routes['ship/catalogue/page/(\d+)'] = 'ShipCatalogue/index/$1';
 
-$routes['feature'] = 'feature/index';
-$routes['feature/search'] = 'feature/search';
-$routes['feature/create'] = 'feature/create';
-$routes['feature/update/(\d+)'] = 'feature/update/$1';
-$routes['feature/delete/(\d+)'] = 'feature/delete/$1';
-$routes['feature/page/(\d+)'] = 'feature/index/$1';
-$routes['ship/feature/(\d+)'] = 'ship/feature/$1';
+$routes['feature'] = 'Feature/index';
+$routes['feature/search'] = 'Feature/search';
+$routes['feature/create'] = 'Feature/create';
+$routes['feature/update/(\d+)'] = 'Feature/update/$1';
+$routes['feature/delete/(\d+)'] = 'Feature/delete/$1';
+$routes['feature/page/(\d+)'] = 'Feature/index/$1';
+$routes['ship/feature/(\d+)'] = 'ship/Feature/$1';
 
-$routes['feature/catalogue'] = 'featurecatalogue/index';
-$routes['feature/catalogue/search'] = 'featurecatalogue/search';
-$routes['feature/catalogue/create'] = 'featurecatalogue/create';
-$routes['feature/catalogue/update/(\d+)'] = 'featurecatalogue/update/$1';
-$routes['feature/catalogue/delete/(\d+)'] = 'featurecatalogue/delete/$1';
-$routes['feature/catalogue/page/(\d+)'] = 'featurecatalogue/index/$1';
+$routes['feature/catalogue'] = 'FeatureCatalogue/index';
+$routes['feature/catalogue/search'] = 'FeatureCatalogue/search';
+$routes['feature/catalogue/create'] = 'FeatureCatalogue/create';
+$routes['feature/catalogue/update/(\d+)'] = 'FeatureCatalogue/update/$1';
+$routes['feature/catalogue/delete/(\d+)'] = 'FeatureCatalogue/delete/$1';
+$routes['feature/catalogue/page/(\d+)'] = 'FeatureCatalogue/index/$1';
 
-$routes['short-desc'] = 'shortdesc/index';
-$routes['short-desc/search'] = 'shortdesc/search';
-$routes['short-desc/create'] = 'shortdesc/create';
-$routes['short-desc/update/(\d+)'] = 'shortdesc/update/$1';
-$routes['short-desc/delete/(\d+)'] = 'shortdesc/delete/$1';
-$routes['short-desc/page/(\d+)'] = 'shortdesc/index/$1';
+$routes['short-desc'] = 'ShortDesc/index';
+$routes['short-desc/search'] = 'ShortDesc/search';
+$routes['short-desc/create'] = 'ShortDesc/create';
+$routes['short-desc/update/(\d+)'] = 'ShortDesc/update/$1';
+$routes['short-desc/delete/(\d+)'] = 'ShortDesc/delete/$1';
+$routes['short-desc/page/(\d+)'] = 'ShortDesc/index/$1';
 
-$routes['long-desc'] = 'longdesc/index';
-$routes['long-desc/search'] = 'longdesc/search';
-$routes['long-desc/create'] = 'longdesc/create';
-$routes['long-desc/update/(\d+)'] = 'longdesc/update/$1';
-$routes['long-desc/delete/(\d+)'] = 'longdesc/delete/$1';
-$routes['long-desc/page/(\d+)'] = 'longdesc/index/$1';
+$routes['long-desc'] = 'LongDesc/index';
+$routes['long-desc/search'] = 'LongDesc/search';
+$routes['long-desc/create'] = 'LongDesc/create';
+$routes['long-desc/update/(\d+)'] = 'LongDesc/update/$1';
+$routes['long-desc/delete/(\d+)'] = 'LongDesc/delete/$1';
+$routes['long-desc/page/(\d+)'] = 'LongDesc/index/$1';
 
-$routes['long-desc/catalogue'] = 'longdesccatalogue/index';
-$routes['long-desc/catalogue/search'] = 'longdesccatalogue/search';
-$routes['long-desc/catalogue/create'] = 'longdesccatalogue/create';
-$routes['long-desc/catalogue/update/(\d+)'] = 'longdesccatalogue/update/$1';
-$routes['long-desc/catalogue/delete/(\d+)'] = 'longdesccatalogue/delete/$1';
-$routes['long-desc/catalogue/page/(\d+)'] = 'longdesccatalogue/index/$1';
+$routes['long-desc/catalogue'] = 'LongDescCatalogue/index';
+$routes['long-desc/catalogue/search'] = 'LongDescCatalogue/search';
+$routes['long-desc/catalogue/create'] = 'LongDescCatalogue/create';
+$routes['long-desc/catalogue/update/(\d+)'] = 'LongDescCatalogue/update/$1';
+$routes['long-desc/catalogue/delete/(\d+)'] = 'LongDescCatalogue/delete/$1';
+$routes['long-desc/catalogue/page/(\d+)'] = 'LongDescCatalogue/index/$1';
 
 $routes['room'] = 'room/index';
 $routes['room/search'] = 'room/search';
@@ -120,9 +120,9 @@ $routes['blog'] = 'blog/index';
 $routes['blog-detail/([a-zA-Z0-9-]+)'] = 'blog/detail/$1';
 
 $routes['du-thuyen/([a-zA-Z0-9-]+)'] = 'cruise/index/$1';
-$routes['tim-du-thuyen'] = 'cruise/searchpage';
+$routes['tim-du-thuyen'] = 'cruise/searchPage';
 $routes['tim-du-thuyen/search'] = 'cruise/search';
-$routes['tim-du-thuyen/page/(\d+)'] = 'cruise/searchpage/$1';
+$routes['tim-du-thuyen/page/(\d+)'] = 'cruise/searchPage/$1';
 
 
 $routes['khach-san'] = 'hotel/index';
