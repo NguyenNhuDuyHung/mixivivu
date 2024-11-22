@@ -299,7 +299,7 @@
                 </div>
                 <div class="flex gap-4 align-center">
                     <label class="md">Bạn có thể xem Quy định chung và lưu ý:</label>
-                    <a href="#" target="_blank">
+                    <a href="<?=_WEB_ROOT?>/quy-dinh-chung-va-luu-y" target="_blank">
                         <button type="button" class="btn btn-normal btn-link-color">
                             <div class="label md">Tại đây</div>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
@@ -336,7 +336,7 @@
                 </div>
                 <flex class="flex gap-4 align-center">
                     <label class="md">Bạn có thể xem Câu hỏi thường gặp:</label>
-                    <a href="#" target="_blank">
+                    <a href="<?=_WEB_ROOT?>/cau-hoi-thuong-gap" target="_blank">
                         <button type="button" class="btn btn-normal btn-link-color">
                             <div class="label md">Tại đây</div>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"

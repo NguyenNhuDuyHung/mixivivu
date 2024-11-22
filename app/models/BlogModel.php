@@ -260,4 +260,39 @@ class BlogModel extends Model
         $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
+
+    public function getBlogBySlug($slug)
+    {
+        $sql = "SELECT b.id, b.title, b.short_desc, b.slug, b.thumbnail, b.created_at, b.short_desc, bt.type AS type_name 
+        FROM blog b 
+        JOIN blog_type bt ON bt.id = b.type 
+        WHERE b.slug = '" . $slug . "' LIMIT 1";
+        $data = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function getLongDescBlog($id)
+    {
+        $sql = "SELECT * FROM long_desc_blog WHERE blog_id = " . $id;
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function getBlogByType($type)
+    {
+        switch ($type) {
+            case 'ship':
+                $type = 1;
+                break;
+            case 'travel':
+                $type = 2;
+                break;
+            case 'hotel':
+                $type = 3;
+                break;
+        }
+        $sql = "SELECT b.id, b.title, b.short_desc, b.slug, b.thumbnail, b.created_at, bt.type AS type_name FROM blog b JOIN blog_type bt ON bt.id = b.type WHERE b.type = " . $type . " LIMIT 3";
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
 }

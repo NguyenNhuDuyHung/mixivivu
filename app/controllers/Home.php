@@ -11,7 +11,8 @@ class Home extends Controller
     {
         $cruiseCategories = $this->model('ShipCatalogueModel')->getCategoryCruise(['id, name', 'image']);
         $popularCruises = $this->model('ShipModel')->getPopularCruises();
-
+        $shipBlog = $this->model('BlogModel')->getBlogByType('ship');
+        $this->data['shipBlog'] = $shipBlog;
         $this->data['cruiseCategories'] = $cruiseCategories;
         $this->data['popularCruises'] = $popularCruises;
 

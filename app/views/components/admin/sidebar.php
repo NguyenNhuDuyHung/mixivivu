@@ -1,7 +1,7 @@
 <aside class="Dashboard-sidebar">
     <div class="flex justify-center Dashboard-sidebar-logo">
         <div class="header-logo">
-            <a href="/">
+            <a href="<?= _WEB_ROOT ?>">
                 <span
                     style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
                     <span
@@ -10,18 +10,18 @@
                             alt="" aria-hidden="true"
                             src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27156%27%20height=%2742%27/%3e">
                     </span>
-                    <img src="<?php echo _WEB_ROOT ?> /views/assest/img/black-logo.webp" decoding="async"
+                    <img src="<?php echo _WEB_ROOT ?>/public/img/black-logo.webp" decoding="async"
                         data-nimg="intrinsic"
                         style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
-                        srcset="<?php echo _WEB_ROOT ?> /views/assest/img/black-logo.webp 1x, <?php echo _WEB_ROOT ?> /views/assest/img/black-logo.webp 2x">
+                        srcset="<?php echo _WEB_ROOT ?>/public/img/black-logo.webp 1x, <?php echo _WEB_ROOT ?>/public/img/black-logo.webp 2x">
                 </span>
             </a>
         </div>
     </div>
 
     <div class="Dashboard-sidebar-menu">
-        <a href="#" class="Dashboard-sidebar-menu-item">
-            <label class="md">Dashboard</label>
+        <a href="<?php echo _WEB_ROOT ?>/backend/order" class="Dashboard-sidebar-menu-item">
+            <label class="md">Quản lý orders</label>
         </a>
 
         <a href="<?php echo _WEB_ROOT ?>/backend/user/catalogue" class="Dashboard-sidebar-menu-item">
@@ -70,10 +70,6 @@
 
         <a href="<?php echo _WEB_ROOT ?>/backend/blog" class="Dashboard-sidebar-menu-item">
             <label class="md">Quản lý blog</label>
-        </a>
-
-        <a class="Dashboard-sidebar-menu-item">
-            <label class="md">Quản lý orders</label>
         </a>
 
         <div class="divider">

@@ -23,7 +23,6 @@ function handleInreaseAndDecreaseBtn(
     listElementList.forEach((listElement, index) => {
       listBtnList[index].querySelector("div[class='label md']").innerText = 0;
     });
-    sumPrice = 0;
   });
 
   listElementList.forEach((listElement, index) => {
@@ -70,6 +69,13 @@ function handleInreaseAndDecreaseBtn(
       }
     });
   });
+
+  if (
+    totalOutput &&
+    Number(totalOutput.innerText.slice(0, -2).replace(/,/g, "")) > 0
+  ) {
+    sumPrice = Number(totalOutput.innerText.slice(0, -2).replace(/,/g, ""));
+  }
 }
 
 export { handleInreaseAndDecreaseBtn };

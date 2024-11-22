@@ -121,7 +121,6 @@ class BookingModel extends Model
                 'room_id' => explode(',', $filterAll['hotelRoomId'][0]),
                 'quantity' => explode(',', $filterAll['hotelRoomQuantity'][0]),
             ];
-
             try {
                 $createCustomer = $this->db->insert('customer', $customerData);
                 if (!$createCustomer) {
