@@ -10,7 +10,7 @@ class Auth extends Controller
     public function login()
     {
         if ($this->model->isLogin()) {
-            header('Location: ' . _WEB_ROOT . '/backend/dashboard');
+            header('Location: ' . _WEB_ROOT . '/backend/order');
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

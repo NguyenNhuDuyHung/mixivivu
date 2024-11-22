@@ -44,7 +44,7 @@ class AuthModel extends Model
                             $this->setSession('loginToken', $tokenLogin, 60 * 60 * 24); // 1 ngày
                             setcookie('loginToken', $tokenLogin, time() + 60 * 60 * 24);
                             $this->setSession('toast-success', 'Đăng nhập thành công!');
-                            header('Location: ' . _WEB_ROOT . '/backend/dashboard');
+                            header('Location: ' . _WEB_ROOT . '/backend/order');
                             return true;
                         }
                     } catch (Exception $e) {
