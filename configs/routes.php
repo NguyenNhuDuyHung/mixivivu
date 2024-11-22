@@ -4,6 +4,12 @@
 $routes['default_controller'] = 'Home';
 $routes['login'] = 'auth/login';
 
+$routes['order'] = 'order/index';
+$routes['order/search'] = 'order/search';
+$routes['order/update/(\d+)'] = 'order/update/$1';
+$routes['order/delete/(\d+)'] = 'order/delete/$1';
+$routes['order/page/(\d+)'] = 'order/index/$1';
+
 $routes['user'] = 'user/index';
 $routes['user/search'] = 'user/search';
 $routes['user/create'] = 'user/create';

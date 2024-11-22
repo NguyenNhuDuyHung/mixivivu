@@ -20,8 +20,8 @@
     </div>
 
     <div class="Dashboard-sidebar-menu">
-        <a href="#" class="Dashboard-sidebar-menu-item">
-            <label class="md">Dashboard</label>
+        <a href="<?php echo _WEB_ROOT ?>/backend/order" class="Dashboard-sidebar-menu-item">
+            <label class="md">Quản lý orders</label>
         </a>
 
         <a href="<?php echo _WEB_ROOT ?>/backend/user/catalogue" class="Dashboard-sidebar-menu-item">
@@ -70,10 +70,6 @@
 
         <a href="<?php echo _WEB_ROOT ?>/backend/blog" class="Dashboard-sidebar-menu-item">
             <label class="md">Quản lý blog</label>
-        </a>
-
-        <a class="Dashboard-sidebar-menu-item">
-            <label class="md">Quản lý orders</label>
         </a>
 
         <div class="divider">

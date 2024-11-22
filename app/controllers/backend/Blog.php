@@ -6,7 +6,6 @@ class Blog extends Controller
     public function __construct()
     {
         $this->model = new Model();
-        $this->checkLogin();
     }
 
     public function search($currentPage = 1)

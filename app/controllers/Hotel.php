@@ -64,6 +64,8 @@ class Hotel extends Controller
         ];
 
         $this->data['scripts'] = [
+            'components/toast.min.js',
+            'components/toast.js',
             'frontend/hotel/main.js',
         ];
 
