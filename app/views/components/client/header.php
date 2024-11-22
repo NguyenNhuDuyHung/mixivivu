@@ -24,7 +24,7 @@
                     <label for="" class="md">Tìm du thuyền</label>
                 </a>
 
-                <a href="<?php echo _WEB_ROOT ?>/tim-khach-san" class="header-menu h-full flex align-center">
+                <a href="<?php echo _WEB_ROOT ?>/khach-san" class="header-menu h-full flex align-center">
                     <label for="" class="md">Tìm khách sạn</label>
                 </a>
 

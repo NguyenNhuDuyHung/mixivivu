@@ -17,4 +17,15 @@ class Booking extends Controller
             }
         }
     }
+
+    public function hotel()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $createOrder = $this->model('BookingModel')->createHotelOrder();
+            if ($createOrder) {
+                $previousPage = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : _WEB_ROOT;
+                header('Location: ' . $previousPage);
+            }
+        }
+    }
 }

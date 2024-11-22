@@ -233,4 +233,100 @@ class HotelModel extends Model
             return false;
         }
     }
+
+    public function getPopularHotels()
+    {
+        $sql = "SELECT 
+            p.id AS id, 
+            p.title AS title, 
+            p.slug AS slug, 
+            p.thumbnail AS thumbnail, 
+            p.default_price AS price, 
+            p.num_reviews AS num_reviews, 
+            p.score_review AS score_review, 
+            c.name AS city_name, 
+            COUNT(r.id) AS count_room 
+        FROM 
+            products p 
+        JOIN 
+            hotel h ON h.id = p.id
+        JOIN 
+            cities c ON c.id = h.city_id
+        LEFT JOIN 
+            rooms r ON r.product_id = p.id
+        WHERE 
+            p.active = 1
+        GROUP BY 
+            p.id, p.title, p.slug, p.thumbnail, p.default_price, p.num_reviews, 
+            p.score_review, c.name
+        ORDER BY 
+            p.id ASC 
+        LIMIT 6;
+        ";
+        $hotel = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $hotel;
+    }
+
+    public function getCityActive()
+    {
+        $sql = "SELECT * FROM cities WHERE thumbnail IS NOT NULL";
+        $city = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $city;
+    }
+
+    public function getHotelBySlug($slug)
+    {
+        $sql = "SELECT 
+            p.id AS id, 
+            p.title AS title, 
+            p.address AS address, 
+            p.map_link AS map_link, 
+            p.map_iframe_link AS map_iframe_link, 
+            p.num_reviews AS num_reviews, 
+            p.score_review AS score_review, 
+            p.slug AS slug, 
+            p.thumbnail AS thumbnail, 
+            p.images AS images, 
+            p.default_price AS price, 
+            h.admin AS admin, 
+            c.name AS city_name, 
+            COUNT(r.id) AS count_room 
+            FROM 
+                products p 
+            JOIN 
+                hotel h ON h.id = p.id 
+            JOIN 
+                cities c ON h.city_id = c.id 
+            LEFT JOIN 
+                rooms r ON r.product_id = p.id 
+            WHERE 
+                p.slug = '$slug' 
+            GROUP BY 
+                p.id, p.title, p.address, p.map_link, p.map_iframe_link, 
+                p.num_reviews, p.score_review, p.slug, p.thumbnail, 
+                p.images, p.default_price, h.admin, c.name;";
+        $data = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function getHotelLongDesc($id)
+    {
+        $sql = "SELECT * FROM long_desc WHERE product_id = $id";
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function getHotelShortDesc($id)
+    {
+        $sql = "SELECT description FROM short_desc WHERE product_id = $id";
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function getHotelRoom($id)
+    {
+        $sql = "SELECT * FROM rooms WHERE product_id = $id";
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
 }

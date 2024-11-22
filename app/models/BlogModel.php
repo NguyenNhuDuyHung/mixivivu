@@ -253,4 +253,11 @@ class BlogModel extends Model
             return false;
         }
     }
+
+    public function getAllBlog($recordsPerPage, $offset)
+    {
+        $sql = "SELECT b.id, b.title, b.short_desc, b.slug, b.thumbnail, b.created_at, bt.type AS type_name FROM blog b JOIN blog_type bt ON bt.id = b.type ORDER BY b.id ASC LIMIT " . $offset . ", " . $recordsPerPage;
+        $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
 }
