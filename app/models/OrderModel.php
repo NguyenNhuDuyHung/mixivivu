@@ -75,7 +75,7 @@ class OrderModel extends Model
         JOIN 
             rooms r ON br.room_id = r.id
         WHERE 
-            b.id = 15
+            b.id = $id
         GROUP BY 
             r.id, r.title, r.size, r.max_persons, r.price
         ORDER BY 
