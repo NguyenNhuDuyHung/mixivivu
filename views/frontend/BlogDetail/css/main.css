@@ -1,0 +1,112 @@
+@import "/views/components/_reset.css";
+@import "/views/components/_config.css";
+@import "/views/components/_variable.css";
+@import "/views/components/_input.css";
+@import "/views/components/Button.css";
+@import "/views/components/Header.css";
+@import "/views/components/Badge.css";
+@import "/views/components/card.css";
+@import "/views/components/BlogCard.css";
+@import "/views/components/SectionHeader.css";
+@import "/views/components/PartnerSection.css";
+@import "/views/components/ReviewQuote.css";
+@import "/views/components/ReviewSection.css";
+@import "/views/components/Searchbox.css";
+@import "/views/components/BlogSection.css";
+@import "/views/components/CategoryCard.css";
+@import "/views/components/Footer.css";
+
+
+
+.BlogDetail-breadcrumbsWrapper {
+  border-bottom: 1px solid var(--gray-200, #eaecf0);
+}
+
+.BlogDetail-breadcrumbs {
+  padding: 16px 32px;
+}
+
+
+.BreadCrumbs-breadCrumbsContainer,
+.BreadCrumbs-breadCrumbs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.BreadCrumbs-breadCrumbs>svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--gray-300);
+}
+
+.BreadCrumbs-selected {
+    color: var(--primary-dark, #0e4f4f);
+    stroke: var(--primary-dark);
+}
+.BreadCrumbs-breadcrumb {
+    color: var(--gray-600);
+    fill: #fff;
+    stroke: var(--gray-600);
+    cursor: pointer;
+}
+
+.BlogDetail-wrapper {
+    padding: 0 32px;
+    margin-bottom: 40px;
+}
+
+.SectionHeader-sectionHeader {
+    display: flex;
+    flex-grow: 1;
+    gap: 16px;
+}
+
+.SectionHeader-sectionHeader
+.SectionHeader-title {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1 0;
+}
+
+.SectionHeader-title h4 {
+    margin: 0;
+    color: var(--gray-900, #101828);
+}
+
+.Badge-default{
+    background-color: var(--gray-100);
+    color: var(--gray-700, #344054);
+}
+.Badge-sm {
+    padding: 2px 8px;
+}
+
+.Badge-container {
+    border-radius: 16px;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.BlogDetail-wrapper {
+    padding: 0 32px;
+    margin-bottom: 40px;
+}
+
+.BlogDetail-thumbnail {
+    border-radius: 24px;
+    box-shadow: 0 4px 6px -2px rgba(16, 24, 40, .06), 0 12px 16px -4px rgba(16, 24, 40, .1);
+}
+
+.BlogDetail-output p {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+figure {
+    max-height: none !important;
+}
