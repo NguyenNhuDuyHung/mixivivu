@@ -19,7 +19,7 @@ handleCheckbox(
 
 const listCheckbox = $$(".SearchPageDetail-filter-item input[type='checkbox']");
 const cruiseList = $(".SearchPageDetail-ship-list");
-
+const pagination = $(".Pagination-pagination");
 let sortOrder = [];
 listCheckbox.forEach((checkbox) => {
   checkbox.addEventListener("change", () => {
@@ -42,6 +42,7 @@ listCheckbox.forEach((checkbox) => {
         console.log(data);
         
         cruiseList.innerHTML = data; // Cập nhật danh sách sản phẩm
+        pagination.innerHTML = "";
       })
       .catch((err) => console.log(err));
   });

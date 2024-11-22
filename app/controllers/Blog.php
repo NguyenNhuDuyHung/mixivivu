@@ -37,4 +37,29 @@ class Blog extends Controller
 
         $this->render('layouts/client_layout', data: $this->data);
     }
+
+    public function detail($slug)
+    {
+        $blog = $this->model('BlogModel')->getBlogBySlug($slug);
+        $longDescBlog = $this->model('BlogModel')->getLongDescBlog($blog['id']);
+        $this->data['blog'] = $blog;
+        $this->data['longDescBlog'] = $longDescBlog;
+        $this->data['page_title'] = 'Mixivivu';
+        $this->data['header'] = 'components/client/header';
+        $this->data['footer'] = 'components/client/footer';
+        $this->data['contents'] = [
+            'frontend/blog/detail',
+        ];
+        $this->data['layout'] = 'frontend/layout.css';
+        $this->data['styles'] = [
+            'frontend/blog/style.css',
+        ];
+
+        $this->data['scripts'] = [
+            'frontend/blog/main.js',
+        ];
+
+
+        $this->render('layouts/client_layout', data: $this->data);
+    }
 }

@@ -120,3 +120,7 @@ button {
 .btn-color > svg > path {
   stroke: var(--primary-dark);
 }
+
+.btn-color:hover > svg > path {
+  stroke: var(--base-white);
+}

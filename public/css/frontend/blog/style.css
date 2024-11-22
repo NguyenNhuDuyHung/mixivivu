@@ -1,6 +1,7 @@
 @import "../../components/Tabs.css";
 @import "../../components/Badge.css";
 @import "../../components/card.css";
+@import "../../components/BreadCrumbs.css";
 @import "../../components/BlogCard.css";
 @import "../../components/SectionHeader.css";
 @import "../../components/PartnerSection.css";
@@ -13,3 +14,5 @@
 @import "../../components/Dropdown.css";
 
 @import "./components/BlogPage.css";
+@import "./components/BlogDetail.css";
+

@@ -27,99 +27,43 @@
     </div>
 
     <div class="BlogSection-cardList">
-        <a href="#">
-            <div class="card BlogCard-blogCard">
-                <div class="BlogCard-imageWrapper">
-                    <div class="BlogCard-imageWrapper-image"
-                        style="width: 352px; height: 216px; position: relative; overflow: hidden;">
-                        <img alt="mixivivu"
-                            src="https://minio.fares.vn/mixivivu-dev/tour/blog/images/iurr1rdtxybc9arl.webp"
-                            width="100%" height="100%" loading="lazy" style="object-fit: cover;">
+        <?php foreach ($hotelBlog as $blog) : ?>
+            <a href="<?= _WEB_ROOT ?>/blog-detail/<?= $blog['slug'] ?>">
+                <div class="card BlogCard-blogCard">
+                    <div class="BlogCard-imageWrapper">
+                        <div class="BlogCard-imageWrapper-image"
+                            style="width: 352px; height: 216px; position: relative; overflow: hidden;">
+                            <img alt="mixivivu"
+                                src="<?= $blog['thumbnail'] ?>"
+                                width="100%" height="100%" loading="lazy" style="object-fit: cover;">
+                        </div>
                     </div>
-                </div>
 
-                <div class="BlogCard-body">
-                    <p class="subheading md BlogCard-title">Khám phá 3 địa điểm tâm linh nổi tiếng tại Quảng
-                        Ninh</p>
-                    <p class="BlogCard-description sm">
-                        Quảng Ninh được biết tới là một điểm đến du lịch với vịnh Hạ long thơ mộng cùng
-                        những bãi tắm dài đẹp và những hang động tuyệt đẹp được thiên nhiên ban tặng. Quảng
-                        Ninh không chỉ nổi tiếng là thành phố du lịch mà còn thu hút du khách bởi những ngôi
-                        chùa linh thiêng. Hãy MIXI VIVU điểm qua 3 ngôi chùa nổi tiếng nhất tại Quảng Ninh
-                        để tìm hiểu những nét đặc sắc về văn hóa địa phương, vãn cảnh chùa thanh tịnh để cầu
-                        may mắn bình an cho mình và gia đình.
-                    </p>
-                </div>
-
-                <p class="BlogCard-footer detail sm">24/09/2024</p>
-            </div>
-        </a>
-        <a href="#">
-            <div class="card BlogCard-blogCard">
-                <div class="BlogCard-imageWrapper">
-                    <div class="BlogCard-imageWrapper-image"
-                        style="width: 352px; height: 216px; position: relative; overflow: hidden;">
-                        <img alt="mixivivu"
-                            src="https://minio.fares.vn/mixivivu-dev/tour/blog/images/iurr1rdtxybc9arl.webp"
-                            width="100%" height="100%" loading="lazy" style="object-fit: cover;">
+                    <div class="BlogCard-body">
+                        <p class="subheading md BlogCard-title"><?= $blog['title'] ?></p>
+                        <p class="BlogCard-description sm">
+                            <?= $blog['short_desc'] ?>
+                        </p>
                     </div>
-                </div>
 
-                <div class="BlogCard-body">
-                    <p class="subheading md BlogCard-title">Khám phá 3 địa điểm tâm linh nổi tiếng tại Quảng
-                        Ninh</p>
-                    <p class="BlogCard-description sm">
-                        Quảng Ninh được biết tới là một điểm đến du lịch với vịnh Hạ long thơ mộng cùng
-                        những bãi tắm dài đẹp và những hang động tuyệt đẹp được thiên nhiên ban tặng. Quảng
-                        Ninh không chỉ nổi tiếng là thành phố du lịch mà còn thu hút du khách bởi những ngôi
-                        chùa linh thiêng. Hãy MIXI VIVU điểm qua 3 ngôi chùa nổi tiếng nhất tại Quảng Ninh
-                        để tìm hiểu những nét đặc sắc về văn hóa địa phương, vãn cảnh chùa thanh tịnh để cầu
-                        may mắn bình an cho mình và gia đình.
-                    </p>
+                    <p class="BlogCard-footer detail sm"><?= $blog['created_at'] ?></p>
                 </div>
-
-                <p class="BlogCard-footer detail sm">24/09/2024</p>
-            </div>
-        </a>
-        <a href="#">
-            <div class="card BlogCard-blogCard">
-                <div class="BlogCard-imageWrapper">
-                    <div class="BlogCard-imageWrapper-image"
-                        style="width: 352px; height: 216px; position: relative; overflow: hidden;">
-                        <img alt="mixivivu"
-                            src="https://minio.fares.vn/mixivivu-dev/tour/blog/images/iurr1rdtxybc9arl.webp"
-                            width="100%" height="100%" loading="lazy" style="object-fit: cover;">
-                    </div>
-                </div>
-
-                <div class="BlogCard-body">
-                    <p class="subheading md BlogCard-title">Khám phá 3 địa điểm tâm linh nổi tiếng tại Quảng
-                        Ninh</p>
-                    <p class="BlogCard-description sm">
-                        Quảng Ninh được biết tới là một điểm đến du lịch với vịnh Hạ long thơ mộng cùng
-                        những bãi tắm dài đẹp và những hang động tuyệt đẹp được thiên nhiên ban tặng. Quảng
-                        Ninh không chỉ nổi tiếng là thành phố du lịch mà còn thu hút du khách bởi những ngôi
-                        chùa linh thiêng. Hãy MIXI VIVU điểm qua 3 ngôi chùa nổi tiếng nhất tại Quảng Ninh
-                        để tìm hiểu những nét đặc sắc về văn hóa địa phương, vãn cảnh chùa thanh tịnh để cầu
-                        may mắn bình an cho mình và gia đình.
-                    </p>
-                </div>
-
-                <p class="BlogCard-footer detail sm">24/09/2024</p>
-            </div>
-        </a>
+            </a>
+        <?php endforeach; ?>
     </div>
 
     <div class="BlogSection-action">
-        <button type="button" class="btn btn-normal btn-outline">
-            <div class="label md">
-                Xem tất cả
-            </div>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="var(--gray-800, #1d2939)" stroke-linecap="round"
-                    stroke-linejoin="round"></path>
-            </svg>
-        </button>
+        <a href="<?= _WEB_ROOT ?>/blog">
+            <button type="button" class="btn btn-normal btn-outline">
+                <div class="label md">
+                    Xem tất cả
+                </div>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="var(--gray-800, #1d2939)" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </button>
+        </a>
     </div>
 </section>

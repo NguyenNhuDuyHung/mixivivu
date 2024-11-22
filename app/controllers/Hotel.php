@@ -13,6 +13,8 @@ class Hotel extends Controller
         $cities = $this->model("HotelModel")->getAllCity();
         $popularHotels = $this->model('HotelModel')->getPopularHotels();
         $cityActive = $this->model("HotelModel")->getCityActive();
+        $hotelBlog = $this->model('BlogModel')->getBlogByType('travel');
+        $this->data['hotelBlog'] = $hotelBlog;
         $this->data['cities'] = $cities;
         $this->data['popularHotels'] = $popularHotels;
         $this->data['cityActive'] = $cityActive;

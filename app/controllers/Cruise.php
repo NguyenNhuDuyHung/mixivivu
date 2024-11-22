@@ -202,7 +202,7 @@ class Cruise extends Controller
                             <h5>Rất tiếc, Mixivivu không tìm thấy kết quả cho bạn</h5>
                             <p class="md" style="color: var(--gray-600, #475467);">Nhấn OK để bắt đầu tìm kiếm mới.</p>
                         </div>
-                        <a href="<?=  ?>">
+                        <a href="' . _WEB_ROOT . '/tim-du-thuyen">
                             <button type="button" class="btn btn-normal btn-outline">
                                 <div class="label md">OK</div>
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">

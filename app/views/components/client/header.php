@@ -49,11 +49,11 @@
                 <a href="tel:0922222016">Hotline: 0922222016</a>
             </div>
 
-            <div>
+            <a href="<?php echo _WEB_ROOT ?>/lien-he">
                 <button type="button" class="btn btn-primary btn-sm btn-contact">
                     <div class="label sm">Liên hệ Mixivivu</div>
                 </button>
-            </div>
+            </a>
 
             <div class="header-menu-mb">
                 <div>
