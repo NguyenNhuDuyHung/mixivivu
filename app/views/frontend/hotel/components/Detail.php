@@ -873,7 +873,7 @@
 
         <div class="ShipDetail-side-bar">
             <div class="card">
-                <div class="ShipDetail-ship-info-header">Thông tin du thuyền</div>
+                <div class="ShipDetail-ship-info-header">Thông tin khách sạn</div>
 
                 <div class="ShipDetail-ship-info-content flex flex-col gap-16">
                     <div class="flex gap-24 align-start">

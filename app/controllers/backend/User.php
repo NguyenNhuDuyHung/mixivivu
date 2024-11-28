@@ -178,7 +178,7 @@ class User extends Controller
         $this->data['user'] = $this->model->findById('users', $id);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $deleteUser = $this->model('UserModel')->softDeleteUser($id);
+            $deleteUser = $this->model('UserModel')->hardDeleteUser($id);
             if ($deleteUser) {
                 header('Location: ' . _WEB_ROOT . '/backend/user');
             }

@@ -8,7 +8,7 @@ const toggleFaq = (
   const listHeaders = document.querySelectorAll(headerSelector);
   const listCollapses = document.querySelectorAll(collapseSelector);
 
-  listCards.forEach((card, index) => {
+  listHeaders.forEach((card, index) => {
     card.addEventListener("click", () => {
       // Toggle class cho header và collapse
       listHeaders[index].classList.toggle("Collapse-open-header");

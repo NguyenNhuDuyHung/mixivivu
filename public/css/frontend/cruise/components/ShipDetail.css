@@ -127,4 +127,13 @@
   .ShipDetail-group-input {
     grid-template-columns: 100%;
   }
+
+  .ShipDetail-booking-detail-modal {
+    width: 100%;
+  }
+
+  .ShipDetail-booking-detail-modal-footer {
+    flex-direction: column;
+    gap: 24px;
+  }
 }

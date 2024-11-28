@@ -18,3 +18,9 @@
   border-radius: 100%;
   background: var(--primary-base, #77dada);
 }
+
+@media (max-width: 1024px) {
+  .AboutUsPage-WhyUs {
+    grid-template-columns: auto;
+  }
+}

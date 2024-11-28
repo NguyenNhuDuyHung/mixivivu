@@ -22,7 +22,7 @@
                                 stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             </path>
                         </svg>
-                        <input class="p-md" type="text" name="keyword" placeholder="Nhập tên khách sạn" value="">
+                        <input class="p-md" type="text" name="keyword" placeholder="Nhập tên khách sạn" value="" autocomplete="off">
                     </label>
                 </div>
                 <div class="search-box-select-input select-input">

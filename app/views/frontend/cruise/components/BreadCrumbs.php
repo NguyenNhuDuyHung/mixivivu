@@ -8,7 +8,7 @@
                         stroke="var(--gray-600, #475467)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </div>
-            <a href="#">
+            <a href="<?= _WEB_ROOT ?>/tim-du-thuyen">
                 <div class="BreadCrumbs-breadCrumbs">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#">
+            <a href="<?= _WEB_ROOT ?>/du-thuyen/<?= $data['cruise']['slug'] ?>">
                 <div class="BreadCrumbs-breadCrumbs BreadCrumbs-selected">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none">

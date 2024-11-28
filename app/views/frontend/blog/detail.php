@@ -76,7 +76,7 @@
                     ';
                 }
 
-                if($value['type'] == 3) {
+                if ($value['type'] == 3) {
                     echo '
                     <figure class="" style="position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 20px 0px; width: 100%; max-width: 100%; max-height: 400px; overflow: hidden; border: none;">
                         <img src="' . $value['image_url'] . '" alt="" class="" style="max-width: 100%; max-height: 400px;">
@@ -84,7 +84,7 @@
                     ';
                 }
 
-                if($value['type'] == 4) {
+                if ($value['type'] == 4) {
                     echo '
                         <ul style="margin: 5px 0px;">
                             <li class="">' . $value['text'] . '</li>
@@ -92,7 +92,7 @@
                     ';
                 }
                 ?>
-                
+
             <?php endforeach; ?>
         </div>
     </div>

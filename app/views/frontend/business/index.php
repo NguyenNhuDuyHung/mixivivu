@@ -18,8 +18,8 @@
                                             src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2780%27%20height=%278%27/%3e"
                                             style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
                                     </span>
-                                    <img srcset="/views/assest/img/heading-border.webp 1x, /views/assest/img/heading-border.web 2x"
-                                        src="./views/assest/img/heading-border.webp 1x, /views/assest/img/heading-border.web 2x"
+                                    <img srcset="<?=_WEB_ROOT?>/public/img/heading-border.webp 1x, <?=_WEB_ROOT?>/public/img/heading-border.web 2x"
+                                        src="<?=_WEB_ROOT?>/public/img/heading-border.webp 1x, <?=_WEB_ROOT?>/public/img/heading-border.web 2x"
                                         decoding="async" data-nimg="intrinsic"
                                         style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
                                 </span>
@@ -108,8 +108,8 @@
                                     src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2780%27%20height=%278%27/%3e"
                                     style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
                             </span>
-                            <img srcset="/views/assest/img/heading-border.webp 1x, /views/assest/img/heading-border.web 2x"
-                                src="/views/assest/img/heading-border.webp 1x, /views/assest/img/heading-border.web 2x"
+                            <img srcset="<?=_WEB_ROOT?>/public/img/heading-border.webp 1x, <?=_WEB_ROOT?>/public/img/heading-border.web 2x"
+                                src="<?=_WEB_ROOT?>/public/img/heading-border.webp 1x, <?=_WEB_ROOT?>/public/img/heading-border.web 2x"
                                 decoding="async" data-nimg="intrinsic"
                                 style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
                         </span>

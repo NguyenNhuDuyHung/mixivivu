@@ -14,8 +14,8 @@
                                 src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2780%27%20height=%278%27/%3e"
                                 style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
                         </span>
-                        <img srcset="/views/assest/img/heading-border.webp 1x, /views/assest/img/heading-border.web 2x"
-                            src="/views/assest/img/heading-border.webp 1x, /views/assest/img/heading-border.web 2x"
+                        <img srcset="<?= _WEB_ROOT ?>/public/img/heading-border.webp 1x, <?= _WEB_ROOT ?>/public/img/heading-border.web 2x"
+                            src="<?= _WEB_ROOT ?>/public/img/heading-border.webp 1x, <?= _WEB_ROOT ?>/public/img/heading-border.web 2x"
                             decoding="async" data-nimg="intrinsic"
                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
                     </span>
@@ -28,18 +28,19 @@
         <div class="ReviewQuote-reviewQuote">
             <div>
                 <span
-                    style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span
-                        style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img
-                            style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0"
-                            alt="" aria-hidden="true"
-                            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2722%27/%3e"></span><img
-                        alt="quote" src="https://mixivivu.com/quote.svg" decoding="async"
-                        data-nimg="intrinsic"
-                        style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
-                        srcset="https://mixivivu.com/quote.svg 1x, https://mixivivu.com/quote.svg 2x">
+                    style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;">
+                    <span
+                        style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;">
+                        <img alt="" aria-hidden="true"
+                            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2780%27%20height=%278%27/%3e"
+                            style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
+                    </span>
+                    <img srcset="<?= _WEB_ROOT ?>/public/img/heading-border.webp 1x, <?= _WEB_ROOT ?>/public/img/heading-border.web 2x"
+                        src="<?= _WEB_ROOT ?>/public/img/heading-border.webp 1x, <?= _WEB_ROOT ?>/public/img/heading-border.web 2x"
+                        decoding="async" data-nimg="intrinsic"
+                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
                 </span>
             </div>
-
             <div class="ReviewQuote-quoteBody ReviewQuote-quoteBody-active">
                 <div class="ReviewQuote-quoteContent">
                     <p class="subheading lg">
@@ -89,11 +90,6 @@
                 </div>
                 <p class="detail-md upper-case">Chị Lan Anh - </p>
             </div>
-
-
-
-
-
 
             <div class="ReviewQuote-quoteBody">
                 <div class="ReviewQuote-quoteContent">

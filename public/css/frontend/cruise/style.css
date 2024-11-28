@@ -15,6 +15,7 @@
 @import "../../components/SectionHeader.css";
 @import "../../components/Pagination.css";
 @import "../../components/RatingInput.css";
+@import "../../components/Collapse.css";
 
 @import "./components/ShipDetail.css";
 @import "./components/Navigation.css";
@@ -36,17 +37,17 @@
   margin-bottom: 80px;
 }
 
-.flex.justify-between {
-  display: flex;
-  justify-content: space-between;
-}
-
 .SearchPageDetail-search-box {
   width: 100% !important;
 }
 
 .SearchPageDetail-filter-btn {
   display: none;
+}
+
+.SearchPageDetail-header .SearchPageDetail-title h4 {
+  margin: 0;
+  color: var(--gray-900, #101828);
 }
 
 .SearchPageDetail-header .SearchPageDetail-sort-btn {
@@ -85,7 +86,7 @@
 }
 
 .SearchPageDetail-apply-mb-btn {
-  display: none !important;
+  display: none;
 }
 
 .SearchPageDetail-filter-item {
@@ -109,6 +110,42 @@
   gap: 32px;
 }
 
+.SearchPageDetail-collapse {
+  border-radius: 16px;
+}
+
+.SearchPageDetail-custom-header {
+  border-bottom: none;
+}
+
+.SearchPageDetail-collapse .SearchPageDetail-collapse-header {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border: none;
+}
+
+.SearchPageDetail-collapse .SearchPageDetail-search-box {
+  border: none;
+  box-shadow: none;
+  width: 100%;
+  padding-top: 0;
+}
+
+.fresnel-lessThan-md {
+  display: none;
+}
+
+.SearchPageDetail-side-bar-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100vh;
+  border-radius: 0;
+}
+
 @media (max-width: 1024px) {
   .SearchPageDetail-search-page {
     padding: 24px !important;
@@ -129,8 +166,24 @@
     display: block;
   }
 
+  .SearchPageDetail-header .SearchPageDetail-title {
+    font-size: 30px;
+  }
+
   .SearchPageDetail-ship-list {
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .fresnel-lessThan-md {
+    display: block;
+  }
+
+  .fresnel-greaterThan-mdless {
+    display: none;
+  }
+
+  .SearchPageDetail-apply-mb-btn {
+    display: block;
   }
 }
