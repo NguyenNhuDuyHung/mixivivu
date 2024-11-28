@@ -319,8 +319,32 @@ class ShipModel extends Model
         }
     }
 
-    public function searchPage($keyword, $offset, $recordsPerPage)
+    public function searchPage($data, $offset, $recordsPerPage)
     {
+        $keyword = $data['keyword'];
+        $location = $data['location'];
+        $price = $data['price'];
+
+        if ($location == 'Tất cả địa điểm') {
+            $location = null;
+        }
+
+        switch ($price) {
+            case 'Từ 1 đến 3 triệu':
+                $price = ['1000000', '3000000'];
+                break;
+            case 'Từ 3 đến 6 triệu':
+                $price = ['3000000', '6000000'];
+                break;
+            case 'Trên 6 triệu':
+                $price = ['6000000', '10000000'];
+                break;
+            default:
+                $price = null;
+                break;
+        }
+
+        // Truy vấn tìm kiếm với LIMIT
         $sql = "SELECT 
         p.id AS id, 
         p.title AS title,
@@ -335,35 +359,79 @@ class ShipModel extends Model
         cc.name AS category_name,
         GROUP_CONCAT(f.id) AS feature_ids,
         GROUP_CONCAT(f.text) AS feature_texts,
-            GROUP_CONCAT(f.icon) AS feature_icons
-        FROM 
-            products p 
-        JOIN 
-            cruise cr ON cr.id = p.id 
-        JOIN 
-            cruise_category cc ON cr.category_id = cc.id
-        JOIN 
-            product_feature pf ON p.id = pf.product_id
-        JOIN 
-            features f ON f.id = pf.feature_id
-        WHERE 
-            p.type_product = 1
-        AND 
-            p.title LIKE '%$keyword%'
-        GROUP BY 
-            p.id
-        LIMIT $offset, $recordsPerPage";
+        GROUP_CONCAT(f.icon) AS feature_icons
+    FROM 
+        products p 
+    JOIN 
+        cruise cr ON cr.id = p.id 
+    JOIN 
+        cruise_category cc ON cr.category_id = cc.id
+    JOIN 
+        product_feature pf ON p.id = pf.product_id
+    JOIN 
+        features f ON f.id = pf.feature_id
+    WHERE 
+        p.type_product = 1
+    AND 
+        p.title LIKE '%$keyword%'";
 
+        if (!empty($location)) {
+            $sql .= " AND cc.name LIKE '%$location%'";
+        }
+
+        if (!empty($price)) {
+            $sql .= " AND p.default_price BETWEEN $price[0] AND $price[1]";
+        }
+
+        $sql .= " GROUP BY p.id LIMIT $offset, $recordsPerPage";
+
+        // Truy vấn lấy dữ liệu
         $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
+        // Truy vấn đếm số lượng kết quả
+        $countSql = "SELECT COUNT(DISTINCT p.id) AS total_count
+                FROM 
+                    products p 
+                JOIN 
+                    cruise cr ON cr.id = p.id 
+                JOIN 
+                    cruise_category cc ON cr.category_id = cc.id
+                JOIN 
+                    product_feature pf ON p.id = pf.product_id
+                JOIN 
+                    features f ON f.id = pf.feature_id
+                WHERE 
+                    p.type_product = 1
+                AND 
+                    p.title LIKE '%$keyword%'";
+
+        if (!empty($location)) {
+            $countSql .= " AND cc.name LIKE '%$location%'";
+        }
+
+        if (!empty($price)) {
+            $countSql .= " AND p.default_price BETWEEN $price[0] AND $price[1]";
+        }
+
+        $countResult = $this->db->query($countSql)->fetch(PDO::FETCH_ASSOC);
+        $totalRecords = $countResult['total_count']; 
+
+        // Kiểm tra và xử lý kết quả
         if (empty($data)) return false;
+
         foreach ($data as $key => $value) {
             $data[$key]['feature_ids'] = explode(',', $value['feature_ids']);
             $data[$key]['feature_texts'] = explode(',', $value['feature_texts']);
             $data[$key]['feature_icons'] = explode(',', $value['feature_icons']);
         }
-        return $data;
+
+        // Trả về dữ liệu và tổng số bản ghi
+        return [
+            'data' => $data,
+            'totalRecords' => $totalRecords
+        ];
     }
+
 
     public function getFullInfoShip($offset, $recordsPerPage)
     {
@@ -408,17 +476,17 @@ class ShipModel extends Model
         return $data;
     }
 
-    public function sortWithPrice($order, $offset, $recordsPerPage)
+    public function sortWithPrice($sort, $offset, $recordsPerPage)
     {
-        switch ($order) {
+        switch ($sort) {
             case 'Không sắp xếp':
-                $order = '';
+                $sort = '';
                 break;
             case 'Giá thấp đến cao':
-                $order = 'ASC';
+                $sort = 'ASC';
                 break;
             case 'Giá cao đến thấp':
-                $order = 'DESC';
+                $sort = 'DESC';
                 break;
         }
         $sql = "SELECT 
@@ -451,7 +519,7 @@ class ShipModel extends Model
         GROUP BY 
             p.id
         ORDER BY 
-            p.default_price $order
+            p.default_price $sort
         LIMIT $offset, $recordsPerPage";
 
         $data = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);

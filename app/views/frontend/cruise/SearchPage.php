@@ -1,4 +1,5 @@
 <div class="SearchPageDetail-search-page flex flex-col gap-80 container">
+    <!-- Mobile -->
     <div class="fresnel-container fresnel-lessThan-md">
         <div class="Card-card SearchPageDetail-collapse">
             <div class="SearchPageDetail-custom-header">
@@ -21,7 +22,94 @@
                             </p>
                         </div>
                         <form action="<?= _WEB_ROOT ?>/tim-du-thuyen/search" method="get">
-                            <?php require_once  __DIR__ . '/components/Searchbox.php'; ?>
+                            <div class="flex gap-20 search-box-input-group">
+                                <div class="search-box-search-input">
+                                    <label for="" class="input-group">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none">
+                                            <path
+                                                d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                                                stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            </path>
+                                        </svg>
+                                        <input class="p-md" type="text" name="keyword" placeholder="Nhập tên du thuyền" value="">
+                                    </label>
+                                </div>
+                                <div class="search-box-select-input select-input">
+                                    <div class="focus-dropdown">
+                                        <label for="allLocations" class="input-group">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none">
+                                                <path
+                                                    d="M5.7 15C4.03377 15.6353 3 16.5205 3 17.4997C3 19.4329 7.02944 21 12 21C16.9706 21 21 19.4329 21 17.4997C21 16.5205 19.9662 15.6353 18.3 15M12 9H12.01M18 9C18 13.0637 13.5 15 12 18C10.5 15 6 13.0637 6 9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9ZM13 9C13 9.55228 12.5523 10 12 10C11.4477 10 11 9.55228 11 9C11 8.44772 11.4477 8 12 8C12.5523 8 13 8.44772 13 9Z"
+                                                    stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                </path>
+                                            </svg> <input id="allLocations" class="p-md" type="input" name="location" value="Tất cả địa điểm">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none">
+                                                <path d="M6 9L12 15L18 9" stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                            </svg>
+                                            <label for="allLocations" class="sm"></label>
+                                        </label>
+
+                                        <div class="search-box-dropdown">
+                                            <div class="search-box-dropdown-item dropdown-item" value="Tất cả địa điểm">
+                                                Tất cả địa điểm
+                                            </div>
+                                            <div class="search-box-dropdown-item dropdown-item" value="Vịnh Hạ Long">
+                                                Vịnh Hạ Long
+                                            </div>
+                                            <div class="search-box-dropdown-item dropdown-item" value="Vịnh Lan Hạ">
+                                                Vịnh Lan Hạ
+                                            </div>
+                                            <div class="search-box-dropdown-item dropdown-item" value="Đảo Cát Bà">
+                                                Đảo Cát Bà
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="search-box-select-input select-input">
+                                    <div class="focus-dropdown">
+                                        <label for="allPrices" class="input-group">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none">
+                                                <path
+                                                    d="M15 10V9.91667C15 8.85812 14.1419 8 13.0833 8H11C9.89543 8 9 8.89543 9 10C9 11.1046 9.89543 12 11 12H13C14.1046 12 15 12.8954 15 14C15 15.1046 14.1046 16 13 16H10.9583C9.87678 16 9 15.1232 9 14.0417V14M12 17.5V6.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                                    stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                </path>
+                                            </svg>
+                                            <input id="allPrices" class="p-md" type="input" name="price" value="Tất cả mức giá">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none">
+                                                <path d="M6 9L12 15L18 9" stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                            </svg>
+                                            <label for="allPrices" class="sm"></label>
+                                        </label>
+
+                                        <div class="search-box-dropdown">
+                                            <div class="search-box-dropdown-item dropdown-item" value="Tất cả mức giá">
+                                                Tất cả mức giá
+                                            </div>
+                                            <div class="search-box-dropdown-item dropdown-item" value="Từ 1 đến 3 triệu">
+                                                Từ 1 đến 3 triệu
+                                            </div>
+                                            <div class="search-box-dropdown-item dropdown-item" value="Từ 3 đến 6 triệu">
+                                                Từ 3 đến 6 triệu
+                                            </div>
+                                            <div class="search-box-dropdown-item dropdown-item" value="Trên 6 triệu">
+                                                Trên 6 triệu
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-btn btn-normal btn-primary search-box-submit-btn">
+                                    <div class="label md">Tìm kiếm</div>
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -29,6 +117,7 @@
         </div>
     </div>
 
+    <!-- Desktop -->
     <div class="fresnel-container fresnel-greaterThan-mdless">
         <div class="card SearchPageDetail-search-box SearchBox-searchBox flex flex-col justify-center gap-40">
             <div class="flex flex-col gap-16 gray-900">
@@ -63,7 +152,7 @@
                                         stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                     </path>
-                                </svg> <input id="allLocations" class="p-md" type="button" value="Tất cả địa điểm">
+                                </svg> <input id="allLocations" class="p-md" type="input" name="location" value="Tất cả địa điểm">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
                                     <path d="M6 9L12 15L18 9" stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round"
@@ -99,7 +188,7 @@
                                         stroke-linejoin="round">
                                     </path>
                                 </svg>
-                                <input id="allPrices" class="p-md" type="button" value="Tất cả mức giá">
+                                <input id="allPrices" class="p-md" type="input" name="price" value="Tất cả mức giá">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
                                     <path d="M6 9L12 15L18 9" stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round"
@@ -158,17 +247,19 @@
                     </button>
                 </div>
                 <div class="SearchPageDetail-sort-btn select-input">
-                    <label class="btn btn-btn btn-normal btn-outline input-group">
-                        <input class="label md" value="Không sắp xếp" style="width: 100%">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" width="20px" ;height="20px" ;>
-                            <path d="M6 9L12 15L18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke=var(--gray-800);></path>
-                        </svg>
-                    </label>
-                    <div class="SearchPageDetail-dropdown dropdown">
-                        <div class="SearchPageDetail-dropdown-item dropdown-item" value="Không sắp xếp">Không sắp xếp</div>
-                        <div class="SearchPageDetail-dropdown-item dropdown-item" value="Giá thấp đến cao">Giá thấp đến cao</div>
-                        <div class="SearchPageDetail-dropdown-item dropdown-item" value="Giá cao đến thấp">Giá cao đến thấp</div>
-                    </div>
+                    <form action="<?= _WEB_ROOT ?>/tim-du-thuyen/sortwithprice" method="get">
+                        <label class="btn btn-btn btn-normal btn-outline input-group">
+                            <input class="label md" value="Không sắp xếp" style="width: 100%">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" width="20px" ;height="20px" ;>
+                                <path d="M6 9L12 15L18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke=var(--gray-800);></path>
+                            </svg>
+                        </label>
+                        <div class="SearchPageDetail-dropdown dropdown">
+                            <button class="SearchPageDetail-dropdown-item dropdown-item" name="sort" value="Không sắp xếp" type="submit">Không sắp xếp</button>
+                            <button class="SearchPageDetail-dropdown-item dropdown-item" name="sort" value="Giá thấp đến cao" type="submit">Giá thấp đến cao</button>
+                            <button class="SearchPageDetail-dropdown-item dropdown-item" name="sort" value="Giá cao đến thấp" type="submit">Giá cao đến thấp</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -243,75 +334,126 @@
                         </div>
 
                         <ul class="Pagination-pagination-container">
-                            <a href="<?= _WEB_ROOT ?>/tim-du-thuyen<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] - 1 : '/page/' . $data['currentPage'] - 1;
-                                                                    ?>"
-                                class="Pagination-pagination-left-item Pagination-pagination-item <?= $data['currentPage'] == 1 ? 'Pagination-disabled' : '' ?>">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M4.16602 10H15.8327M4.16602 10L9.16602 5M4.16602 10L9.16602 15"
-                                        stroke="var(--gray-800, #1d2939)" stroke-width="1.67" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </svg>
-                                <div class="sm">Trước</div>
-                            </a>
+                            <?php
+                            if (isset($_GET['sort'])) {
+                                if (isset($_GET['sort'])) {
+                                    echo '
+                                        <a href="' . _WEB_ROOT . '/tim-du-thuyen/sortwithprice?sort=' . htmlspecialchars($_GET['sort']) . '&page=' . ($data['currentPage'] - 1) . '"
+                                            class="Pagination-pagination-left-item Pagination-pagination-item ' . ($data['currentPage'] == 1 ? 'Pagination-disabled' : '') . '">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M4.16602 10H15.8327M4.16602 10L9.16602 5M4.16602 10L9.16602 15"
+                                                    stroke="var(--gray-800, #1d2939)" stroke-width="1.67" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                            </svg>
+                                            <div class="sm">Trước</div>
+                                        </a>
+                                    ';
 
-                            <?php for ($i = 1; $i <= $data['numberPage']; $i++): ?>
-                                <a href="<?= _WEB_ROOT ?>/tim-du-thuyen<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $i : '/page/' . $i ?>"
-                                    class="Pagination-pagination-item <?= $data['currentPage'] == $i ? 'Pagination-selected' : '' ?>">
-                                    <?= $i ?>
+                                    for ($i = 1; $i <= $data['numberPage']; $i++) {
+                                        echo '
+                                            <a href="' . _WEB_ROOT . '/tim-du-thuyen/sortwithprice?sort=' . htmlspecialchars($_GET['sort']) . '&page=' . $i . '" 
+                                                class="Pagination-pagination-item ' . ($data['currentPage'] == $i ? 'Pagination-selected' : '') . '">
+                                                ' . $i . '
+                                            </a>
+                                        ';
+                                    }
+
+                                    echo '
+                                        <a href="' . _WEB_ROOT . '/tim-du-thuyen/sortwithprice?sort=' . htmlspecialchars($_GET['sort']) . '&page=' . ($data['currentPage'] + 1) . '"
+                                            class="Pagination-pagination-right-item Pagination-pagination-item ' . ($data['currentPage'] == $data['numberPage'] ? 'Pagination-disabled' : '') . '">
+                                            <div class="sm">Tiếp</div>
+                                            <svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="var(--gray-800, #1d2939)"
+                                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                        </a>
+                                    ';
+                                }
+                            } else {
+                                echo '
+                                <a href="' . (isset($_GET['keyword']) && isset($_GET['location']) && isset($_GET['price'])
+                                    ? _WEB_ROOT . '/tim-du-thuyen/search?keyword=' . htmlspecialchars($_GET['keyword'])  . '&location=' . htmlspecialchars($_GET['location']) . '&price=' . htmlspecialchars($_GET['price']) . '&page=' . ($data['currentPage'] - 1)
+                                    : _WEB_ROOT . '/tim-du-thuyen/page/' . ($data['currentPage'] - 1)) . '"
+                                    class="Pagination-pagination-left-item Pagination-pagination-item ' . ($data['currentPage'] == 1 ? 'Pagination-disabled' : '') . '">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16602 10H15.8327M4.16602 10L9.16602 5M4.16602 10L9.16602 15"
+                                            stroke="var(--gray-800, #1d2939)" stroke-width="1.67" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                    </svg>
+                                    <div class="sm">Trước</div>
                                 </a>
-                            <?php endfor; ?>
+                            ';
 
-                            <a href="<?= _WEB_ROOT ?>/tim-du-thuyen<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] + 1 : '/page/' . $data['currentPage'] + 1 ?>"
-                                class="Pagination-pagination-right-item
-                                        Pagination-pagination-item <?= $data['currentPage'] == $data['numberPage'] ? 'Pagination-disabled' : '' ?>">
-                                <div class="sm">Tiếp</div>
-                                <svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="var(--gray-800, #1d2939)"
-                                        stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg>
-                            </a>
+                                for ($i = 1; $i <= $data['numberPage']; $i++) {
+                                    $url = (isset($_GET['keyword']) && isset($_GET['location']) && isset($_GET['price']))
+                                        ? _WEB_ROOT . '/tim-du-thuyen/search' . '?keyword=' . htmlspecialchars($_GET['keyword']) . '&location=' . htmlspecialchars($_GET['location']) . '&price=' . htmlspecialchars($_GET['price']) . '&page=' . $i
+                                        : _WEB_ROOT . '/tim-du-thuyen/page/' . $i;
+
+                                    echo '
+                                    <a href="' . $url . '" 
+                                        class="Pagination-pagination-item ' . ($data['currentPage'] == $i ? 'Pagination-selected' : '') . '">
+                                        ' . $i . '
+                                    </a>
+                                ';
+                                }
+
+                                echo '
+                                <a href="' . (isset($_GET['keyword']) && isset($_GET['location']) && isset($_GET['price'])
+                                    ? _WEB_ROOT . '/tim-du-thuyen/search?keyword=' . htmlspecialchars($_GET['keyword'])  . '&location=' . htmlspecialchars($_GET['location']) . '&price=' . htmlspecialchars($_GET['price']) . '&page=' . ($data['currentPage'] + 1)
+                                    : _WEB_ROOT . '/tim-du-thuyen/page/' . ($data['currentPage'] + 1)) . '"
+                                    class="Pagination-pagination-right-item Pagination-pagination-item ' . ($data['currentPage'] == $data['numberPage'] ? 'Pagination-disabled' : '') . '">
+                                    <div class="sm">Tiếp</div>
+                                    <svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="var(--gray-800, #1d2939)"
+                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </a>
+                            ';
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
             </div>
-
-
         </div>
 
+        <!-- Desktop -->
         <div class="fresnel-container fresnel-greaterThan-mdless">
             <div class="flex gap-32 ">
-                <div class="SearchPageDetail-side-bar-2">
-                    <div class="SearchPageDetail-side-bar-header">
-                        <div class="subheading md flex-grow">Lọc kết quả</div>
-                        <div class="flex grap align-center">
-                            <button type="button" class="btn btn-sm btn-link-color">
-                                <div class="label sm">Đặt lại</div>
-                            </button>
-                            <button type="button" class="btn SearchPageDetail-apply-mb-btn btn-sm btn-link-color">
-                                <div class="label sm">Áp dụng</div>
-                            </button>
+                <form action="<?= _WEB_ROOT ?>/tim-du-thuyen/sortwithcheckbox">
+                    <div class="SearchPageDetail-side-bar-2">
+                        <div class="SearchPageDetail-side-bar-header">
+                            <div class="subheading md flex-grow">Lọc kết quả</div>
+                            <div class="flex grap align-center">
+                                <button type="submit" class="btn btn-sm btn-link-color">
+                                    <div class="label sm">Đặt lại</div>
+                                </button>
+                                <button type="button" class="btn SearchPageDetail-apply-mb-btn btn-sm btn-link-color">
+                                    <div class="label sm">Áp dụng</div>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="SearchPageDetail-filter-item SearchPageDetail-filter-feature">
+                                <lable class="md">Tiện ích</lable>
+                                <?php foreach ($features as $feature): ?>
+                                    <label for="<?= $feature['id'] ?>" class=" Checkbox-container">
+                                        <input id="<?= $feature['id'] ?>" type="checkbox">
+                                        <span class="Checkbox-checkmark Checkbox-sm">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                        </span>
+                                        <div class="Checkbox-textGroup">
+                                            <div class="sm Checkbox-title label"><?= $feature['text'] ?></div>
+                                            <p class="sm"></p>
+                                        </div>
+                                    </label>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <div class="SearchPageDetail-filter-item SearchPageDetail-filter-feature">
-                            <lable class="md">Tiện ích</lable>
-                            <?php foreach ($features as $feature): ?>
-                                <label for="<?= $feature['id'] ?>" class=" Checkbox-container">
-                                    <input id="<?= $feature['id'] ?>" type="checkbox">
-                                    <span class="Checkbox-checkmark Checkbox-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        </svg>
-                                    </span>
-                                    <div class="Checkbox-textGroup">
-                                        <div class="sm Checkbox-title label"><?= $feature['text'] ?></div>
-                                        <p class="sm"></p>
-                                    </div>
-                                </label>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                </div>
+                </form>
 
                 <div class="SearchPageDetail-ship-list-wrapper">
                     <div class="SearchPageDetail-ship-list flex flex-col gap-32">
@@ -388,33 +530,83 @@
                         </div>
 
                         <ul class="Pagination-pagination-container">
-                            <a href="<?= _WEB_ROOT ?>/tim-du-thuyen<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] - 1 : '/page/' . $data['currentPage'] - 1;
-                                                                    ?>"
-                                class="Pagination-pagination-left-item Pagination-pagination-item <?= $data['currentPage'] == 1 ? 'Pagination-disabled' : '' ?>">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M4.16602 10H15.8327M4.16602 10L9.16602 5M4.16602 10L9.16602 15"
-                                        stroke="var(--gray-800, #1d2939)" stroke-width="1.67" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </svg>
-                                <div class="sm">Trước</div>
-                            </a>
+                            <?php
+                            if (isset($_GET['sort'])) {
+                                echo '
+                                    <a href="' . _WEB_ROOT . '/tim-du-thuyen/sortwithprice?sort=' . htmlspecialchars($_GET['sort']) . '&page=' . ($data['currentPage'] - 1) . '"
+                                        class="Pagination-pagination-left-item Pagination-pagination-item ' . ($data['currentPage'] == 1 ? 'Pagination-disabled' : '') . '">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M4.16602 10H15.8327M4.16602 10L9.16602 5M4.16602 10L9.16602 15"
+                                                stroke="var(--gray-800, #1d2939)" stroke-width="1.67" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                        </svg>
+                                        <div class="sm">Trước</div>
+                                    </a>
+                                ';
 
-                            <?php for ($i = 1; $i <= $data['numberPage']; $i++): ?>
-                                <a href="<?= _WEB_ROOT ?>/tim-du-thuyen<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $i : '/page/' . $i ?>"
-                                    class="Pagination-pagination-item <?= $data['currentPage'] == $i ? 'Pagination-selected' : '' ?>">
-                                    <?= $i ?>
+                                for ($i = 1; $i <= $data['numberPage']; $i++) {
+                                    echo '
+                                        <a href="' . _WEB_ROOT . '/tim-du-thuyen/sortwithprice?sort=' . htmlspecialchars($_GET['sort']) . '&page=' . $i . '" 
+                                            class="Pagination-pagination-item ' . ($data['currentPage'] == $i ? 'Pagination-selected' : '') . '">
+                                            ' . $i . '
+                                        </a>
+                                    ';
+                                }
+
+                                echo '
+                                    <a href="' . _WEB_ROOT . '/tim-du-thuyen/sortwithprice?sort=' . htmlspecialchars($_GET['sort']) . '&page=' . ($data['currentPage'] + 1) . '"
+                                        class="Pagination-pagination-right-item Pagination-pagination-item ' . ($data['currentPage'] == $data['numberPage'] ? 'Pagination-disabled' : '') . '">
+                                        <div class="sm">Tiếp</div>
+                                        <svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="var(--gray-800, #1d2939)"
+                                                stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                    </a>
+                                ';
+                            } else {
+                                echo '
+                                <a href="' . (isset($_GET['keyword']) && isset($_GET['location']) && isset($_GET['price'])
+                                    ? _WEB_ROOT . '/tim-du-thuyen/search?keyword=' . htmlspecialchars($_GET['keyword'])  . '&location=' . htmlspecialchars($_GET['location']) . '&price=' . htmlspecialchars($_GET['price']) . '&page=' . ($data['currentPage'] - 1)
+                                    : _WEB_ROOT . '/tim-du-thuyen/page/' . ($data['currentPage'] - 1)) . '"
+                                    class="Pagination-pagination-left-item Pagination-pagination-item ' . ($data['currentPage'] == 1 ? 'Pagination-disabled' : '') . '">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16602 10H15.8327M4.16602 10L9.16602 5M4.16602 10L9.16602 15"
+                                            stroke="var(--gray-800, #1d2939)" stroke-width="1.67" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                    </svg>
+                                    <div class="sm">Trước</div>
                                 </a>
-                            <?php endfor; ?>
+                            ';
 
-                            <a href="<?= _WEB_ROOT ?>/tim-du-thuyen<?= isset($_GET['keyword']) ? '/search?keyword=' . $_GET['keyword'] . '&page=' . $data['currentPage'] + 1 : '/page/' . $data['currentPage'] + 1 ?>"
-                                class="Pagination-pagination-right-item
-                                        Pagination-pagination-item <?= $data['currentPage'] == $data['numberPage'] ? 'Pagination-disabled' : '' ?>">
-                                <div class="sm">Tiếp</div>
-                                <svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="var(--gray-800, #1d2939)"
-                                        stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg>
-                            </a>
+                                for ($i = 1; $i <= $data['numberPage']; $i++) {
+                                    $url = (isset($_GET['keyword']) && isset($_GET['location']) && isset($_GET['price']))
+                                        ? _WEB_ROOT . '/tim-du-thuyen/search' . '?keyword=' . htmlspecialchars($_GET['keyword']) . '&location=' . htmlspecialchars($_GET['location']) . '&price=' . htmlspecialchars($_GET['price']) . '&page=' . $i
+                                        : _WEB_ROOT . '/tim-du-thuyen/page/' . $i;
+
+                                    echo '
+                                    <a href="' . $url . '" 
+                                        class="Pagination-pagination-item ' . ($data['currentPage'] == $i ? 'Pagination-selected' : '') . '">
+                                        ' . $i . '
+                                    </a>
+                                ';
+                                }
+
+                                echo '
+                                <a href="' . (isset($_GET['keyword']) && isset($_GET['location']) && isset($_GET['price'])
+                                    ? _WEB_ROOT . '/tim-du-thuyen/search?keyword=' . htmlspecialchars($_GET['keyword'])  . '&location=' . htmlspecialchars($_GET['location']) . '&price=' . htmlspecialchars($_GET['price']) . '&page=' . ($data['currentPage'] + 1)
+                                    : _WEB_ROOT . '/tim-du-thuyen/page/' . ($data['currentPage'] + 1)) . '"
+                                    class="Pagination-pagination-right-item Pagination-pagination-item ' . ($data['currentPage'] == $data['numberPage'] ? 'Pagination-disabled' : '') . '">
+                                    <div class="sm">Tiếp</div>
+                                    <svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="var(--gray-800, #1d2939)"
+                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </a>
+                            ';
+                            }
+                            ?>
+
+
                         </ul>
                     </div>
                 </div>
@@ -425,6 +617,9 @@
 
 <script type="module">
     import handleCheckbox from "<?= _WEB_ROOT ?>/public/js/components/handleCheckbox.js";
+    import {
+        handleDropdown
+    } from "<?= _WEB_ROOT ?>/public/js/components/dropdown.js";
 
     const fresnelGreaterThanSm = document.querySelector(".fresnel-greaterThan-sm");
     const SearchPageDetailFilterBtn = document.querySelector(".SearchPageDetail-filter-btn");
@@ -438,8 +633,19 @@
         ".SearchPageDetail-sort-btn .SearchPageDetail-dropdown-item"
     );
 
+    const inputSelects = document.querySelectorAll(".select-input input");
+
+    inputSelects.forEach((inputSelect) => {
+        const dropdownItemList = inputSelect
+            .closest(".select-input")
+            .querySelectorAll(".dropdown-item");
+
+        handleDropdown(inputSelect, dropdownItemList);
+    });
+
     let sortOrder = [];
 
+    // mobile
     SearchPageDetailFilterBtn.addEventListener("click", () => {
         const SearchPageDetailSideBarMobile = document.querySelector(".SearchPageDetail-side-bar-mobile");
         if (SearchPageDetailSideBarMobile) {
@@ -496,8 +702,7 @@
         })
     })
 
-
-
+    // desktop
     listCheckbox.forEach((checkbox) => {
         checkbox.addEventListener("change", () => {
             if (checkbox.checked) {
@@ -518,21 +723,6 @@
                 .then((data) => {
                     cruiseList.innerHTML = data; // Cập nhật danh sách sản phẩm
                     pagination.innerHTML = "";
-                })
-                .catch((err) => console.log(err));
-        });
-    });
-
-    searchPageDetailSortWithPriceDropdown.forEach((dropdown) => {
-        dropdown.addEventListener("mousedown", () => {
-            const order = searchPageDetailSortWithPrice.value;
-
-            fetch(`<?= _WEB_ROOT ?>/api/cruise/sortWithPrice/${order}`, {
-                    method: "GET",
-                })
-                .then((res) => res.text())
-                .then((data) => {
-                    cruiseList.innerHTML = data; // Cập nhật danh sách sản phẩm
                 })
                 .catch((err) => console.log(err));
         });

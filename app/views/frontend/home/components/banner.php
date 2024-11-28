@@ -22,7 +22,7 @@
                                 stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             </path>
                         </svg>
-                        <input class="p-md" type="text" name="keyword" placeholder="Nhập tên du thuyền" value="" autocomplete="off">
+                        <input class="p-md" type="text" name="keyword" placeholder="Nhập tên du thuyền" value="">
                     </label>
                 </div>
                 <div class="search-box-select-input select-input">
@@ -35,7 +35,7 @@
                                     stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
                                 </path>
-                            </svg> <input id="allLocations" class="p-md" type="button" value="Tất cả địa điểm">
+                            </svg> <input id="allLocations" class="p-md" type="input" name="location" value="Tất cả địa điểm">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none">
                                 <path d="M6 9L12 15L18 9" stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round"
@@ -71,7 +71,7 @@
                                     stroke-linejoin="round">
                                 </path>
                             </svg>
-                            <input id="allPrices" class="p-md" type="button" value="Tất cả mức giá">
+                            <input id="allPrices" class="p-md" type="input" name="price" value="Tất cả mức giá">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none">
                                 <path d="M6 9L12 15L18 9" stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round"
