@@ -46,9 +46,9 @@ class Ship extends Controller
                     'components/errors/not_found'
                 ];
             } else {
-                $numberPage = $this->model->countPages($recordsPerPage, 'products', $keyword, ['title']);
+                $numberPage = $this->model('ShipModel')->countPageCruise($recordsPerPage, $keyword);
                 $this->data['ships'] = $search;
-                $this->data['countAll'] = $this->model->countAllOrByKeyword('products', $keyword, ['title']);
+                $this->data['countAll'] = $this->model('ShipModel')->countAllCruise($keyword);
                 $this->data['numberPage'] = $numberPage;
             }
         }

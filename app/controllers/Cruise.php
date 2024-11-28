@@ -68,7 +68,7 @@ class Cruise extends Controller
             'frontend/cruise/searchPage.js',
         ];
 
-        $numberPage = $this->model->countPages($recordsPerPage, 'products');
+        $numberPage = $this->model('ShipModel')->countPageCruise($recordsPerPage);
         $ships = $this->model('ShipModel')->getFullInfoShip($offset, $recordsPerPage);
         $this->data['ships'] = $ships;
         $this->data['features'] = $this->model('FeatureModel')->getAllFeatures();
@@ -118,17 +118,17 @@ class Cruise extends Controller
                     'frontend/cruise/style.css',
                 ];
             } else {
-                $numberPage = $this->model->countPages($recordsPerPage, 'products', $keyword, ['title']);
+                $numberPage = $this->model('ShipModel')->countPageCruise($recordsPerPage, $keyword);
                 $this->data['ships'] = $search;
                 $this->data['features'] = $this->model('FeatureModel')->getAllFeatures();
-                $this->data['countAll'] = $this->model->countAllOrByKeyword('products', $keyword, ['title']);
+                $this->data['countAll'] = $this->model('ShipModel')->countAllCruise($keyword);
                 $this->data['numberPage'] = $numberPage;
             }
         }
 
-
         $this->data['recordsPerPage'] = $recordsPerPage;
         $this->data['currentPage'] = $currentPage;
+
         $this->render('layouts/client_layout', data: $this->data);
     }
 

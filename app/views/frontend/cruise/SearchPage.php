@@ -426,22 +426,22 @@
 <script type="module">
     import handleCheckbox from "<?= _WEB_ROOT ?>/public/js/components/handleCheckbox.js";
 
-    const fresnelGreaterThanSm = $(".fresnel-greaterThan-sm");
-    const SearchPageDetailFilterBtn = $(".SearchPageDetail-filter-btn");
+    const fresnelGreaterThanSm = document.querySelector(".fresnel-greaterThan-sm");
+    const SearchPageDetailFilterBtn = document.querySelector(".SearchPageDetail-filter-btn");
 
-    const listCheckbox = $$(".SearchPageDetail-filter-item input[type='checkbox']");
-    const cruiseList = $(".fresnel-greaterThan-mdless .SearchPageDetail-ship-list");
-    const pagination = $(".fresnel-greaterThan-mdless .Pagination-pagination");
+    const listCheckbox = document.querySelectorAll(".SearchPageDetail-filter-item input[type='checkbox']");
+    const cruiseList = document.querySelector(".fresnel-greaterThan-mdless .SearchPageDetail-ship-list");
+    const pagination = document.querySelector(".fresnel-greaterThan-mdless .Pagination-pagination");
 
-    const searchPageDetailSortWithPrice = $(".SearchPageDetail-sort-btn input");
-    const searchPageDetailSortWithPriceDropdown = $$(
+    const searchPageDetailSortWithPrice = document.querySelector(".SearchPageDetail-sort-btn input");
+    const searchPageDetailSortWithPriceDropdown = document.querySelectorAll(
         ".SearchPageDetail-sort-btn .SearchPageDetail-dropdown-item"
     );
 
     let sortOrder = [];
 
     SearchPageDetailFilterBtn.addEventListener("click", () => {
-        const SearchPageDetailSideBarMobile = $(".SearchPageDetail-side-bar-mobile");
+        const SearchPageDetailSideBarMobile = document.querySelector(".SearchPageDetail-side-bar-mobile");
         if (SearchPageDetailSideBarMobile) {
             SearchPageDetailSideBarMobile.remove();
         } else {
@@ -482,13 +482,13 @@
             fresnelGreaterThanSm.insertAdjacentHTML("beforebegin", html);
         }
         handleCheckbox(
-            $(".SearchPageDetail-side-bar-mobile .SearchPageDetail-filter-feature"),
-            $(".SearchPageDetail-side-bar-header .SearchPageDetail-remove-chechbox-mb-btn")
+            document.querySelector(".SearchPageDetail-side-bar-mobile .SearchPageDetail-filter-feature"),
+            document.querySelector(".SearchPageDetail-side-bar-header .SearchPageDetail-remove-chechbox-mb-btn")
         );
 
-        const SearchPageDetailApplyMbBtn = $('.SearchPageDetail-apply-mb-btn');
+        const SearchPageDetailApplyMbBtn = document.querySelector('.SearchPageDetail-apply-mb-btn');
         SearchPageDetailApplyMbBtn.addEventListener('click', () => {
-            const SearchPageDetailSideBarMobile = $(".SearchPageDetail-side-bar-mobile");
+            const SearchPageDetailSideBarMobile = document.querySelector(".SearchPageDetail-side-bar-mobile");
             if (SearchPageDetailSideBarMobile) {
                 // call api sort with checkbox
                 SearchPageDetailSideBarMobile.remove();
@@ -516,8 +516,6 @@
                 })
                 .then((res) => res.text())
                 .then((data) => {
-                    console.log(data);
-
                     cruiseList.innerHTML = data; // Cập nhật danh sách sản phẩm
                     pagination.innerHTML = "";
                 })
