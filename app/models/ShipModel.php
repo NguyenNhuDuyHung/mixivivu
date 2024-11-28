@@ -21,8 +21,24 @@ class ShipModel extends Model
         return $data;
     }
 
-    public function countAllCruise()
+    public function countPageCruise($recordsPerPage, $keyword = null)
     {
+        $sql = "SELECT COUNT(*) AS total FROM products WHERE type_product = 1 AND deleted_at IS NULL";
+        if ($keyword) {
+            $sql = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$keyword%' AND type_product = 1 AND deleted_at IS NULL";
+        }
+        $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+        return ceil($total['total'] / $recordsPerPage);
+    }
+
+    public function countAllCruise($keyword = null)
+    {
+        if ($keyword) {
+            $sql = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$keyword%' AND type_product = 1 AND deleted_at IS NULL";
+            $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
+            return $total['total'];
+        }
         $sql = "SELECT COUNT(*) AS total FROM products WHERE type_product = 1 AND deleted_at IS NULL";
         $total = $this->db->query($sql)->fetch(PDO::FETCH_ASSOC);
         return $total['total'];

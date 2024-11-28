@@ -84,7 +84,11 @@ class UserModel extends Model
                 'updated_at' => date('Y-m-d H:i:s'),
             ];
 
-            $newData['password'] = password_hash($newData['password'], PASSWORD_BCRYPT);
+            $getPassword = $this->findById('users', $id, ['password']);
+
+            if (!($newData['password'] == $getPassword['password'])) {
+                $newData['password'] = password_hash($newData['password'], PASSWORD_DEFAULT);
+            }
 
             try {
                 $checkUser = $this->checkRecord(
