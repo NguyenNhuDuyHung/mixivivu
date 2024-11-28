@@ -68,6 +68,10 @@ h6 {
   gap: 8px;
 }
 
+.gap-10 {
+  gap: 10px;
+}
+
 .gap-12 {
   gap: 12px;
 }

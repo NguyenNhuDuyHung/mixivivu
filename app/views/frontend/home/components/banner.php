@@ -22,7 +22,7 @@
                                 stroke="var(--gray-400, #98a2b3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             </path>
                         </svg>
-                        <input class="p-md" type="text" name="keyword" placeholder="Nhập tên du thuyền" value="">
+                        <input class="p-md" type="text" name="keyword" placeholder="Nhập tên du thuyền" value="" autocomplete="off">
                     </label>
                 </div>
                 <div class="search-box-select-input select-input">
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-normal btn-primary">
+                <button type="submit" class="btn btn-btn btn-normal btn-primary search-box-submit-btn">
                     <div class="label md">Tìm kiếm</div>
                 </button>
             </div>

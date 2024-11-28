@@ -110,4 +110,9 @@
     align-items: center;
     gap: 5px;
   }
+
+  .header-menu-mb-nav-item-active {
+    color: var(--base-white);
+    background-color: var(--primary-base, #77dada);
+  }
 }

@@ -78,24 +78,35 @@
                     </svg>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
-            <div style="display: none;" class="Dropdown-dropdown header-menu-mb-content">
-                <div class="header-menu-mb-nav-item">
+<script>
+    let html = '';
+    const headerMenuMb = document.querySelector('.header-menu-mb');
+    headerMenuMb.addEventListener('click', () => {
+        const headerMenuMbContent = document.querySelector('.header-menu-mb-content');
+        if (headerMenuMbContent) {
+            headerMenuMbContent.remove();
+        } else {
+            html = `
+            <div class="Dropdown-dropdown header-menu-mb-content">
+                <a href="<?php echo _WEB_ROOT ?>/tim-du-thuyen" class="header-menu-mb-nav-item h-full flex align-center">
                     <label for="" class="md">Tìm du thuyền</label>
-                </div>
+                </a>
 
-                <div class="header-menu-mb-nav-item">
-                    <label for="" class="md">Tìm vé máy bay</label>
-                </div>
+                <a href="<?php echo _WEB_ROOT ?>/khach-san" class="header-menu-mb-nav-item h-full flex align-center">
+                    <label for="" class="md">Tìm khách sạn</label>
+                </a>
 
-                <div class="header-menu-mb-nav-item">
+                <a href="<?php echo _WEB_ROOT ?>/doanh-nghiep" class="header-menu-mb-nav-item h-full flex align-center">
                     <label for="" class="md">Doanh nghiệp</label>
-                </div>
+                </a>
 
-                <div class="header-menu-mb-nav-item">
+                <a href="<?php echo _WEB_ROOT ?>/blog" class="header-menu-mb-nav-item h-full flex align-center">
                     <label for="" class="md">Blog</label>
-                </div>
-
+                </a>
                 <div class="header-menu-mb-nav-item">
                     <a href="tel:0922222016">
                         <label for="" class="md">Hotline: 0922222016</label>
@@ -108,6 +119,18 @@
                     </a>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+            `;
+            headerMenuMb.insertAdjacentHTML('afterend', html);
+
+            const menuMbItems = document.querySelectorAll(".header-menu-mb-nav-item");
+            menuMbItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    menuMbItems.forEach(item => {
+                        item.classList.remove('header-menu-mb-nav-item-active');
+                    })
+                    item.classList.add('header-menu-mb-nav-item-active');
+                })
+            })
+        }
+    })
+</script>

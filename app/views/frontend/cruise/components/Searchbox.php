@@ -82,7 +82,7 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-normal btn-primary">
+    <button type="submit" class="btn btn-btn btn-normal btn-primary search-box-submit-btn">
         <div class="label md">Tìm kiếm</div>
     </button>
 </div>
