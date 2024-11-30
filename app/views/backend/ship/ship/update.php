@@ -307,7 +307,7 @@
 
             <div class="flex align-center gap-16 actions">
                 <button type="submit" class="btn btn-normal btn-primary">
-                    <div class="label md">Tạo</div>
+                    <div class="label md">Cập nhật</div>
                 </button>
 
                 <a href="<?= _WEB_ROOT ?>/backend/ship/feature/<?= $data['ships']['id'] ?>" class="btn btn-normal btn-outline">

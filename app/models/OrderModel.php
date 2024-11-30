@@ -100,7 +100,7 @@ class OrderModel extends Model
             ];
 
             $bookingData = [
-                'booking_date' => $filterAll['booking_date'],
+                'booking_date' => date('Y-d-m', strtotime($filterAll['booking_date'])),
                 'guests_number' => $filterAll['guests_number'],
                 'status' => $filterAll['status'],
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -161,6 +161,7 @@ class OrderModel extends Model
                     return false;
                 }
 
+                // Gửi mail xác nhận thanh toán
                 // $subject = 'Xác nhận đặt phòng thành công!';
                 // $content = '
                 //     <p>Kính gửi quý khách <strong>' . $filterAll['full_name'] . '</strong>,</p>

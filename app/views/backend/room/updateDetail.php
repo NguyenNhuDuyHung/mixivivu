@@ -181,7 +181,7 @@
 
             <div class="actions">
                 <button type="submit" class="btn btn-normal btn-primary">
-                    <div class="label md">Tạo</div>
+                    <div class="label md">Cập nhật</div>
                 </button>
             </div>
         </div>
