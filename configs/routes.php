@@ -108,9 +108,7 @@ $routes['quy-dinh-chung-va-luu-y'] = 'footer/rules';
 $routes['cau-hoi-thuong-gap'] = 'footer/questions';
 $routes['lien-he'] = 'footer/contact';
 
-$routes['api/cruise/sortWithPrice/([a-zA-Z0-9-]+)'] = 'cruise/sortwithprice/$1';
 $routes['api/cruise/sortWithCheckbox/([a-zA-Z0-9-]+)'] = 'cruise/sortwithcheckbox/$1';
-
 
 $routes['booking'] = 'booking/index';
 $routes['booking/hotel'] = 'booking/hotel';
@@ -121,6 +119,8 @@ $routes['blog-detail/([a-zA-Z0-9-]+)'] = 'blog/detail/$1';
 
 $routes['du-thuyen/([a-zA-Z0-9-]+)'] = 'cruise/index/$1';
 $routes['tim-du-thuyen'] = 'cruise/searchPage';
+$routes['tim-du-thuyen/sortwithprice'] = 'cruise/sortwithprice';
+$routes['tim-du-thuyen/sortwithcheckbox'] = 'cruise/sortwithcheckbox';
 $routes['tim-du-thuyen/search'] = 'cruise/search';
 $routes['tim-du-thuyen/page/(\d+)'] = 'cruise/searchPage/$1';
 

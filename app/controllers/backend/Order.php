@@ -89,10 +89,10 @@ class Order extends Controller
         // Lấy ra thông tin đơn hàng bao gồm: full_name, email, phone_number, status, booking_date, guests_number
         // Du thuyền or khách sạn đã đặt, phòng đặt, số lượng, thêm sửa xóa ...
         $order = $this->model('OrderModel')->getOrderById($id);
+        $order['booking_date'] = date('d/m/Y', strtotime($order['booking_date']));
         $rooms = $this->model('OrderModel')->getRoomsByOrderId($id);
         $this->data['order'] = $order;
         $this->data['rooms'] = $rooms;
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $full_name = $_POST['full_name'];
             $email = $_POST['email'];

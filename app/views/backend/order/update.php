@@ -67,6 +67,9 @@
                             <div class="dropdown-item" value="Thành công">
                                 Thành công
                             </div>
+                            <div class="dropdown-item" value="Đã hủy">
+                                Đã hủy
+                            </div>
                         </div>
                     </div>
                     <div class="error"></div>
@@ -78,7 +81,7 @@
                     <div class="">
                         <label for="booking_date" class="input-group">
                             <input id="booking_date" class="p-md" placeholder="Ngày đặt" name="booking_date"
-                                value="<?php echo $this->oldInfo('booking_date', $data) ?? $order['booking_date']  ?>" autocomplete="off">
+                                value="<?php echo $this->oldInfo('booking_date', $data) ?? $order['booking_date'] ?>" autocomplete="off">
                             <label for="booking_date" class="sm input-required">
                                 Ngày đặt
                             </label>
@@ -142,7 +145,7 @@
                                                     </svg>
                                                     <p class="sm"><?= $room['room_size'] ?> m²</p>
                                                 </div>
-    
+
                                                 <div class="RoomCard-roomInfo-item">
                                                     <p class="sm">Tối đa:</p>
                                                     <div class="flex gap-4 align-center">
@@ -161,7 +164,7 @@
                                                 <div class="RoomCard-price subheading md"><?= number_format($room['room_price']) ?> đ</div>
                                                 <div class="RoomCard-user">/khách</div>
                                             </div>
-    
+
                                             <button type="button"
                                                 class="btn RoomCard-roomBtn btn-normal btn-outline">
                                                 <div>
@@ -170,10 +173,10 @@
                                                             stroke-linejoin="round"></path>
                                                     </svg>
                                                 </div>
-    
+
                                                 <div class="label md"><?= $room['total_quantity_booked'] ?></div>
                                                 <input type="hidden" class="quantity-input" name="roomQuantityOutSide[<?= $key ?>]" value="<?= $room['total_quantity_booked'] ?>">
-    
+
                                                 <div>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path d="M6 12H18M12 6V18" stroke="#101828" stroke-width="2" stroke-linecap="round"
@@ -184,14 +187,14 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                             <?php endforeach ?>
-    
+
                             <?php
                             $roomId =  implode(',', $roomId);
                             ?>
                             <input type="hidden" name="roomIdOutside[]" value="<?php echo $roomId ?>">
-    
+
                         </div>
                     </form>
 

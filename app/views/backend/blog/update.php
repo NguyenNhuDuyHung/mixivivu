@@ -102,7 +102,7 @@
 
             <div class="actions gap-16">
                 <button type="submit" class="btn btn-normal btn-primary">
-                    <div class="label md">Tạo</div>
+                    <div class="label md">Cập nhật</div>
                 </button>
 
                 <a href="<?php echo _WEB_ROOT . '/backend/blog/update/long-desc/' . $data['blog']['id']  ?>">

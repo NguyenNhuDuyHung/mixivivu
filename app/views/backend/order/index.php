@@ -43,7 +43,7 @@
                                 <tr>
                                     <td><?= $startNumber + $index ?></td>
                                     <td><?= $order['customer_email'] ?></td>
-                                    <td><?= $order['booking_date'] ?></td>
+                                    <td><?= date('d/m/Y', strtotime($order['booking_date'])) ?></td>
                                     <td><?= $order['booking_status'] ?></td>
                                     <td>
                                         <div style="display: flex; align-items: center; gap: 0 16px;">

@@ -1,6 +1,4 @@
 button {
-  border-radius: 100rem;
-  box-shadow: var(--shadow-xs);
   display: flex;
   align-items: center;
   gap: 8px;
