@@ -33,10 +33,10 @@
                             style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0"
                             alt="" aria-hidden="true"
                             src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2722%27/%3e"></span><img
-                        alt="quote" src="https://mixivivu.com/quote.svg" decoding="async"
+                        alt="quote" src="https://res.cloudinary.com/dhnp8ymxv/image/upload/v1733064943/quote_qmr8w8.svg" decoding="async"
                         data-nimg="intrinsic"
                         style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
-                        srcset="https://mixivivu.com/quote.svg 1x, https://mixivivu.com/quote.svg 2x">
+                        srcset="https://res.cloudinary.com/dhnp8ymxv/image/upload/v1733064943/quote_qmr8w8.svg 1x, https://res.cloudinary.com/dhnp8ymxv/image/upload/v1733064943/quote_qmr8w8.svg 2x">
                 </span>
             </div>
 

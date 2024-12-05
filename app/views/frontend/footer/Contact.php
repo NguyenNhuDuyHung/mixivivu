@@ -49,7 +49,7 @@
                     </div>
                     <div class="error"></div>
                 </div>
-                <button type="submit" class="btn-btn  btn-normal btn-color btn-w-full btn-primary ">
+                <button type="submit" class="btn btn-btn btn-normal btn-color btn-w-full btn-primary ">
                     <div class="label md">Liên hệ với Mixivivu</div>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke-linecap="round" stroke-linejoin="round"></path>
