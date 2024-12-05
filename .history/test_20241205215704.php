@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <label for="number">Nhập số</label>
+        <input type="text">
+        <button type="submit">gửi</button>
+    </form>
+
+    <?php
+    if(isset($_POST['number'])){
+        $number = $_POST['number'];
+        $result = 0;
+        for($i = 1; $i <= $number; $i++){
+            $result += $i;
+        }
+        echo $result;
+    }
+    ?>
+</body>
+</html>
