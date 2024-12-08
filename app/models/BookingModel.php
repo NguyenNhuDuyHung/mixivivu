@@ -39,13 +39,13 @@ class BookingModel extends Model
                     $this->setSession('toast-error', 'Đặt phòng không thành công! Vui lòng thử lại sau!');
                     return false;
                 }
+                $customerId = $this->db->lastInsertId();
                 $createBooking = $this->db->insert('booking', $bookingData);
                 if (!$createBooking) {
                     $this->setSession('toast-error', 'Đặt phòng không thành công! Vui lòng thử lại sau!');
                     return false;
                 }
                 $bookingId = $this->db->lastInsertId();
-                $customerId = $this->db->lastInsertId();
 
                 foreach ($bookingRoom['room_id'] as $key => $roomId) {
                     $bookingRoom['booking_id'] = $bookingId;
@@ -63,11 +63,12 @@ class BookingModel extends Model
                     return false;
                 }
 
-                $createBookingCustomer = $this->db->insert('booking_customer', [
+                $bookingCustomerData = [
                     'booking_id' => $bookingId,
                     'customer_id' => $customerId,
-                ]);
+                ];
 
+                $createBookingCustomer = $this->db->insert('booking_customer', $bookingCustomerData);
                 if (!$createBookingCustomer) {
                     $this->setSession('toast-error', 'Đặt phòng không thành công! Vui lòng thử lại sau!');
                     return false;
@@ -127,13 +128,13 @@ class BookingModel extends Model
                     $this->setSession('toast-error', 'Đặt phòng không thành công! Vui lòng thử lại sau!');
                     return false;
                 }
+                $customerId = $this->db->lastInsertId();
                 $createBooking = $this->db->insert('booking', $bookingData);
                 if (!$createBooking) {
                     $this->setSession('toast-error', 'Đặt phòng không thành công! Vui lòng thử lại sau!');
                     return false;
                 }
                 $bookingId = $this->db->lastInsertId();
-                $customerId = $this->db->lastInsertId();
 
                 foreach ($bookingRoom['room_id'] as $key => $roomId) {
                     $bookingRoom['booking_id'] = $bookingId;
